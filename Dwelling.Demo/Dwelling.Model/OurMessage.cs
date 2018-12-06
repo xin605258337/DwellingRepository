@@ -13,19 +13,19 @@ namespace Dwelling.Model
         /// <summary>
         /// 版本
         /// </summary>
-        public int Version { get; set; }
+        public string  Version { get; set; }
         /// <summary>
         /// 项目名称
         /// </summary>
-        public int ProjectName { get; set; }
+        public string  ProjectName { get; set; }
         /// <summary>
         /// 官方网站
         /// </summary>
-        public int OfficialWebsite { get; set; }
+        public string  OfficialWebsite { get; set; }
         /// <summary>
         /// 客服电话
         /// </summary>
-        public int ServiceTel { get; set; }
+        public string  ServiceTel { get; set; }
   
     }
 }
