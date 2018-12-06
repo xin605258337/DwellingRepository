@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Dwelling.Services
 {
-    using Dwelling.Model;
     using System.Configuration;
+    using Dwelling.Model;
+    using MySql.Data;
     using MySql.Data.MySqlClient;
-    using Dapper;
     using System.Data;
+    using Dapper;
+    using Dwelling.IServices;
 
-    public class HouseService
+    public class HouseService:IHouseService
     {
         private static readonly string connStr = ConfigurationManager.ConnectionStrings["DwellingDB"].ConnectionString;
         MySqlConnection conn = null;
@@ -57,7 +59,6 @@ namespace Dwelling.Services
             return conn.Execute("proc_HouseAdd", parameters, commandType: CommandType.StoredProcedure);
         }
 
-
         /// <summary>
         /// 根据ID删除房源信息
         /// </summary>
@@ -70,5 +71,25 @@ namespace Dwelling.Services
             parameters.Add("_House_ID", id);
             return conn.Execute("proc_HouseDelete", parameters, commandType: CommandType.StoredProcedure);
         }
+        /// <summary>
+        /// 根据房源ID获取房源信息
+        /// </summary>
+        /// <param name="houseId"></param>
+        /// <returns></returns>
+        public House GetHouseByID(int houseId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_House_ID", houseId);
+            return conn.Query<House>("proc_GetHouseByID", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+        }
+        /// <summary>
+        /// 获取所有房源信息
+        /// </summary>
+        /// <returns></returns>
+        public List<House> GetHouses()
+        {
+            return conn.Query<House>("proc_GetHouse", null, commandType: CommandType.StoredProcedure).ToList();
+        }
+        
     }
 }
