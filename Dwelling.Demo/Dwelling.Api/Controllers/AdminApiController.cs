@@ -16,7 +16,7 @@ namespace Dwelling.Api.Controllers
     public class AdminApiController : ApiController
     {
         [Dependency]
-        public IAdminService adminService { get; set; }
+        public IAdminService AdminService { get; set; }
         /// <summary>
         /// 管理员登录
         /// </summary>
@@ -25,7 +25,7 @@ namespace Dwelling.Api.Controllers
         [Route("adminLogin")]
         public Admin adminLogin(Admin admin)
         {
-            return adminService.adminLogin(admin);
+            return AdminService.adminLogin(admin);
         }
         /// <summary>
         /// 获取所有普通管理员
@@ -35,7 +35,7 @@ namespace Dwelling.Api.Controllers
         [Route("GetAdmins")]
         public List<Admin> GetAdmins()
         {
-            return adminService.GetAdmins();
+            return AdminService.GetAdmins();
         }
         /// <summary>
         /// 添加管理员
@@ -46,7 +46,7 @@ namespace Dwelling.Api.Controllers
         [Route("AddAdmin")]
         public int AddAdmin(Admin admin)
         {
-            return adminService.AddAdmin(admin);
+            return AdminService.AddAdmin(admin);
         }
         /// <summary>
         /// 删除管理员信息
@@ -56,7 +56,7 @@ namespace Dwelling.Api.Controllers
         [Route("DeleteAdmin")]
         public int DeleteAdmin(int adminId)
         {
-            return adminService.DeleteAdmin(adminId);
+            return AdminService.DeleteAdmin(adminId);
         }
 
     }
