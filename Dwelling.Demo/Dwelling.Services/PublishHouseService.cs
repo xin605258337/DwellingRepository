@@ -48,7 +48,7 @@ namespace Dwelling.Services
             parameters.Add("@LeaseType_ID", house.LeaseType_ID, DbType.Int32, ParameterDirection.Input, null);
             parameters.Add("@Style_ID", house.Style_ID, DbType.Int32, ParameterDirection.Input, null);
             parameters.Add("@PublishHouse__Payment", house.PublishHouse__Payment, DbType.String , ParameterDirection.Input, null);
-            int result = conn.Execute("pro_AddAdmin", parameters, CommandType.StoredProcedure);
+            int result = conn.Execute("pro_AddAdmin", parameters, commandType: CommandType.StoredProcedure);
             return result;
         }
     }

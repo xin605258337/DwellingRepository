@@ -34,8 +34,8 @@ namespace Dwelling.Services
         {
             //存储过程参数
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("_Admin_Name", admin.Admin_Name,DbType.String,ParameterDirection.Input,null);
-            parameters.Add("_Admin_Password", admin.Admin_Password, DbType.String, ParameterDirection.Input, null);
+            parameters.Add("_Admin_Name", admin.Admin_Name);
+            parameters.Add("_Admin_Password", admin.Admin_Password);
             //获取admin
             return conn.Query<Admin>("pro_AdminLogin", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
         }
@@ -56,8 +56,8 @@ namespace Dwelling.Services
         {
             //存储过程参数
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("_Admin_Name", admin.Admin_Name, DbType.String, ParameterDirection.Input, null);
-            parameters.Add("_Admin_Password", admin.Admin_Password, DbType.String, ParameterDirection.Input, null);
+            parameters.Add("_Admin_Name", admin.Admin_Name);
+            parameters.Add("_Admin_Password", admin.Admin_Password);
             return conn.Execute("pro_AddAdmin", parameters, commandType: CommandType.StoredProcedure);
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace Dwelling.Services
         public int DeleteAdmin(int adminId)
         {
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("_Admin_ID",adminId, DbType.Int32, ParameterDirection.Input, null);
+            parameters.Add("_Admin_ID",adminId);
             return conn.Execute("pro_DeleteAdmin", parameters, commandType: CommandType.StoredProcedure);
         }
     }
