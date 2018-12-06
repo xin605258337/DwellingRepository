@@ -4,6 +4,8 @@ using Unity;
 
 namespace Dwelling.Api
 {
+    using Dwelling.Services;
+    using Dwelling.IServices;
     /// <summary>
     /// Specifies the Unity configuration for the main container.
     /// </summary>
@@ -42,6 +44,7 @@ namespace Dwelling.Api
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
+            container.RegisterType<IAdminService, AdminService>();
         }
     }
 }

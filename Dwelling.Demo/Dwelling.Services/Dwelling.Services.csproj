@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>C:\Users\Lenovo\Desktop\技能附件\手写DbHelp\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -44,6 +48,16 @@
   <ItemGroup>
     <Compile Include="AdminService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dwelling.IServices\Dwelling.IServices.csproj">
+      <Project>{a16f136a-d873-46b6-a31a-2747b2bc8bfe}</Project>
+      <Name>Dwelling.IServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dwelling.Model\Dwelling.Model.csproj">
+      <Project>{0ef9ac28-d83d-4b5b-a304-34e1ac84e6e9}</Project>
+      <Name>Dwelling.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

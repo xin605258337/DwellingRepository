@@ -142,6 +142,20 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dwelling.IServices\Dwelling.IServices.csproj">
+      <Project>{a16f136a-d873-46b6-a31a-2747b2bc8bfe}</Project>
+      <Name>Dwelling.IServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dwelling.Model\Dwelling.Model.csproj">
+      <Project>{0ef9ac28-d83d-4b5b-a304-34e1ac84e6e9}</Project>
+      <Name>Dwelling.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dwelling.Services\Dwelling.Services.csproj">
+      <Project>{616e7c8d-03b6-4af7-9e82-779dadf09ede}</Project>
+      <Name>Dwelling.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
