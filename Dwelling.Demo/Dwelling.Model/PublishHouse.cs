@@ -40,7 +40,7 @@ namespace Dwelling.Model
         /// <summary>
         /// 总楼层
         /// </summary>
-        public int PublishHouse_SumFlo { get; set; }
+        public int PublishHouse_SumFloor { get; set; }
         /// <summary>
         /// 楼房类型id
         /// </summary>
