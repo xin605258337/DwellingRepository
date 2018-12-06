@@ -41,11 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address.cs" />
     <Compile Include="Admin.cs" />
+    <Compile Include="Area.cs" />
+    <Compile Include="BuildingType.cs" />
+    <Compile Include="Collect.cs" />
+    <Compile Include="Complain.cs" />
+    <Compile Include="Facility.cs" />
+    <Compile Include="HabitableRoom.cs" />
     <Compile Include="House.cs" />
+    <Compile Include="LeaseType.cs" />
+    <Compile Include="Orientation.cs" />
+    <Compile Include="Price.cs" />
     <Compile Include="PublishHouse.cs" />
     <Compile Include="OurMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Style.cs" />
+    <Compile Include="Suggest.cs" />
+    <Compile Include="Track.cs" />
+    <Compile Include="Users.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
