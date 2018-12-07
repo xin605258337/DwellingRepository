@@ -6,63 +6,7 @@
 <!DOCTYPE html>
 <script src="~/Content/jquery-3.1.1.js"></script>
 <script>
-    //选择图片，预览
-    function xmTanUploadImg(obj) {
-        var imgTypes = new Array();
-        imgTypes[0] = "JPG";
-        imgTypes[1] = "ICO";
-        imgTypes[2] = "PNG";
-        imgTypes[3] = "GIF";
-        imgTypes[4] = "JPEG";
-        imgTypes[5] = "TGA";
-        var num = 0;//选错图片格式的个数
-        var fl = obj.files.length;
-        if (fl <= 7) {
-
-            for (var i = 0; i < fl; i++) {
-                var file = obj.files[i];
-                //判断图片格式
-                var filename = obj.files[i].name;
-                imgType = filename.substring(filename.lastIndexOf(".") + 1, file.length)
-                var reader = new FileReader();
-                //判断是否是图片格式
-                if (imgType.toUpperCase() == imgTypes[0] || imgType.toUpperCase() == imgTypes[1] || imgType.toUpperCase() == imgTypes[2] || imgType.toUpperCase() == imgTypes[3] || imgType.toUpperCase() == imgTypes[4] || imgType.toUpperCase() == imgTypes[5]) {
-                    reader.onload = function (e) {
-                        img = document.createElement("img");
-                        img.src = this.result;
-                        img.style.width = "80px";
-                        img.style.height = "100px";
-                        document.getElementById("showimg").appendChild(img);
-                        $("#upload").attr("disabled", false);
-                    }
-                } else {
-                    num++;
-                    alert("你选择的图片格式不正确:" + num + "张图片格式不正确");
-                    $("#upload").attr("disabled", true);
-                }
-
-                reader.readAsDataURL(file);
-            }
-        } else {
-
-            alert("每次只能上传7张图片");
-        }
-
-    }
-
-    function Upload() {
-        var param = new FormData(($("#form")[0]));
-        $.ajax({
-            url: "/Upload.ashx",
-            data: param,
-            type: "post",
-            processData: false,
-            contentType: false,
-            success: function (data) {
-                alert(data)
-            }
-        })
-    }
+    
 </script>
 
 <html>
@@ -71,14 +15,6 @@
     <title>AddHouse</title>
 </head>
 <body>
-    <div>
-        <form method="post" enctype="multipart/form-data" id="form">
-            <input type="file" name="file" id="file" multiple="multiple" onchange="xmTanUploadImg(this)" />
-            <input type="button" value="上传" onclick="Upload()" />
-        </form>
-        <!--图片显示位置-->
-        <div id="showimg">
-        </div>
-    </div>
+    
 </body>
 </html>

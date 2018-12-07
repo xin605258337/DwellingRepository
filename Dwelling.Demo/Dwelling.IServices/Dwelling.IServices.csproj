@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="IAdminService.cs" />
     <Compile Include="IBuildingTypeService.cs" />
+    <Compile Include="IHabitableroomServices.cs" />
     <Compile Include="IHouseService.cs" />
     <Compile Include="ILeaseTypeService.cs" />
     <Compile Include="IOrientationService.cs" />

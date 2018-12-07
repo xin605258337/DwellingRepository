@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="AdminService.cs" />
     <Compile Include="BuildingTypeService.cs" />
+    <Compile Include="HabitableRoomServices.cs" />
     <Compile Include="HouseService.cs" />
     <Compile Include="LeaseTypeService.cs" />
     <Compile Include="OrientationService.cs" />
