@@ -42,7 +42,7 @@ namespace Dwelling.Services
             parameters.Add("@BuildingType_ID", house.BuildingType_ID, DbType.Int32, ParameterDirection.Input, null);
             parameters.Add("@PublishHouse_RentTimeBegin", house.PublishHouse_RentTimeBegin, DbType.DateTime, ParameterDirection.Input, null);
             parameters.Add("@PublishHouse_RentTimeEnd", house.PublishHouse_RentTimeEnd, DbType.DateTime, ParameterDirection.Input, null);
-            parameters.Add("@PublishHouse_Img", house.PublishHouse_Img, DbType.Int32, ParameterDirection.Input, null);
+            parameters.Add("@PublishHouse_ImgUrl", house.PublishHouse_ImgUrl, DbType.Int32, ParameterDirection.Input, null);
             parameters.Add("@PublishHouse_Description", house.PublishHouse_Description, DbType.String, ParameterDirection.Input, null);
             parameters.Add("@PublishHouse_Facility", house.PublishHouse_Facility, DbType.String, ParameterDirection.Input, null);
             parameters.Add("@LeaseType_ID", house.LeaseType_ID, DbType.Int32, ParameterDirection.Input, null);

@@ -16,6 +16,17 @@ namespace Dwelling.Api.Controllers
     {
         [Dependency]
         public IHouseService HouseService { get; set; }
+        [Dependency]
+        public IBuildingTypeService BuildingTypeService { get; set; }
+
+        [Dependency]
+        public IStyleService StyleService { get; set; }
+        [Dependency]
+        public IOrientationService OrientationService { get; set; }
+        [Dependency]
+        public ILeaseTypeService LeaseTypeService { get; set; }
+        [Dependency]
+        public IHabitableroomServices HabitableroomServices { get; set; }
         /// <summary>
         /// 添加房源
         /// </summary>
@@ -58,6 +69,57 @@ namespace Dwelling.Api.Controllers
         public List<House> GetHouses()
         {
             return HouseService.GetHouses();
+        }
+
+        /// <summary>
+        /// 获取房源朝向信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetBuildingType")]
+        public List<BuildingType> GetBuildingType()
+        {
+            return BuildingTypeService.GetBuildingType();
+        }
+        [HttpGet]
+        [Route("GetHabitableRoom")]
+        /// <summary>
+        /// 获取户型信息
+        /// </summary>
+        /// <returns></returns>
+        public List<HabitableRoom> GetHabitableRoom()
+        {
+            return HabitableroomServices.GetHabitableRoom();
+        }
+        [HttpGet]
+        [Route("GetLeaseType")]
+        /// <summary>
+        /// 获取房源朝向信息
+        /// </summary>
+        /// <returns></returns>
+        public List<LeaseType> GetLeaseType()
+        {
+            return LeaseTypeService.GetLeaseType();
+        }
+        [HttpGet]
+        [Route("GetOrientation")]
+        /// <summary>
+        /// 获取房源朝向信息
+        /// </summary>
+        /// <returns></returns>
+        public List<Orientation> GetOrientation()
+        {
+            return OrientationService.GetOrientation();
+        }
+        [HttpGet]
+        [Route("GetStyle")]
+        /// <summary>
+        /// 获取房源风格信息
+        /// </summary>
+        /// <returns></returns>
+        public List<Style> GetStyle()
+        {
+            return StyleService.GetStyle();
         }
 
     }

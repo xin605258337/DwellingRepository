@@ -54,9 +54,8 @@ namespace Dwelling.Model
         /// </summary>
         public DateTime PublishHouse_RentTimeEnd { get; set; }
         /// <summary>
-        /// 房源图片id
+        /// 房源图片
         /// </summary>
-        public string  PublishHouse_Img { get; set; }
         public string PublishHouse_ImgUrl { get; set; }
         /// <summary>
         /// 房源描述
