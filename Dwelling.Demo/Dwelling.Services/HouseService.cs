@@ -35,7 +35,6 @@ namespace Dwelling.Services
             MySqlConnection conn = new MySqlConnection(connStr);
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("_House_Name", house.House_Name);
-            parameters.Add("_House_Img", house.House_Img);
             parameters.Add("_House_ImgUrl", house.House_ImgUrl);
             parameters.Add("_House_Price", house.House_Price);
             parameters.Add("_HabitableRoom_ID", house.HabitableRoom_ID);
@@ -56,7 +55,7 @@ namespace Dwelling.Services
             parameters.Add("_House_RentMoney", house.House_RentMoney);
             parameters.Add("_House_Payment", house.House_Payment);
 
-            return conn.Execute("proc_HouseAdd", parameters, commandType: CommandType.StoredProcedure);
+            return conn.Execute("proc_AddHouse", parameters, commandType: CommandType.StoredProcedure);
         }
 
         /// <summary>
@@ -69,7 +68,7 @@ namespace Dwelling.Services
             MySqlConnection conn = new MySqlConnection(connStr);
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("_House_ID", houseId);
-            return conn.Execute("proc_HouseDelete", parameters, commandType: CommandType.StoredProcedure);
+            return conn.Execute("proc_DeleteHouse", parameters, commandType: CommandType.StoredProcedure);
         }
         /// <summary>
         /// 根据房源ID获取房源信息

@@ -18,10 +18,6 @@ namespace Dwelling.Model
         /// </summary>
         public string House_Name { get; set; }
         /// <summary>
-        /// 房源图片
-        /// </summary>
-        public string House_Img { get; set; }
-        /// <summary>
         /// 图片路径
         /// </summary>
         public string House_ImgUrl { get; set; }
