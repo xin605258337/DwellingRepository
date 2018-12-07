@@ -56,7 +56,8 @@ namespace Dwelling.Model
         /// <summary>
         /// 房源图片id
         /// </summary>
-        public int PublishHouse_Img { get; set; }
+        public string  PublishHouse_Img { get; set; }
+        public string PublishHouse_ImgUrl { get; set; }
         /// <summary>
         /// 房源描述
         /// </summary>
@@ -77,6 +78,10 @@ namespace Dwelling.Model
         /// 付款方式
         /// </summary>
         public string  PublishHouse__Payment { get; set; }
+        /// <summary>
+        /// 审批状态
+        /// </summary>
+        public string ApprovalStatic { get; set; }
 
 
     }
