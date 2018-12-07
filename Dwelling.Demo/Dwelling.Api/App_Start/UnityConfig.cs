@@ -45,6 +45,7 @@ namespace Dwelling.Api
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IAdminService, AdminService>();
+            container.RegisterType<IHouseService, HouseService>();
         }
     }
 }

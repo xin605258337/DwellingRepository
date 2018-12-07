@@ -50,6 +50,7 @@
     <Compile Include="Facility.cs" />
     <Compile Include="HabitableRoom.cs" />
     <Compile Include="House.cs" />
+    <Compile Include="Image.cs" />
     <Compile Include="LeaseType.cs" />
     <Compile Include="Orientation.cs" />
     <Compile Include="Price.cs" />

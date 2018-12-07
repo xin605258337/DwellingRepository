@@ -64,11 +64,11 @@ namespace Dwelling.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public int DeleteHouse(int id)
+        public int DeleteHouse(int houseId)
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("_House_ID", id);
+            parameters.Add("_House_ID", houseId);
             return conn.Execute("proc_HouseDelete", parameters, commandType: CommandType.StoredProcedure);
         }
         /// <summary>

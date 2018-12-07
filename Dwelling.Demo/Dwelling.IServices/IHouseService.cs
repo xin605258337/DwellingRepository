@@ -22,7 +22,7 @@ namespace Dwelling.IServices
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        int DeleteHouse(int id);
+        int DeleteHouse(int houseId);
         /// <summary>
         /// 根据房源ID获取房源信息
         /// </summary>
