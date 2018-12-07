@@ -18,9 +18,9 @@ namespace Dwelling.Model
         /// </summary>
         public string Complain_Content { get; set; }
         /// <summary>
-        /// 投诉阶段
+        /// 投诉时间
         /// </summary>
-        public string Complain_Phases { get; set; }
+        public string Complain_Time{ get; set; }
         /// <summary>
         /// 投诉结果
         /// </summary>
@@ -29,5 +29,9 @@ namespace Dwelling.Model
         /// 投诉所属用户
         /// </summary>
         public int Users_ID { get; set; }
+        /// <summary>
+        /// 审批状态
+        /// </summary>
+        public string ApprovalStatic { get; set; }
     }
 }

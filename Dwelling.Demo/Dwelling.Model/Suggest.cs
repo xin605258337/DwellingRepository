@@ -13,10 +13,7 @@ namespace Dwelling.Model
         /// 建议ID
         /// </summary>
         public int Suggest_ID { get; set; }
-        /// <summary>
-        /// 建议类型
-        /// </summary>
-        public int Suggest_Type { get; set; }
+     
         /// <summary>
         /// 建议内容
         /// </summary>
@@ -29,5 +26,9 @@ namespace Dwelling.Model
         /// 建议所属用户
         /// </summary>
         public int Users_ID { get; set; }
+        /// <summary>
+        /// 审批状态
+        /// </summary>
+        public string ApprovalStatic { get; set; }
     }
 }
