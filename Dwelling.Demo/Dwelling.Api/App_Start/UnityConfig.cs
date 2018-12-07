@@ -51,6 +51,7 @@ namespace Dwelling.Api
             container.RegisterType<IOrientationService, OrientationService>();
             container.RegisterType<ILeaseTypeService, LeaseTypeService>();
             container.RegisterType<IHabitableroomServices, HabitableRoomServices>();
+            container.RegisterType<IPublishHouseService, PublishHouseService>();
             //container.RegisterType<IStyleService, StyleService>();
             //container.RegisterType<IStyleService, StyleService>();
         }

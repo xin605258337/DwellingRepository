@@ -29,7 +29,7 @@ namespace Dwelling.Services
             }
         }
 
-        public int AddHouse(PublishHouse house)
+        public int AddPublishHouse(PublishHouse house)
         {
             //存储过程参数
             DynamicParameters parameters = new DynamicParameters();
@@ -42,14 +42,35 @@ namespace Dwelling.Services
             parameters.Add("@BuildingType_ID", house.BuildingType_ID, DbType.Int32, ParameterDirection.Input, null);
             parameters.Add("@PublishHouse_RentTimeBegin", house.PublishHouse_RentTimeBegin, DbType.DateTime, ParameterDirection.Input, null);
             parameters.Add("@PublishHouse_RentTimeEnd", house.PublishHouse_RentTimeEnd, DbType.DateTime, ParameterDirection.Input, null);
-            parameters.Add("@PublishHouse_ImgUrl", house.PublishHouse_ImgUrl, DbType.Int32, ParameterDirection.Input, null);
+            parameters.Add("@PublishHouse_Img", house.PublishHouse_ImgUrl, DbType.Int32, ParameterDirection.Input, null);
             parameters.Add("@PublishHouse_Description", house.PublishHouse_Description, DbType.String, ParameterDirection.Input, null);
             parameters.Add("@PublishHouse_Facility", house.PublishHouse_Facility, DbType.String, ParameterDirection.Input, null);
             parameters.Add("@LeaseType_ID", house.LeaseType_ID, DbType.Int32, ParameterDirection.Input, null);
             parameters.Add("@Style_ID", house.Style_ID, DbType.Int32, ParameterDirection.Input, null);
             parameters.Add("@PublishHouse__Payment", house.PublishHouse__Payment, DbType.String , ParameterDirection.Input, null);
-            int result = conn.Execute("pro_AddAdmin", parameters, commandType: CommandType.StoredProcedure);
+            parameters.Add("@ApprovalStatic", house.ApprovalStatic, DbType.Int32, ParameterDirection.Input, null);
+            int result = conn.Execute("addPublishHouse", parameters, commandType: CommandType.StoredProcedure);
             return result;
+        }
+        /// <summary>
+        /// 删除房源
+        /// </summary>
+        /// <param name="PublishHouseID"></param>
+        /// <returns></returns>
+        public int deletePublishHouse(int PublishHouseID)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("PublishHouseid", PublishHouseID);
+            return conn.Execute("proc_deletePublishHouse", parameters, commandType: CommandType.StoredProcedure);
+        }
+        /// <summary>
+        /// 显示房源
+        /// </summary>
+        /// <returns></returns>
+        public List<PublishHouse> GetPublishHouse()
+        {
+            return conn.Query<PublishHouse>("proc_getPublishHouse", null, commandType: CommandType.StoredProcedure).ToList();
         }
     }
 }
