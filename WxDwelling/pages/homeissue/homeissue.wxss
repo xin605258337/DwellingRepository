@@ -28,3 +28,15 @@
 	width: 5em;
 	color: #666;
 }
+
+.btn-submit{
+	padding: 20rpx;
+}
+.btn-block{
+	width: 100%;
+	line-height: 88rpx;
+}
+.btn-orange{
+	background: #f7982a;
+	color: #fff;
+}
