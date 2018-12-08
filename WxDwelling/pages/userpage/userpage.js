@@ -1,17 +1,10 @@
-// pages/homepage/homepage.js
+// pages/userpage/userpage.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      '../../image/woniu.jpg',
-      'https://public.wutongwan.org/public-20180402-Ft8Cd_qKwRig0ZZ9w1pHvsyX1VDx',
-      'http://img1.gtimg.com/news/pics/hv1/117/9/2130/138505662.jpg',
-      'http://img.zx123.cn/Resources/zx123cn/uploadfile/2017/0303/edaa8ff8fc71f7e8da622bc551e8020d.jpg',
-      'http://static-xiaoguotu.17house.com/xgt/s/20/1462884852184aa.jpg'
-    ],
     indicatorDots: true,
     vertical: false,
     autoplay: true,
@@ -19,23 +12,22 @@ Page({
     duration: 1200,
     iconArray: [
       {
-        "iconUrl": '../../image/zhengzu.png',
-        "iconText": '整租',
+        "iconUrl": '../../image/shoucang.png',
+        "iconText": '收藏',
         "url": ''
       },
       {
-        "iconUrl": '../../image/hezu.png',
-        "iconText": '合租',
+        "iconUrl": '../../image/zuji.png',
+        "iconText": '足迹',
         "url": ''
       },
       {
         "iconUrl": '../../image/fabu.png',
-        "iconText": '发布房源',
+        "iconText": '我的发布',
         "url": ''
       },
     ],
   },
-
   /**
    * 生命周期函数--监听页面加载
    */

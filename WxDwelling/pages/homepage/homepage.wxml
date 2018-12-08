@@ -1,4 +1,5 @@
 <!--pages/homepage/homepage.wxml-->
+<!--轮播图-->
 <view>
 <swiper indicator-dots="{{indicatorDots}}" 
     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -9,3 +10,24 @@
     </block>
   </swiper>
   </view>
+ <!--页面跳转-->
+ <view class="category">
+  <view class="category_item" wx:for="{{iconArray}}">
+    <view class="category_item_wrap">
+    
+      <view class="icon_wrap" >
+      <navigator url="{{item.url}}">
+        <image src="{{item.iconUrl}}" class="index_icon"></image>
+        </navigator>
+      </view>
+      <view class="category_item_text">
+        <text>{{item.iconText}}</text>
+      </view> 
+    </view>
+  </view>
+</view>
+<!--热们房源-->
+<view>
+<view>热门房源</view>
+
+</view>
