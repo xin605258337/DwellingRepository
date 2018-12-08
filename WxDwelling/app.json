@@ -1,8 +1,11 @@
 {
   "pages": [
+    "pages/homeissue/homeissue",
     "pages/homepage/homepage",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/homeissue"
+   
   ],
   "window": {
     "backgroundTextStyle": "light",

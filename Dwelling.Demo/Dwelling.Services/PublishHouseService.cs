@@ -33,23 +33,25 @@ namespace Dwelling.Services
         {
             //存储过程参数
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@HabitableRoom_ID", house.HabitableRoom_ID, DbType.Int32, ParameterDirection.Input, null);
-            parameters.Add("@PublishHouse_Num", house.PublishHouse_Num, DbType.String, ParameterDirection.Input, null);
-            parameters.Add("@PublishHouse_Area", house.PublishHouse_Area, DbType.Double, ParameterDirection.Input, null);
-            parameters.Add("@PublishHouse_RentMoney", house.PublishHouse_RentMoney, DbType.Decimal, ParameterDirection.Input, null);
-            parameters.Add("@PublishHouse_Floor", house.PublishHouse_Floor, DbType.Int32, ParameterDirection.Input, null);
-            parameters.Add("@PublishHouse_SumFloor", house.PublishHouse_SumFloor, DbType.Int32, ParameterDirection.Input, null);
-            parameters.Add("@BuildingType_ID", house.BuildingType_ID, DbType.Int32, ParameterDirection.Input, null);
-            parameters.Add("@PublishHouse_RentTimeBegin", house.PublishHouse_RentTimeBegin, DbType.DateTime, ParameterDirection.Input, null);
-            parameters.Add("@PublishHouse_RentTimeEnd", house.PublishHouse_RentTimeEnd, DbType.DateTime, ParameterDirection.Input, null);
-            parameters.Add("@PublishHouse_Img", house.PublishHouse_ImgUrl, DbType.Int32, ParameterDirection.Input, null);
-            parameters.Add("@PublishHouse_Description", house.PublishHouse_Description, DbType.String, ParameterDirection.Input, null);
-            parameters.Add("@PublishHouse_Facility", house.PublishHouse_Facility, DbType.String, ParameterDirection.Input, null);
-            parameters.Add("@LeaseType_ID", house.LeaseType_ID, DbType.Int32, ParameterDirection.Input, null);
-            parameters.Add("@Style_ID", house.Style_ID, DbType.Int32, ParameterDirection.Input, null);
-            parameters.Add("@PublishHouse__Payment", house.PublishHouse__Payment, DbType.String , ParameterDirection.Input, null);
-            parameters.Add("@ApprovalStatic", house.ApprovalStatic, DbType.Int32, ParameterDirection.Input, null);
-            int result = conn.Execute("addPublishHouse", parameters, commandType: CommandType.StoredProcedure);
+            parameters.Add("_HabitableRoom_ID", house.HabitableRoom_ID);
+            parameters.Add("_PublishHouse_Num",house.PublishHouse_Num);
+            parameters.Add("_PublishHouse_Area", house.PublishHouse_Area);
+            parameters.Add("_Orientation_ID", house.Orientation_ID);
+            parameters.Add("_Style_ID", house.Style_ID);
+            parameters.Add("_PublishHouse_RentMoney", house.PublishHouse_RentMoney);
+            parameters.Add("_PublishHouse_Floor", house.PublishHouse_Floor);
+            parameters.Add("_PublishHouse_SumFloor", house.PublishHouse_SumFloor);
+            parameters.Add("_BuildingType_ID", house.BuildingType_ID);
+            parameters.Add("_PublishHouse_RentTimeBegin", house.PublishHouse_RentTimeBegin);
+            parameters.Add("_PublishHouse_RentTimeEnd", house.PublishHouse_RentTimeEnd);
+            parameters.Add("_PublishHouse_ImgUrl", house.PublishHouse_ImgUrl);
+            parameters.Add("_PublishHouse_Description", house.PublishHouse_Description);
+            parameters.Add("_PublishHouse_Facility", house.PublishHouse_Facility);
+            parameters.Add("_LeaseType_ID", house.LeaseType_ID);
+            parameters.Add("_PublishHouse_Payment", house.PublishHouse__Payment);
+            parameters.Add("_PublishHouse_Owner", house.PublishHouse_Owner);
+            parameters.Add("_PublishHouse_OwnerTel", house.PublishHouse_OwnerTel);
+            int result = conn.Execute("proc_addPublishHouse", parameters, commandType: CommandType.StoredProcedure);
             return result;
         }
         /// <summary>

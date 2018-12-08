@@ -82,6 +82,15 @@ namespace Dwelling.Model
         /// </summary>
         public string ApprovalStatic { get; set; }
 
+        /// <summary>
+        /// 房主姓名
+        /// </summary>
+        public string PublishHouse_Owner { get; set; }
+        /// <summary>
+        /// 房主电话
+        /// </summary>
+        public string PublishHouse_OwnerTel { get; set; }
+
 
     }
 }
