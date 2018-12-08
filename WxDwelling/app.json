@@ -1,17 +1,39 @@
 {
   "pages": [
-      "pages/homeissueone/homeissueone",
-    "pages/homeissue/homeissue",
     "pages/homepage/homepage",
+    "pages/userpage/userpage",
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/homeissue"
- 
+    "pages/homeissue",
+    "pages/homeissue/homeissue"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#F5B223",
+    "color": "#9A9A9A",
+    "list": [
+      {
+        "pagePath": "pages/homepage/homepage",
+        "text": "首页",
+        "iconPath": "image/indexpage.png",
+        "selectedIconPath": "image/indexpage.png"
+      },
+      {
+        "pagePath": "pages/homepage/homepage",
+        "text": "快速找房",
+        "iconPath": "image/housepage.png",
+        "selectedIconPath": "image/housepage.png"
+      },
+      {
+        "pagePath": "pages/userpage/userpage",
+        "text": "我的",
+        "iconPath": "image/owern.png",
+        "selectedIconPath": "image/owern.png"
+      }
+    ]
   }
 }
