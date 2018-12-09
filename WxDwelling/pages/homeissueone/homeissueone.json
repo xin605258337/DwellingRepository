@@ -1,4 +1,6 @@
-{
-    "navigationBarTitleText": "发布房源1"
 
+{
+  "navigationBarTitleText": "发布房源",
+  "navigationBarBackgroundColor": "#e5c3e0",
+  "navigationBarTextStyle": "white"
 }

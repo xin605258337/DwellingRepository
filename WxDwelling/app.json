@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/homeissueone/homeissueone",
     "pages/homepage/homepage",
     "pages/userpage/userpage",
     "pages/index/index",
-    "pages/homeissue",
-    "pages/homeissue/homeissue"
+    "pages/homeissue/homeissue",
+    "pages/homeissueone/homeissueone",
+    "pages/mainpage/mainpage"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,7 +24,7 @@
         "selectedIconPath": "image/indexpage.png"
       },
       {
-        "pagePath": "pages/homepage/homepage",
+        "pagePath": "pages/mainpage/mainpage",
         "text": "快速找房",
         "iconPath": "image/housepage.png",
         "selectedIconPath": "image/housepage.png"
