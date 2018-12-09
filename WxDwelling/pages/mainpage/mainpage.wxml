@@ -69,7 +69,7 @@
 	</view>
 	<scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" bindscroll="scrollHandle" lower-threshold="50" bindscrolltolower="scrollLoading">
 		<view class="service-list">
-			<navigator class="service-item" wx:for="{{servicelist}}" wx:key="{{item.id}}" url="../servicedetail/servicedetail?id={{item.id}}">
+			<navigator class="service-item" wx:for="{{servicelist}}" wx:key="{{item.id}}" url="../details/details?id={{item.id}}">
 				<view class="service-img">
 					<image src="{{item.imgurl}}" mode="aspectFill"></image>
 				</view>

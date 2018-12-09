@@ -4,7 +4,7 @@ Page({
     spaceimgs: [],
     currentIndex: 1
   },
-  onLoad: function () {
+  onLoad: function (options) {
     this.setData({
       spacedata: {
         "ParkCode": "ZCKJ20160831200444",

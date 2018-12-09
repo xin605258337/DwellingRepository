@@ -21,17 +21,17 @@ Page({
       {
         "iconUrl": '../../image/zhengzu.png',
         "iconText": '整租',
-        "url": ''
+        "url": '../mainpage/mainpage'
       },
       {
         "iconUrl": '../../image/hezu.png',
         "iconText": '合租',
-        "url": ''
+        "url": '../mainpage/mainpage'
       },
       {
         "iconUrl": '../../image/fabu.png',
         "iconText": '发布房源',
-        "url": ''
+        "url": '../homeissue/homeissue'
       },
     ],
   },
