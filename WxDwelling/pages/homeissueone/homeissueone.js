@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    /**默认合租页面 */
+    currentTab: 0
   },
 
   /**
@@ -62,5 +63,21 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+/** */
+  swiperTab: function (e) {
+    var that = this;
+    that.setData({
+      currentTab: e.detail.current
+    });
+  },
+  /**点击事件 */
+  clickTab: function (e) { var that = this; if (this.data.currentTab === e.target.dataset.current) { return false; } else { that.setData({ currentTab: e.target.dataset.current }) } },
+
+/**改变合租整租跳转页面 */
+
+  swiperChange: function (e) {
+    this.setData({ swiperCurrent: e.detail.current });
+  },
 })

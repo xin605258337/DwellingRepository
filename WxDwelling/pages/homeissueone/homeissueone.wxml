@@ -1,0 +1,146 @@
+<view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab" >合租</view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">整租</view>
+
+</view>
+
+<swiper current="{{currentTab}}" duration="300"  bindchange="swiperTab" style="height: 1000px;">
+
+<!--合租页面-->
+    <swiper-item >
+<view class="group-header">基本信息</view>
+<!--出租房间-->
+	<view class="input-item">
+			<text class="input-item-label">出租房间:</text>
+			<view class="input-item-content">
+				<input type="idcard" placeholder="请输入出租房间"bindinput="inputPhone"></input>
+			</view>
+		</view>
+     <!--房间面积-->
+    <view class="input-item">
+			<text class="input-item-label">房间面积:</text>
+			<view class="input-item-content">
+				<input type="idcard" placeholder="请输入出租房间"bindinput="inputPhone"></input>
+			</view>
+		</view>
+     <!--朝向-->
+         <view class="input-item">
+					<text class="input-item-label">朝向</text>
+					<picker class="input-item-content" bindchange="bindPickerChange" data-pickername="status" value="{{statusindex}}" range="{{statusarr}}" mode="selector">{{statusarr[statusindex]}}
+					</picker>
+				</view>
+     <!--整套户型-->
+      <view class="input-item">
+					<text class="input-item-label">楼房类型</text>
+					<picker class="input-item-content" bindchange="bindPickerChange" data-pickername="status" value="{{statusindex}}" range="{{statusarr}}" mode="selector">{{statusarr[statusindex]}}
+					</picker>
+				</view>
+         <!--整套面积-->
+      <view class="input-item">
+			<text class="input-item-label">整套面积:</text>
+			<view class="input-item-content">
+				<input type="idcard" placeholder="请输入整套面积"bindinput="inputPhone"></input>
+			</view>
+		</view>
+  <!--租金-->
+  <view class="input-item">
+			<text class="input-item-label">租金:</text>
+			<view class="input-item-content">
+				<input type="idcard" placeholder="请输入月租金"bindinput="inputPhone"></input>
+			</view>
+      
+		</view>
+      <!--楼层-->
+       <view class="input-item">
+			<text class="input-item-label">楼层:</text>
+			<view class="input-item-content">
+				<input type="idcard" placeholder="请输入层数"bindinput="inputPhone"></input>
+			</view>
+		</view>
+    <!--楼房类型 -->
+      <view class="input-item">
+					<text class="input-item-label">楼房类型</text>
+					<picker class="input-item-content" bindchange="bindPickerChange" data-pickername="status" value="{{statusindex}}" range="{{statusarr}}" mode="selector">{{statusarr[statusindex]}}
+					</picker>
+				</view>
+        <!--起租日期 -->
+    <view class="input-item">
+			<text class="input-item-label">起租日期:</text>
+			<view class="input-item-content">
+			 	<input type="text" auto-focus placeholder="请输入:年/月/日" bindinput="inputName"></input>
+			</view>
+		</view>
+    
+  </swiper-item>
+<!--整租页面-->
+   <swiper-item >
+<view class="group-header">基本信息</view>
+
+<view class="containerhouse">
+	<view class="input-list">
+    <!--房屋类型-->
+    <view class="input-item">
+					<text class="input-item-label">户型</text>
+					<picker class="input-item-content" bindchange="bindPickerChange" data-pickername="status" value="{{statusindex}}" range="{{statusarr}}" mode="selector">{{statusarr[statusindex]}}
+					</picker>
+				</view>
+          <!--整套面积-->
+		<view class="input-item">
+			<text class="input-item-label">整套面积:</text>
+			<view class="input-item-content">
+			 	<input type="text" auto-focus placeholder="请输入房屋总面积㎡"bindinput="inputName"></input>
+			</view>
+		</view>
+    <!-- 租金-->
+		<view class="input-item">
+			<text class="input-item-label">租金:</text>
+			<view class="input-item-content">
+				<input type="idcard" placeholder="请输入月租金"bindinput="inputPhone"></input>
+			</view>
+      
+		</view>
+    <!--房屋面积 -->
+    <view class="input-item">
+			<text class="input-item-label">房屋面积:</text>
+			<view class="input-item-content">
+			 	<input type="text" auto-focus placeholder="请输入房屋总面积㎡"bindinput="inputName"></input>
+			</view>
+		</view>
+<!--楼房类型 -->
+      <view class="input-item">
+					<text class="input-item-label">楼房类型</text>
+					<picker class="input-item-content" bindchange="bindPickerChange" data-pickername="status" value="{{statusindex}}" range="{{statusarr}}" mode="selector">{{statusarr[statusindex]}}
+					</picker>
+				</view>
+    <!--房屋租金 -->
+    <view class="input-item">
+			<text class="input-item-label">起租日期:</text>
+			<view class="input-item-content">
+			 	<input type="text" auto-focus placeholder="请输入:年/月/日" bindinput="inputName"></input>
+			</view>
+		</view>
+        <!--房源图片 -->
+    <view class="input-item input-item-full">
+				<text class="input-item-label">房源图片</text>
+					<view class="img-upload">
+						<view class="img-add"></view>
+						<view class="img-item">
+							<image src="E:\xinxin\DwellingRepository\WxDwelling\image\zhengzu.png" mode="aspectFill"></image>
+						</view>
+						<view class="img-item">
+							<image src="" mode="aspectFill"></image>
+						</view>
+					</view>
+				</view>
+  
+
+        	</view>
+
+</view>
+    
+    
+
+  
+
+  </swiper-item>
+</swiper>
