@@ -1,17 +1,19 @@
 {
-  "pages": [
+  "pages": [    
     "pages/homepage/homepage",
     "pages/userpage/userpage",
     "pages/index/index",
     "pages/homeissue/homeissue",
     "pages/homeissueone/homeissueone",
-    "pages/mainpage/mainpage"
+    "pages/mainpage/mainpage",
+    "pages/details/details",
+    "pages/mappage/mappage"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#e5c3e0",
+    "navigationBarTitleText": "蜗居",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "selectedColor": "#F5B223",
