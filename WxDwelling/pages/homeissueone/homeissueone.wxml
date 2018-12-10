@@ -70,6 +70,19 @@
 			 	<input type="text" auto-focus placeholder="请输入:年/月/日" bindinput="inputName"></input>
 			</view>
 		</view>
+<!--房源照片-->
+    <view class="input-item input-item-full">
+				<text class="input-item-label">房源图片</text>
+					<view class="img-upload">
+						<view class="img-add"></view>
+						<view class="img-item">
+							<image src="E:\xinxin\DwellingRepository\WxDwelling\image\zhengzu.png" mode="aspectFill"></image>
+						</view>
+						<view class="img-item">
+							<image src="" mode="aspectFill"></image>
+						</view>
+					</view>
+				</view>
     
   </swiper-item>
 <!--整租页面-->
