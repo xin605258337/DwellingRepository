@@ -13,10 +13,10 @@
 <!--发布房源信息框-->
 <view class="containerhouse">
 	<view class="input-list">
-		<view class="input-item">
+				<view class="input-item">
 			<text class="input-item-label">房东姓名:</text>
 			<view class="input-item-content">
-			 	<input type="text" auto-focus placeholder="请输入您的姓名" bindinput="inputName"></input>
+				<input type="idcard" placeholder="请输入您的姓名"  bindinput="inputPhone"></input>
 			</view>
 		</view>
     <!-- 手机号码-->

@@ -1,0 +1,48 @@
+<!--pages/Complaints/Complaints.wxml-->
+<!--投诉建议-->
+<view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab" >投诉</view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">建议</view>
+
+</view>
+<swiper current="{{currentTab}}" duration="300"  bindchange="swiperTab" style="height: 1000px;">
+
+<!--投诉-->
+ <swiper-item >
+ <view>--24小时受理投诉--</view>
+   <!--用户反馈-->
+<form bindsubmit="onSubmit" bindreset="">
+<view class="container1">
+    <view class='row text_box'>
+        <textarea class='text' name="content" value="{{content}}" placeholder="请输入您的反馈" />
+    </view>
+    <view class='row btn_box'>
+        <button formType="submit" class='submit'>提交反馈</button>
+    </view>
+    <view class='row version'>
+        <view class='txt'>版本1.0</view>
+        
+    </view>
+</view>
+</form>
+  </swiper-item >
+  <!--建议-->
+   <swiper-item >
+ <view>--请赐予建议--</view>
+   <!--用户反馈-->
+<form bindsubmit="onSubmit" bindreset="">
+<view class="container1">
+    <view class='row text_box'>
+        <textarea class='text1' name="content" value="{{content}}" placeholder="请输入您的建议内容" />
+    </view>
+    <view class='row btn_box'>
+        <button formType="submit" class='submit'>提交建议</button>
+    </view>
+    <view class='row version'>
+        <view class='txt'>版本1.0</view>
+        
+    </view>
+</view>
+</form>
+    </swiper-item >
+</swiper>
