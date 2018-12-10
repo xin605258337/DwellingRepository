@@ -1,0 +1,71 @@
+
+<!--我的收藏和足迹-->
+<view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab" >我的收藏</view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">我的足迹</view>
+
+
+</view>
+
+
+
+
+<swiper current="{{currentTab}}" duration="300"  bindchange="swiperTab" style="height: 1000px;">
+
+
+<!--我的收藏-->
+ <swiper-item >
+<view>
+<view class="txt">
+<text>共关注了n套房 编辑</text>
+</view>
+
+<scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" bindscroll="scrollHandle" lower-threshold="50" bindscrolltolower="scrollLoading">
+		<view class="service-list">
+			<navigator class="service-item" wx:for="{{servicelist}}" wx:key="{{item.id}}" url="../details/details?id={{item.id}}">
+				<view class="service-img">
+					<image src="{{item.imgurl}}" mode="aspectFill"></image>
+				</view>
+				<view class="service-text">
+					<view class="service-tite">{{item.name}}</view>
+					<view class="service-tags">
+						<text>{{item.tag}}</text>
+					</view>
+					<text class="service-city">服务城市：{{item.city}}</text>
+				</view>
+			</navigator>
+		</view>
+		<view class="gototop {{scrolltop>200?'active':''}}" bindtap="goToTop"></view>
+	</scroll-view>
+</view>
+
+  </swiper-item >
+
+  <!--我的足迹-->
+ <swiper-item >
+<view>
+<view class="txt">
+<text >您共浏览了n套房</text>
+</view>
+
+<scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" bindscroll="scrollHandle" lower-threshold="50" bindscrolltolower="scrollLoading">
+		<view class="service-list">
+			<navigator class="service-item" wx:for="{{servicelist}}" wx:key="{{item.id}}" url="../details/details?id={{item.id}}">
+				<view class="service-img">
+					<image src="{{item.imgurl}}" mode="aspectFill"></image>
+				</view>
+				<view class="service-text">
+					<view class="service-tite">{{item.name}}</view>
+					<view class="service-tags">
+						<text>{{item.tag}}</text>
+					</view>
+					<text class="service-city">服务城市：{{item.city}}</text>
+				</view>
+			</navigator>
+		</view>
+		<view class="gototop {{scrolltop>200?'active':''}}" bindtap="goToTop"></view>
+	</scroll-view>
+</view>
+
+  </swiper-item >
+</swiper>
