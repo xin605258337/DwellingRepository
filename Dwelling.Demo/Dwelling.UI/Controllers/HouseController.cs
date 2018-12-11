@@ -26,7 +26,10 @@ namespace Dwelling.UI.Controllers
             return View();
         }
 
-        
+        public JsonResult GetImg(HttpPostedFileBase file)
+        {
+            return Json(file.FileName);
+        }
 
        
     }

@@ -214,7 +214,7 @@
                             <div class="info"></div>
                             <div class="btns">
                                 <div id="filePicker2"></div>
-                                <div class="uploadBtn">开始上传</div>
+                                <input type="button" name="btnUpload" value="开始上传" onclick="upload()" />
                             </div>
                         </div>
                     </div>
@@ -290,7 +290,7 @@
                 swf: 'lib/webuploader/0.1.5/Uploader.swf',
 
                 // 文件接收服务端。
-                server: '../Controllers/HouseController/0.1.5/server/fileupload.php',
+                server: '/House/GetImg',
 
                 // 选择文件的按钮。可选。
                 // 内部根据当前运行是创建，可能是input元素，也可能是flash.
@@ -957,6 +957,19 @@
 
         $(function () {
         });
+        function upload() {
+            $.ajax({
+                url: "/house/GetImg",
+                type: "post",
+                data: new FormData($("#formdata")[0]),
+                cache: false,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    console.log(data);
+                }
+            })
+        }
     </script>
 </body>
 </html>
