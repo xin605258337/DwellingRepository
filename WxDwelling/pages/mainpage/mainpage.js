@@ -11,13 +11,53 @@ Page({
     page: 1,  //分页
     Counts: 0, //总页数
   },
-  onLoad: function () {         //加载数据渲染页面
-    this.fetchFilterData();
+  onLoad: function () {  
+    var that=this;
+    var reg = [{
+      "id": 0,
+      "title": "不限"
+    }];
+    var housetype=[{
+      "id": 0,
+      "title": "全部"
+    }]
+    //加载数据渲染页面
     this.fetchServiceData();
+    //获取北京地区
+    wx.request({
+      url: 'https://apis.map.qq.com/ws/district/v1/getchildren?id=110000&key=HYPBZ-PNF3J-GRYFR-K4XZ2-3YXLV-67B5R',
+      success: function (res) {
+        
+        for (var i = 0; i < res.data.result[0].length;i++){
+          reg.push(
+            {
+              "id": i+1,
+              "title": res.data.result[0][i].fullname
+            }
+          )
+        }
+        wx.request({
+          url: 'http://localhost:8092/Dwelling/GetHabitableRoom',
+          success: function (res) {
+            for (var i = 0; i < res.data.length; i++) {
+              housetype.push(
+                {
+                  "id": res.data[i].HabitableRoom_ID,
+                  "title": res.data[i].HabitableRoom_Name
+                }
+              )
+            }
+            that.fetchFilterData(reg, housetype);
+          }
+        })
+      }
+    })
+    //获取居室
+    
 
 
   },
-  fetchFilterData: function () { //获取筛选条件
+  fetchFilterData: function (region, housetype) { //获取筛选条件
     this.setData({
       filterdata: {
         "sort": [
@@ -25,97 +65,9 @@ Page({
             "id": 1,
             "title": "最新"
           },
-          {
-            "id": 2,
-            "title": "价格"
-          },
-          {
-            "id": 3,
-            "title": "面积"
-          },
+          
         ],
-        "region": [
-          {
-            "id": '0',
-            "title": "不限"
-          },
-          {
-            "id": '朝阳',
-            "title": "朝阳"
-          },
-          {
-            "id": '海淀',
-            "title": "海淀"
-          },
-          {
-            "id": '东城',
-            "title": "东城"
-          },
-          {
-            "id": '崇文',
-            "title": "崇文"
-          },
-          {
-            "id": '宣武',
-            "title": "宣武"
-          },
-          {
-            "id": '大兴',
-            "title": "大兴"
-          },
-          {
-            "id": '房山',
-            "title": "房山"
-          },
-          {
-            "id": '丰台',
-            "title": "丰台"
-          },
-          {
-            "id": '昌平',
-            "title": "昌平"
-          },
-          {
-            "id": '怀柔',
-            "title": "怀柔"
-          },
-          {
-            "id": '门头沟',
-            "title": "门头沟"
-          },
-          {
-            "id": '密云',
-            "title": "密云"
-          },
-          {
-            "id": '平谷',
-            "title": "平谷"
-          },
-          {
-            "id": '石景山',
-            "title": "石景山"
-          },
-          {
-            "id": '顺义',
-            "title": "顺义"
-          },
-          {
-            "id": '通州',
-            "title": "通州"
-          },
-          {
-            "id": '西城',
-            "title": "西城"
-          },
-          {
-            "id": '延庆',
-            "title": "延庆"
-          },
-          {
-            "id": '燕郊',
-            "title": "燕郊"
-          },
-        ],
+        "region": region,
         "Prices": [
           {
             "id": '0',
@@ -196,32 +148,7 @@ Page({
             "title": "300㎡以上"
           },
         ],
-        "housetype": [
-          {
-            "id": 0,
-            "title": "不限"
-          },
-          {
-            "id": 1,
-            "title": "1室"
-          },
-          {
-            "id": 2,
-            "title": "2室"
-          },
-          {
-            "id": 3,
-            "title": "3室"
-          },
-          {
-            "id": 4,
-            "title": "4室"
-          },
-          {
-            "id": 5,
-            "title": "5室以上"
-          },
-        ],
+        "housetype": housetype,
         "Sourcetype": [
           {
             "id": '0',
@@ -320,31 +247,6 @@ Page({
     })
   },
   fetchServiceData: function () {  //获取城市列表
-    let _this = this;
-    wx.showToast({
-      title: '加载中',
-      icon: 'loading'
-    })
-    const perpage = 10;
-    this.setData({
-      page: this.data.page + 1
-    })
-    const page = this.data.page;
-    const newlist = [];
-    for (var i = (page - 1) * perpage; i < page * perpage; i++) {
-      newlist.push({
-        "id": i + 1,
-        "name": "上海拜特信息技术有限公司" + (i + 1),
-        "city": "上海",
-        "tag": "法律咨询",
-        "imgurl": "http://img.mukewang.com/57fdecf80001fb0406000338-240-135.jpg"
-      })
-    }
-    setTimeout(() => {
-      _this.setData({
-        servicelist: _this.data.servicelist.concat(newlist)
-      })
-    }, 1500)
   },
   inputSearch: function (e) {  //输入搜索文字
     this.setData({

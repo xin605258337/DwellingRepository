@@ -1,11 +1,12 @@
 {
-  "pages": [    
+  "pages": [   
+    "pages/mainpage/mainpage", 
     "pages/homepage/homepage",
     "pages/userpage/userpage",
     "pages/index/index",
     "pages/homeissue/homeissue",
     "pages/homeissueone/homeissueone",
-    "pages/mainpage/mainpage",
+    
     "pages/details/details",
     "pages/mappage/mappage",
     "pages/Complaints/Complaints",
