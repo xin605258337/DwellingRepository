@@ -42,7 +42,15 @@ namespace Dwelling.Model
         /// </summary>
         public int Style_ID { get; set; }
         /// <summary>
-        /// 地址
+        /// 地区ID
+        /// </summary>
+        public string Region_ID { get; set; }
+        /// <summary>
+        /// 街道
+        /// </summary>
+        public string Street_ID { get; set; }
+        /// <summary>
+        /// 详细地址
         /// </summary>
         public string House_Address { get; set; }
         /// <summary>
