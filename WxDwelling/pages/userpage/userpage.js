@@ -18,12 +18,12 @@ Page({
       {
         "iconUrl": '../../image/shoucang.png',
         "iconText": '收藏',
-        "url": ''
+        "url": '../track/track'
       },
       {
         "iconUrl": '../../image/zuji.png',
         "iconText": '足迹',
-        "url": ''
+        "url": '../track/track'
       },
       {
         "iconUrl": '../../image/fabu.png',
@@ -62,6 +62,13 @@ Page({
         }
       })
     }
+
+  },
+  order:function(){
+    wx.navigateTo({
+      url: '../Complaints/Complaints',
+    })
+
 
   },
 

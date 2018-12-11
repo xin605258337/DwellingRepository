@@ -1237,7 +1237,6 @@
     <Content Include="H-ui.admin\README.md" />
     <Content Include="H-ui.admin\temp\Thumbs.db" />
     <None Include="packages.config" />
-    <Content Include="Views\House\AddHouse.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1249,6 +1248,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\Img\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\House\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

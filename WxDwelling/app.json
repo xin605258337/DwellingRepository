@@ -7,7 +7,9 @@
     "pages/homeissueone/homeissueone",
     "pages/mainpage/mainpage",
     "pages/details/details",
-    "pages/mappage/mappage"
+    "pages/mappage/mappage",
+    "pages/Complaints/Complaints",
+    "pages/track/track"
   ],
   "window": {
     "backgroundTextStyle": "light",
