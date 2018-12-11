@@ -72,7 +72,7 @@ namespace Dwelling.Api.Controllers
         }
 
         /// <summary>
-        /// 获取房源朝向信息
+        /// 获取房源类型信息
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -94,7 +94,7 @@ namespace Dwelling.Api.Controllers
         [HttpGet]
         [Route("GetLeaseType")]
         /// <summary>
-        /// 获取房源朝向信息
+        /// 获取出租类型信息
         /// </summary>
         /// <returns></returns>
         public List<LeaseType> GetLeaseType()

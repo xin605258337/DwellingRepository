@@ -97,5 +97,9 @@ namespace Dwelling.Model
         /// 点击数
         /// </summary>
         public int House_ClickNum { get; set; }
+        /// <summary>
+        /// 是否启用
+        /// </summary>
+        public int House_IsEnable { get; set; }
     }
 }
