@@ -88,7 +88,7 @@ namespace Dwelling.Model
         /// <summary>
         /// 房源所属人
         /// </summary>
-        public int House_Owner { get; set; }
+        public string House_Owner { get; set; }
         /// <summary>
         /// 房源所属人电话
         /// </summary>

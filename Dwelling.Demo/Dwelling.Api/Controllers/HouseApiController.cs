@@ -67,10 +67,10 @@ namespace Dwelling.Api.Controllers
             return HouseService.GetHouseByID(houseId);
         }
         /// <summary>
-        /// 获取所有房源信息s
+        /// 获取所有房源信息
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet]   
         [Route("GetHouses")]
         public List<House> GetHouses()
         {
