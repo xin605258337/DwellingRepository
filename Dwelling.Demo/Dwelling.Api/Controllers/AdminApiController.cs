@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-
+using System.Configuration;
 namespace Dwelling.Api.Controllers
 {
     using Unity;
@@ -58,6 +58,8 @@ namespace Dwelling.Api.Controllers
         {
             return AdminService.DeleteAdmin(adminId);
         }
+       
+        
 
     }
 }

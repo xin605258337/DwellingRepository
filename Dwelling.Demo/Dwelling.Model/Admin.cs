@@ -24,6 +24,11 @@ namespace Dwelling.Model
         /// <summary>
         /// 身份
         /// </summary>
-        public int Admin_Permission { get; set; }
+        public string Admin_Permission { get; set; }
+
+        public int Admin_number { get; set; }
+        public string Admin_remark { get; set; }
+        public string Admin_email { get; set; }
+        public string Admin_sex { get; set; }
     }
 }

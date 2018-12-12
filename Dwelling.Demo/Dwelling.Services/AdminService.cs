@@ -32,20 +32,27 @@ namespace Dwelling.Services
         /// <returns></returns>
         public Admin adminLogin(Admin admin)
         {
+            conn.Open();
             //存储过程参数
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("_Admin_Name", admin.Admin_Name);
-            parameters.Add("_Admin_Password", admin.Admin_Password);
+            parameters.Add("@_Admin_Name", admin.Admin_Name);
+            parameters.Add("@_Admin_Password", admin.Admin_Password);
+            var ad= conn.Query<Admin>("pro_AdminLogin", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            conn.Close();
             //获取admin
-            return conn.Query<Admin>("pro_AdminLogin", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            return ad;
         }
+        
         /// <summary>
         /// 获取所有普通管理员
         /// </summary>
         /// <returns></returns>
         public List<Admin> GetAdmins()
         {
-            return conn.Query<Admin>("pro_GetAdmin", null, commandType: CommandType.StoredProcedure).ToList();
+            conn.Open();
+            var ad = conn.Query<Admin>("proc_getadmins", null, commandType: CommandType.StoredProcedure).ToList();
+            conn.Close();
+            return ad;
         }
         /// <summary>
         /// 添加管理员
@@ -54,11 +61,21 @@ namespace Dwelling.Services
         /// <returns></returns>
         public int AddAdmin(Admin admin)
         {
+            conn.Open();
             //存储过程参数
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("_Admin_Name", admin.Admin_Name);
-            parameters.Add("_Admin_Password", admin.Admin_Password);
-            return conn.Execute("pro_AddAdmin", parameters, commandType: CommandType.StoredProcedure);
+
+            parameters.Add("@_Admin_ID", admin.Admin_ID);
+            parameters.Add("@_Admin_Name", admin.Admin_Name);
+            parameters.Add("@_Admin_Password", admin.Admin_Password);
+            parameters.Add("@_Admin_number", admin.Admin_number);
+            parameters.Add("@_Admin_Permission", admin.Admin_Permission);
+            parameters.Add("@_Admin_remark", admin.Admin_remark);
+            parameters.Add("@_Admin_email", admin.Admin_email);
+            parameters.Add("@_Admin_sex", admin.Admin_sex);
+            var addadmin= conn.Execute("proc_addadmins", parameters, commandType: CommandType.StoredProcedure);
+            conn.Close();
+            return addadmin;
         }
         /// <summary>
         /// 删除管理员信息
@@ -70,5 +87,6 @@ namespace Dwelling.Services
             parameters.Add("_Admin_ID",adminId);
             return conn.Execute("pro_DeleteAdmin", parameters, commandType: CommandType.StoredProcedure);
         }
+
     }
 }

@@ -92,6 +92,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Img\bootstrap.css" />
+    <Content Include="Content\Img\jquery-1.10.2.js" />
     <Content Include="Content\jquery-3.1.1.js" />
     <Content Include="Global.asax" />
     <Content Include="H-ui.admin\404.html" />
@@ -1246,7 +1248,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Img\" />
     <Folder Include="Models\" />
     <Folder Include="Views\House\" />
   </ItemGroup>
