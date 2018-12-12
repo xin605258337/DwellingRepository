@@ -25,11 +25,25 @@ namespace Dwelling.UI.Controllers
         {
             return View();
         }
-
-        public JsonResult GetImg(HttpPostedFileBase file)
+        
+        [HttpPost]
+        public JsonResult GetImg()
         {
-            return Json(file.FileName);
+            List<string> pathList = new List<string>();
+            var num = HttpContext.Request.Files.Count;
+            for (int i = 0; i < num; i++)
+            {
+                HttpPostedFile file = System.Web.HttpContext.Current.Request.Files[i];
+                //上传的文件保存到目录(为了保证文件名不重复，加个Guid)
+                string path = "~/Content/Img/" + Guid.NewGuid().ToString() + file.FileName;
+                file.SaveAs(HttpContext.Request.MapPath(path));//必须得是相对路径
+                pathList.Add(file.FileName);
+
+            }
+            return Json(pathList);
         }
+
+
 
        
     }

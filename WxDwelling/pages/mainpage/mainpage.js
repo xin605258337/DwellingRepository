@@ -5,7 +5,7 @@ Page({
     showfilterindex: null, //显示哪个筛选类目
     sortindex: 0,  //排序索引
     sortid: 1,  //排序id
-    filter: { region: "0", Prices: '0', acreage: '0', housetype: 0, Sourcetype: '0', Decoration: '0', orientations: '0' },
+    filter: { region: "0", Prices: '0', acreage: '0', housetype: 0, Decoration: '0', orientations: '0' },
     conferencelist: [], //房源显示
     scrolltop: null, //滚动位置
     page: 1,  //分页
@@ -21,13 +21,16 @@ Page({
       "id": 0,
       "title": "全部"
     }]
+    var price=[{
+      "id":0,
+      "title":"不限"
+    }]
     //加载数据渲染页面
     this.fetchServiceData();
     //获取北京地区
     wx.request({
       url: 'https://apis.map.qq.com/ws/district/v1/getchildren?id=110000&key=HYPBZ-PNF3J-GRYFR-K4XZ2-3YXLV-67B5R',
-      success: function (res) {
-        
+      success: function (res) {       
         for (var i = 0; i < res.data.result[0].length;i++){
           reg.push(
             {
@@ -36,6 +39,7 @@ Page({
             }
           )
         }
+        //获取居室
         wx.request({
           url: 'http://localhost:8092/Dwelling/GetHabitableRoom',
           success: function (res) {
@@ -47,15 +51,26 @@ Page({
                 }
               )
             }
-            that.fetchFilterData(reg, housetype);
+            //获取价格范围
+            wx.request({
+              url: 'http://localhost:8092/Dwelling/GetPrice',
+              success: function (res) {
+                console.log(res)
+                for (var i = 0; i < res.data.length; i++) {
+                  price.push(
+                    {
+                      "id": res.data[i].Price_ID,
+                      "title": res.data[i].Price_Name
+                    }
+                  )
+                }
+                that.fetchFilterData(reg, housetype,price);
+
+              }
           }
         })
       }
     })
-    //获取居室
-    
-
-
   },
   fetchFilterData: function (region, housetype) { //获取筛选条件
     this.setData({
@@ -68,44 +83,7 @@ Page({
           
         ],
         "region": region,
-        "Prices": [
-          {
-            "id": '0',
-            "title": "不限"
-          },
-          {
-            "id": '0,50',
-            "title": "50万以下"
-          },
-          {
-            "id": '50,80',
-            "title": "50-80万"
-          },
-          {
-            "id": '80,100',
-            "title": "80-100万"
-          },
-          {
-            "id": '100,120',
-            "title": "100-120万"
-          },
-          {
-            "id": '120,150',
-            "title": "120-150万"
-          },
-          {
-            "id": '150,200',
-            "title": "150-200万"
-          },
-          {
-            "id": '200,300',
-            "title": "200-300万"
-          },
-          {
-            "id": '300',
-            "title": "300万以上"
-          },
-        ],
+        "Prices": price,
         "acreage": [
           {
             "id": '0',
@@ -115,62 +93,8 @@ Page({
             "id": '0,50',
             "title": "50㎡以下"
           },
-          {
-            "id": '50,70',
-            "title": "50-70㎡"
-          },
-          {
-            "id": '70,90',
-            "title": "70-90㎡"
-          },
-          {
-            "id": '90,110',
-            "title": "90-110㎡"
-          },
-          {
-            "id": '110,130',
-            "title": "110-130㎡"
-          },
-          {
-            "id": '130,150',
-            "title": "130-150㎡"
-          },
-          {
-            "id": '150,200',
-            "title": "150-200㎡"
-          },
-          {
-            "id": '200,300',
-            "title": "200-300㎡"
-          },
-          {
-            "id": '300',
-            "title": "300㎡以上"
-          },
         ],
         "housetype": housetype,
-        "Sourcetype": [
-          {
-            "id": '0',
-            "title": "全部"
-          },
-          {
-            "id": '住宅',
-            "title": "住宅"
-          },
-          {
-            "id": '别墅',
-            "title": "别墅"
-          },
-          {
-            "id": '商铺',
-            "title": "商铺"
-          },
-          {
-            "id": '写字楼',
-            "title": "写字楼"
-          },
-        ],
         "Decoration": [
           {
             "id": '0',

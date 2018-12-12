@@ -135,8 +135,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">房源所属人：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="House_Owner" class="input-text" style="width:90%">hold
-                    kg
+                    <input type="text" name="House_Owner" class="input-text" style="width:90%">                  
                 </div>
             </div>
             <div class="row cl">
@@ -156,13 +155,6 @@
                 <label class="form-label col-xs-4 col-sm-2">租房付款方式：</label>
                 <div class="formControls col-xs-8 col-sm-9">
                     <input type="text" name="House_Payment" class="input-text" style="width:90%">
-                </div>
-            </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">是否启用：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <input id="Radio1" type="radio" name="House_IsEnable" value="1" />是
-                    <input id="Radio1" type="radio" name="House_IsEnable" value="0" />否
                 </div>
             </div>
             <div class="row cl">
@@ -199,7 +191,7 @@
                             <div class="info"></div>
                             <div class="btns">
                                 <div id="filePicker2"></div>
-                                <input type="button" name="btnUpload" value="开始上传" onclick="upload()" />
+                                <div class="uploadBtn">开始上传</div>
                             </div>
                         </div>
                     </div>
@@ -362,7 +354,7 @@
                 swf: 'lib/webuploader/0.1.5/Uploader.swf',
 
                 // 文件接收服务端。
-                server: '/House/GetImg',
+                server: 'http://localhost:55909/House/GetImg',
 
                 // 选择文件的按钮。可选。
                 // 内部根据当前运行是创建，可能是input元素，也可能是flash.
@@ -606,7 +598,7 @@
                     swf: 'lib/webuploader/0.1.5/Uploader.swf',
                     chunked: false,
                     chunkSize: 512 * 1024,
-                    server: 'lib/webuploader/0.1.5/server/fileupload.php',
+                    server: 'http://localhost:55909/House/GetImg',
                     // runtimeOrder: 'flash',
 
                     // accept: {
@@ -1029,19 +1021,6 @@
 
         $(function () {
         });
-        function upload() {
-            $.ajax({
-                url: "/house/GetImg",
-                type: "post",
-                data: new FormData($("#formdata")[0]),
-                cache: false,
-                processData: false,
-                contentType: false,
-                success: function (data) {
-                    console.log(data);
-                }
-            })
-        }
     </script>
 </body>
 </html>
