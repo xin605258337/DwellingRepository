@@ -37,14 +37,10 @@ namespace Dwelling.UI.Controllers
                 //上传的文件保存到目录(为了保证文件名不重复，加个Guid)
                 string path = "~/Content/Img/" + Guid.NewGuid().ToString() + file.FileName;
                 file.SaveAs(HttpContext.Request.MapPath(path));//必须得是相对路径
-                pathList.Add(file.FileName);
+                pathList.Add("~/Content/Img/"+file.FileName);
 
             }
             return Json(pathList);
-        }
-
-
-
-       
+        }  
     }
 }
