@@ -52,7 +52,6 @@
 			<text class="input-item-label">
       描
       述
-
       </text>
 			<view class="input-item-content">
 			 	<input type="text" bindinput="inputName"></input>
