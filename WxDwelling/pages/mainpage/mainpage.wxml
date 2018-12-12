@@ -46,7 +46,7 @@
 							<text wx:for="{{filterdata.Sourcetype}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="Sourcetype" class="{{filter.Sourcetype==item.id?'active':''}}">{{item.title}}</text>
 						</view>
 					</view>
-          <view class="group-header">装饰情况</view>
+          <view class="group-header">装修风格</view>
 					<view class="group-body">
 						<view class="filter-tags">
 							<text wx:for="{{filterdata.Decoration}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="Decoration" class="{{filter.Decoration==item.id?'active':''}}">{{item.title}}</text>
