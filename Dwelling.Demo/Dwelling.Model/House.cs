@@ -22,9 +22,9 @@ namespace Dwelling.Model
         /// </summary>
         public string House_ImgUrl { get; set; }
         /// <summary>
-        /// 房源价格
+        /// 房源描述
         /// </summary>
-        public decimal House_Price { get; set; }
+        public string House_Describe { get; set; }
         /// <summary>
         /// 居室户型
         /// </summary>

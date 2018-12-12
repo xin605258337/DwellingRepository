@@ -27,6 +27,12 @@ namespace Dwelling.Api.Controllers
         public ILeaseTypeService LeaseTypeService { get; set; }
         [Dependency]
         public IHabitableroomServices HabitableroomServices { get; set; }
+        [Dependency]
+        public IFacilityService FacilityServices { get; set; }
+        [Dependency]
+        public IPriceService PriceServices { get; set; }
+        [Dependency]
+        public IAreaService AreaServices { get; set; }
         /// <summary>
         /// 添加房源
         /// </summary>
@@ -120,6 +126,37 @@ namespace Dwelling.Api.Controllers
         public List<Style> GetStyle()
         {
             return StyleService.GetStyle();
+        }
+        [HttpGet]
+        [Route("GetFacility")]
+        /// <summary>
+        /// 获取房源设施信息
+        /// </summary>
+        /// <returns></returns>
+        public List<Facility> GetFacility()
+        {
+            return FacilityServices.GetFacility();
+        }
+        [HttpGet]
+        [Route("GetPrice")]
+        /// <summary>
+        /// 获取价格范围信息
+        /// </summary>
+        /// <returns></returns>
+        public List<Price> GetPrice()
+        {
+            return PriceServices.GetPrice();
+        }
+
+        [HttpGet]
+        [Route("GetArea")]
+        /// <summary>
+        /// 获取面积范围信息
+        /// </summary>
+        /// <returns></returns>
+        public List<Area> GetArea()
+        {
+            return AreaServices.GetArea();
         }
 
     }

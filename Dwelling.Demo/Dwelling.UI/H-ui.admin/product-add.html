@@ -20,30 +20,25 @@
 </head>
 <body>
     <div class="page-container">
-        <form action="" method="post" class="form form-horizontal" id="form-article-add">
+        <form  method="post" class="form form-horizontal" id="form-article-add">
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>标题：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" value="" placeholder="" id="" name="">
+                    <input type="text" class="input-text" name="House_Name">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">价格：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" value="" placeholder="" id="" name="">
+                    <input type="text" class="input-text" name="House_RentMoney">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>居室户型：</label>
                 <div class="formControls col-xs-8 col-sm-9">
                     <span class="select-box">
-                        <select name="" class="select">
+                        <select name="HabitableRoom_ID" class="select">
                             <option>请选择</option>
-                            <option value="">一室一卫</option>
-                            <option value="">一室一厅一卫</option>
-                            <option value="">二室一厅一卫</option>
-                            <option value="">三室两厅一卫</option>
-                            <option value="">四室两厅两卫</option>
                         </select>
                     </span>
                 </div>
@@ -51,19 +46,15 @@
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">面积：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" placeholder="" id="" name="">
+                    <input type="text" class="input-text" name="House_Area">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>朝向：</label>
                 <div class="formControls col-xs-8 col-sm-9">
                     <span class="select-box">
-                        <select name="" class="select">
+                        <select name="Orientation_ID" class="select">
                             <option>请选择</option>
-                            <option value="">东</option>
-                            <option value="">南</option>
-                            <option value="">西</option>
-                            <option value="">北</option>
                         </select>
                     </span>
                 </div>
@@ -72,12 +63,9 @@
                 <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>房源风格：</label>
                 <div class="formControls col-xs-8 col-sm-9">
                     <span class="select-box">
-                        <select name="" class="select">
+                        <select name="Style_ID" class="select">
                             <option>请选择</option>
-                            <option value="">不限</option>
-                            <option value="">工业风</option>
-                            <option value="">北欧宜家</option>
-                            <option value="">现代简约</option>
+                            
                         </select>
                     </span>
                 </div>
@@ -86,10 +74,9 @@
                 <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>出租类型：</label>
                 <div class="formControls col-xs-8 col-sm-9">
                     <span class="select-box">
-                        <select name="" class="select">
+                        <select name="LeaseType_ID" class="select">
                             <option>请选择</option>
-                            <option value="">整租</option>
-                            <option value="">合租</option>
+                            
                         </select>
                     </span>
                 </div>
@@ -97,11 +84,11 @@
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">地址：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <select id="sRgion">
+                    <select id="sRgion" name="Region_ID">
                         <option value="0">请选择</option>
 
                     </select>
-                    <select id="sStreet">
+                    <select id="sStreet" name="Street_ID">
                         <option value="0">请选择</option>
 
                     </select>
@@ -110,29 +97,28 @@
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">详细地址：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="" id="" placeholder="" value="" class="input-text">
+                    <input type="text" name="House_Address"  class="input-text">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">总楼层：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="" id="" placeholder="" value="" class="input-text">
+                    <input type="text" name="House_SumFloor" class="input-text">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">楼层：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="" id="" placeholder="" value="" class="input-text">
+                    <input type="text" name="House_Floor" class="input-text">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">楼房类型：</label>
                 <div class="formControls col-xs-8 col-sm-9">
                     <span class="select-box">
-                        <select class="select">
+                        <select class="select" name="BuildingType_ID">
                             <option>请选择</option>
-                            <option value="">电梯楼</option>
-                            <option value="">楼梯房</option>
+              
                         </select>
                     </span>
                 </div>
@@ -140,62 +126,60 @@
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">房屋设施：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <span class="select-box">
-                        <input id="Checkbox1" type="checkbox" />双人床
-                        <input id="Checkbox1" type="checkbox" />空调
-                        <input id="Checkbox1" type="checkbox" />无线
+                    <span class="select-box" id="s1">
+                        
                     </span>
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">房源所属人：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="" id="" placeer="" value="" class="input-text" style="width:90%">hold
+                    <input type="text" name="House_Owner" class="input-text" style="width:90%">hold
                     kg
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">房源所属人电话：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
+                    <input type="text" name="House_OwnerTel" class="input-text" style="width:90%">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">房源所属人微信：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
+                    <input type="text" name="House_OwnerWx"   class="input-text" style="width:90%">
                     元
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">租房付款方式：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
+                    <input type="text" name="House_Payment" class="input-text" style="width:90%">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">是否启用：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input id="Radio1" type="radio" />是
-                    <input id="Radio1" type="radio" />否
+                    <input id="Radio1" type="radio" name="House_IsEnable" value="1"/>是
+                    <input id="Radio1" type="radio" name="House_IsEnable" value="0"/>否
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">出租开始时间：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate" style="width:180px;">
+                    <input name="House_RentTimeBegin" type="text" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate" style="width:180px;">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">出租结束时间：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'datemin\')}' })" id="datemax" class="input-text Wdate" style="width:180px;">
+                    <input name="House_RentTimeEnd" type="text" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'datemin\')}' })" id="datemax" class="input-text Wdate" style="width:180px;">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">房源描述：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <textarea name="" cols="" rows="" class="textarea" placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
+                    <textarea name="House_Describe" class="textarea" placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
                     <p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
                 </div>
             </div>
@@ -222,7 +206,7 @@
             </div>
             <div class="row cl">
                 <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                    <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button>
+                    <button id="add" class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button>
                     <button onClick="article_save();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存草稿</button>
                     <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
                 </div>
@@ -246,6 +230,67 @@
     <script type="text/javascript" src="lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
     <script type="text/javascript">
         $(function () {
+                //获取房源设施
+                $.ajax({
+                url: "http://localhost:8092/Dwelling/GetFacility",
+                type: "get",
+                success: function (data) {
+                    $(data).each(function (index, data) {
+                        $("#s1").append("<input type='checkbox'  value='" + data.Facility_ID + "'>" + data.Facility_Name+"")
+                    })
+                }
+            })
+                //获取户型信息
+                $.ajax({
+                    url: "http://localhost:8092/Dwelling/GetHabitableRoom",
+                    type: "get",
+                    success: function (data) {
+                        $(data).each(function (index, data) {
+                            $("select[name=HabitableRoom_ID]").append("<option value='" + data.HabitableRoom_ID + "'>" + data.HabitableRoom_Name + "</option>")
+                        })
+                    }
+                })
+                //获取房源朝向信息
+                $.ajax({
+                    url: "http://localhost:8092/Dwelling/GetOrientation",
+                    type: "get",
+                    success: function (data) {
+                        $(data).each(function (index, data) {
+                            $("select[name=Orientation_ID]").append("<option value='" + data.Orientation_ID + "'>" + data.Orientation_Name + "</option>")
+                        })
+                    }
+                })
+                //获取房源风格信息
+                $.ajax({
+                    url: "http://localhost:8092/Dwelling/GetStyle",
+                    type: "get",
+                    success: function (data) {
+                        $(data).each(function (index, data) {
+                            $("select[name=Style_ID]").append("<option value='" + data.Style_ID + "'>" + data.Style_Name + "</option>")
+                        })
+                    }
+                })
+                //获取出租类型信息
+                $.ajax({
+                    url: "http://localhost:8092/Dwelling/GetLeaseType",
+                    type: "get",
+                    success: function (data) {
+                        $(data).each(function (index, data) {
+                            $("select[name=LeaseType_ID]").append("<option value='" + data.LeaseType_ID + "'>" + data.LeaseType_Name + "</option>")
+                        })
+                    }
+                })
+                //获取楼房类型信息
+                $.ajax({
+                    url: "http://localhost:8092/Dwelling/GetBuildingType",
+                    type: "get",
+                    success: function (data) {
+                        $(data).each(function (index, data) {
+                            $("select[name=BuildingType_ID]").append("<option value='" + data.BuildingType_ID + "'>" + data.BuildingType_Name + "</option>")
+                        })
+                    }
+                })
+
             //区
             $.ajax({
                 url: "https://apis.map.qq.com/ws/district/v1/getchildren?id=110000&key=HYPBZ-PNF3J-GRYFR-K4XZ2-3YXLV-67B5R&output=jsonp",
@@ -270,6 +315,19 @@
                         $(data.result[0]).each(function (index, data) {
                             $("#sStreet").append("<option value='" + data.id + "'>" + data.fullname + "</option>");
                         })
+                    }
+                })
+            })
+            //添加数据
+            $("#add").click(function () {
+                $.ajax({
+                    url: "http://localhost:8092/Dwelling/AddHouse",
+                    type: "post",
+                    data: $("#form-article-add").serialize(),
+                    success: function (data) {
+                        if (data > 0) {
+                            alert("保存成功!!!");
+                        }
                     }
                 })
             })

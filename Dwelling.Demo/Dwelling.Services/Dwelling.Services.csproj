@@ -47,11 +47,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminService.cs" />
+    <Compile Include="AreaService.cs" />
     <Compile Include="BuildingTypeService.cs" />
+    <Compile Include="FacilityService.cs" />
     <Compile Include="HabitableRoomServices.cs" />
     <Compile Include="HouseService.cs" />
     <Compile Include="LeaseTypeService.cs" />
     <Compile Include="OrientationService.cs" />
+    <Compile Include="PriceService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishHouseService.cs" />
     <Compile Include="StyleService.cs" />

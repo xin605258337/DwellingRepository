@@ -36,7 +36,7 @@ namespace Dwelling.Services
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("_House_Name", house.House_Name);
             parameters.Add("_House_ImgUrl", house.House_ImgUrl);
-            parameters.Add("_House_Price", house.House_Price);
+            parameters.Add("_House_Describe", house.House_Describe);
             parameters.Add("_HabitableRoom_ID", house.HabitableRoom_ID);
             parameters.Add("_Region_ID", house.Region_ID);
             parameters.Add("_Street_ID", house.Street_ID);
