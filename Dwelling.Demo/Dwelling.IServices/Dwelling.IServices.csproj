@@ -49,8 +49,10 @@
     <Compile Include="IHouseService.cs" />
     <Compile Include="ILeaseTypeService.cs" />
     <Compile Include="IOrientationService.cs" />
+    <Compile Include="IPermissionService.cs" />
     <Compile Include="IPriceService.cs" />
     <Compile Include="IPublishHouseService.cs" />
+    <Compile Include="IRoleService.cs" />
     <Compile Include="IStyleService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

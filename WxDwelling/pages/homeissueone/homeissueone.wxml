@@ -13,7 +13,7 @@
 	<view class="input-item">
 			<text class="input-item-label">出租房间:</text>
 			<view class="input-item-content">
-				<input type="idcard" placeholder="请输入出租房间"bindinput="inputPhone"></input>
+				<input type="idcard"  placeholder="请输入出租房间"bindinput="inputPhone"></input>
 			</view>
 		</view>
      <!--房间面积-->
@@ -83,7 +83,9 @@
 						</view>
 					</view>
 				</view>
-    
+    <view class="btn-submit">
+		<button class="btn-block btn-orange" bindtap="applySubmit">发布房源</button>
+	       </view>
   </swiper-item>
 <!--整租页面-->
    <swiper-item >
@@ -153,7 +155,9 @@
     
     
 
-  
+   <view class="btn-submit">
+		<button class="btn-block btn-orange" bindtap="applySubmit">发布房源</button>
+	       </view>
 
   </swiper-item>
 </swiper>
