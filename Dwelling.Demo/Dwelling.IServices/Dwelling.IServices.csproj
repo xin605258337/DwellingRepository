@@ -47,6 +47,7 @@
     <Compile Include="IFacilityService.cs" />
     <Compile Include="IHabitableroomServices.cs" />
     <Compile Include="IHouseService.cs" />
+    <Compile Include="IImageService.cs" />
     <Compile Include="ILeaseTypeService.cs" />
     <Compile Include="IOrientationService.cs" />
     <Compile Include="IPriceService.cs" />

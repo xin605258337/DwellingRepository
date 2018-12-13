@@ -34,6 +34,17 @@ namespace Dwelling.Api.Controllers
         [Dependency]
         public IAreaService AreaServices { get; set; }
         /// <summary>
+        /// 根据添加房源的第一张图片url获得房源ID
+        /// </summary>
+        /// <param name="imgUrl"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetHouseIdByImgUrl")]
+        public int GetHouseIdByImgUrl(string imgUrl)
+        {
+            return HouseService.GetHouseIdByImgUrl(imgUrl);
+        }
+        /// <summary>
         /// 添加房源
         /// </summary>
         /// <param name="house"></param>
