@@ -357,7 +357,6 @@
                                 imgUrl: $("input[name=House_ImgUrl]").val(),
                             },
                             success: function (data) {
-                                alert(data);
                                 for (i = 0; i < imgs.length; i++) {
                                     $.ajax({
                                         url: "http://localhost:8092/Dwelling/AddImg",
