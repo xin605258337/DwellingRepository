@@ -11,7 +11,19 @@ Page({
     page: 1,  //分页
     Counts: 0, //总页数
   },
-  onLoad: function () {  
+  onLoad: function () {
+    var that=this;
+    //加载房源信息
+    wx.request({
+      url: 'http://localhost:8092/Dwelling/GetHouses',
+      success:function(res){
+        that.setData({
+          conferencelist:res.data
+        })
+        console.log(that.data.conferencelist)
+          
+      }
+    })  
     var that=this;
     var reg = [{
       "id": 0,

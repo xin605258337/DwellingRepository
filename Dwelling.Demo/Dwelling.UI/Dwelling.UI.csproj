@@ -937,7 +937,6 @@
     <Content Include="H-ui.admin\member-record-browse.html" />
     <Content Include="H-ui.admin\member-record-download.html" />
     <Content Include="H-ui.admin\member-record-share.html" />
-    <Content Include="H-ui.admin\member-show.html" />
     <Content Include="H-ui.admin\picture-add.html" />
     <Content Include="H-ui.admin\picture-list.html" />
     <Content Include="H-ui.admin\picture-show.html" />

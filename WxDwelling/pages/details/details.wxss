@@ -72,6 +72,7 @@
 .space-item .text-right{
 	color: #777;
 }
+
 .container-footer text.apply-btn{
 	background: #f7982a;
 	color: #fff;
@@ -96,51 +97,13 @@
 	width: 50%;
 	float: left;
 }
+
 .space-passage{
 	font-size: 30rpx;
 	text-indent: 2em;
 	margin-top: 20rpx;
 }
-
-.containerr {
-	flex: 1;
-  	display: flex;
-  	flex-direction: column;
- 	box-sizing: border-box;
-}
-.container-footer{
-	width: 100%;
-	display: flex;
-	height: 88rpx;
-	border-top: 1rpx solid #ddd;
-	background: #fff;
-}
-.container-footer button{
-	flex: 1;
-	display: block;
-	text-align: center;
-	height: 88rpx;
-	line-height: 88rpx;
-	font-size: 34rpx;
-	border-left: 1rpx solid #ddd;
-}
-.container-footer button:first-child{
-	border-left: none;
-  background-color: orange;
-}
-.container-footer .btn-block{
-	border-radius: 0;
-}
-.container-footer .btn-block:after{
-	border: none;
-}
-.group{
-	display: block;
-	width: 100%;
-}
-.group-header{
-	line-height: 70rpx;
-	display: flex;
-	padding: 0 20rpx;
-	background: #f9f9f9;
+.halfwidth-item{
+	width: 50%;
+	display: inline-block;
 }

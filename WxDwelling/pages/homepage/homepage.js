@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    conferencelist: [], //房源显示
     imgUrls: [
       '../../image/woniu.jpg',
       'https://public.wutongwan.org/public-20180402-Ft8Cd_qKwRig0ZZ9w1pHvsyX1VDx',
@@ -40,7 +41,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this;
+    //加载房源信息
+    wx.request({
+      url: 'http://localhost:8092/Dwelling/GetHouses',
+      success: function (res) {
+        that.setData({
+          conferencelist: res.data
+        })
+        console.log(that.data.conferencelist)
+      }
+    }) 
 
   },
 

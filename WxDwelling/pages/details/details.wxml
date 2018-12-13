@@ -1,76 +1,73 @@
 <!--pages/details/details.wxml-->
-<!--logs.wxml-->
-<view class="containerr">
-	<view class="container-body space-content">
+<view class="">
+	<view class="container-body space-content" wx:for="{{conferencelist}}" wx:for-item="item">
 	  <view class="space-top">
 	  	<view class="space-banner" bindtap="imgPreview">
 		  	<swiper
-		  	  autoplay="{{true}}" interval="{{4000}}" duration="{{1000}}" bindchange="setCurrent">
-		  	  <block wx:for="{{spaceimgs}}" wx:key="{{item.index}}">
+		  	  autoplay="{{true}}" interval="{{4000}}" duration="{{1000}}" bindchange="setCurrent"> 
 		  	    <swiper-item>
-		  	      <image src="{{item}}" mode="aspectFill" class="slide-image"/>
+		  	      <image src="{{item.IndoorUrl}}" mode="aspectFill" class="slide-image"/>
 		  	    </swiper-item>
-		  	  </block>
 		  	</swiper>
-	  	  <view class="number-banner">
-	  	  	<text>{{currentIndex>9?currentIndex:'0'+currentIndex}}</text>
-	  	  	<text>/{{spaceimgs.length>9?spaceimgs.length:'0'+spaceimgs.length}}</text>
-	  	  </view>
 	  	</view>
   	  <view class="space-info">
-  	  	<view class="space-title">{{spacedata.ParkName}}</view>
-  	  	<view class="space-tags">
-  	  		<text wx:for="{{spacedata.TagIDs}}" wx:key="*this">{{item}}</text>
-  	  	</view>
+  	  	<view class="space-title">{{item.DetaTitle}}</view>
+
   	  	<view class="space-list">
   	  		<view class="space-item">
-  	  			<text class="text-left">收费标准：</text>
+  	  			<text class="text-left">最低价格：</text>
   	  			<text class="text-right">
-  	  				<text class="text-orange">{{spacedata.FeeScale}}</text>{{spacedata.FeeScaleRoomUnit}}
+  	  				<text class="text-orange">{{item.HousePrice}}元</text>
   	  			</text>
   	  		</view>
-  	  		<view class="space-item">
-  	  			<text class="text-left">可租面积：</text>
-  	  			<text class="text-right">{{spacedata.FeeScaleRoomUnitValue}}㎡</text>
+  	  		<view class="space-item halfwidth-item">
+  	  			<text class="text-left">户型：</text>
+  	  			<text class="text-right">{{item.HouseApartmentlayout}}</text>
+  	  		</view>
+  	  		<view class="space-item halfwidth-item">
+  	  			<text class="text-left">占地面积：</text>
+  	  			<text class="text-right">{{item.HouseBuilt_upArea}}㎡</text>
+  	  		</view>
+          <view class="space-item halfwidth-item">
+  	  			<text class="text-left">建设时间：</text>
+  	  			<text class="text-right">{{item.HouseCreateTime}}年</text>
+  	  		</view>
+           <view class="space-item halfwidth-item">
+  	  			<text class="text-left">装饰情况：</text>
+  	  			<text class="text-right">{{item.Renovation}}</text>
   	  		</view>
   	  		<view class="space-item">
   	  			<text class="text-left">地理位置：</text>
-  	  			<text class="text-right" data-address="{{spacedata.Address}}" data-latitude="{{spacedata.latitude}}" data-longitude="{{spacedata.longitude}}" bindtap="getAddress">{{spacedata.Address}}</text>
+  	  			<text class="text-right">{{item.ResidRegion}}</text>
+  	  		</view>
+          	<view class="space-item">
+  	  			<text class="text-left">所在小区：</text>
+  	  			<text class="text-right">{{item.ResidName}}</text>
   	  		</view>
   	  	</view>
   	  </view>
 	  </view>
 	  <view class="space-block">
-	  	<view class="space-block-title">基本介绍</view>
+	  	<view class="space-block-title">房源详情</view>
 	  	<view class="space-block-content">
-	  		<view class="space-list">
-	  			<view class="space-item">
-	  				<text class="text-left">总建筑面积：</text>
-	  				<text class="text-right">{{spacedata.TotalBulidingArea}}㎡</text>
-	  			</view>
-	  			<view class="space-item">
-	  				<text class="text-left">得房率：</text>
-	  				<text class="text-right">{{spacedata.RoomRate}}%</text>
-	  			</view>
-	  			<view class="space-item">
-	  				<text class="text-left">总工位：</text>
-	  				<text class="text-right">{{spacedata.TotalWorkstation}}个</text>
-	  			</view>
-	  			<view class="space-item">
-	  				<text class="text-left">总的独立办公室：</text>
-	  				<text class="text-right">{{spacedata.TotalRoom}}个</text>
-	  			</view>
-	  		</view>
-	  		<view class="space-passage">{{spacedata.Summary}}</view>
+	  		<view class="space-passage">房源描述：{{item.DetaDescribe}}</view>
+	  		<view class="space-passage">特色描述：{{item.DetaIntroduce}}、{{item.DetaMentality}}</view>
+	  		<view class="space-passage">房屋所在地描述：交通便利，可乘坐公交或地铁，及多处基础设施建设，银行、医院、餐饮、超市等。</view>
 	  	</view>
-	  </view>
-
+  	</view>
+  	<view class="space-block">
+	  	<view class="space-block-title">买房须知</view>
+	  	<view class="space-block-content">
+	  		<view class="space-passage">底部有联系方式 本程序线下租房或买房、卖房</view>
+	  		<view class="space-passage"></view>
+	  	</view>
+  	</view>
 	</view>
 	<view class="container-footer">
-    <button>联系房主</button>
-    <button >预约看房</button>
-    <button>入驻申请</button>
+		<text class="apply-btn">电话联系：17899000099</text>
 	</view>
-  
 </view>
+
+  
+
 

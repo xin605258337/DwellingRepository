@@ -26,9 +26,14 @@ namespace Dwelling.UI.Controllers
             {
                 HttpPostedFile file = System.Web.HttpContext.Current.Request.Files[i];
                 //上传的文件保存到目录(为了保证文件名不重复，加个Guid)
-                string path = "/Content/Img/" + Guid.NewGuid().ToString() + file.FileName;
-                file.SaveAs(HttpContext.Request.MapPath("~"+path));//必须得是相对路径
-                pathList.Add(".." + path);
+                //string path = "/Content/Img/" + Guid.NewGuid().ToString() + file.FileName;
+                //file.SaveAs(HttpContext.Request.MapPath("~"+path));//必须得是相对路径
+                //pathList.Add(".." + path);
+                string path= Guid.NewGuid().ToString() + file.FileName;
+                string path1 = HttpContext.Request.MapPath("~/../WxDwelling/image/" + path);
+                file.SaveAs(HttpContext.Request.MapPath("~/Content/Img/" + path));//必须得是相对路径
+                file.SaveAs(HttpContext.Request.MapPath("../../../WxDwelling/image/" + path));//必须得是相对路径
+                pathList.Add(path);
             }
             return Json(pathList);
         }  
