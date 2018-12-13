@@ -34,5 +34,11 @@ namespace Dwelling.IServices
         /// </summary>
         /// <returns></returns>
         List<House> GetHouses();
+        /// <summary>
+        /// 根据添加房源的第一张图片url获得房源ID
+        /// </summary>
+        /// <param name="imgUrl"></param>
+        /// <returns></returns>
+        int GetHouseIdByImgUrl(string imgUrl);
     }
 }

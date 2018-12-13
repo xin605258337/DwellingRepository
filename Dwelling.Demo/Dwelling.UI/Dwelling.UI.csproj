@@ -1194,6 +1194,7 @@
     <Content Include="H-ui.admin\_menu.html" />
     <Content Include="H-ui.admin\_meta.html" />
     <Content Include="H-ui.admin\【开发必读】文档目录.txt" />
+    <Content Include="Images\1.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

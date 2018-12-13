@@ -92,6 +92,17 @@ namespace Dwelling.Services
         {
             return conn.Query<House>("proc_GetHouse", null, commandType: CommandType.StoredProcedure).ToList();
         }
-        
+        /// <summary>
+        /// 根据添加房源的第一张图片url获得房源ID
+        /// </summary>
+        /// <param name="imgUrl"></param>
+        /// <returns></returns>
+        public int GetHouseIdByImgUrl(string imgUrl)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_House_ImgUrl", imgUrl);
+            House house= conn.Query<House>("pro_GetHouseIDByImgurl", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            return house.House_ID;
+        }
     }
 }
