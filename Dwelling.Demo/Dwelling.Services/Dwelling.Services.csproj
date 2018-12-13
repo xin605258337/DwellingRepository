@@ -54,11 +54,9 @@
     <Compile Include="HouseService.cs" />
     <Compile Include="LeaseTypeService.cs" />
     <Compile Include="OrientationService.cs" />
-    <Compile Include="PermissionService.cs" />
     <Compile Include="PriceService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishHouseService.cs" />
-    <Compile Include="RoleService.cs" />
     <Compile Include="StyleService.cs" />
   </ItemGroup>
   <ItemGroup>

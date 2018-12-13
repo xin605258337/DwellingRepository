@@ -16,7 +16,7 @@
 				<view class="input-item">
 			<text class="input-item-label">房东姓名:</text>
 			<view class="input-item-content">
-				<input type="idcard" name="name" value="{{name}}" placeholder="请输入您的姓名"  bindinput="inputPhone"></input>
+				<input type="idcard" placeholder="请输入您的姓名"  bindinput="inputPhone"></input>
 			</view>
 		</view>
     <!-- 手机号码-->
