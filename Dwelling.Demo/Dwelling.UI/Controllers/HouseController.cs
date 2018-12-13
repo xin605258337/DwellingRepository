@@ -17,15 +17,6 @@ namespace Dwelling.UI.Controllers
         {
             return View();
         }
-        /// <summary>
-        /// 添加房源view
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult AddHouse()
-        {
-            return View();
-        }
-        
         [HttpPost]
         public JsonResult GetImg()
         {
@@ -37,8 +28,7 @@ namespace Dwelling.UI.Controllers
                 //上传的文件保存到目录(为了保证文件名不重复，加个Guid)
                 string path = "~/Content/Img/" + Guid.NewGuid().ToString() + file.FileName;
                 file.SaveAs(HttpContext.Request.MapPath(path));//必须得是相对路径
-                pathList.Add("~/Content/Img/"+file.FileName);
-
+                pathList.Add(path);
             }
             return Json(pathList);
         }  

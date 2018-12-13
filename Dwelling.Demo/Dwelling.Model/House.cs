@@ -58,6 +58,10 @@ namespace Dwelling.Model
         /// </summary>
         public int LeaseType_ID { get; set; }
         /// <summary>
+        /// 房间号（合租）
+        /// </summary>
+        public string House_Num { get; set; }
+        /// <summary>
         /// 楼层
         /// </summary>
         public int House_Floor { get; set; }
@@ -84,7 +88,7 @@ namespace Dwelling.Model
         /// <summary>
         /// 房源所属人
         /// </summary>
-        public int House_Owner { get; set; }
+        public string House_Owner { get; set; }
         /// <summary>
         /// 房源所属人电话
         /// </summary>

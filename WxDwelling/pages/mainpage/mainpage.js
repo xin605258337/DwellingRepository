@@ -25,6 +25,18 @@ Page({
       "id":0,
       "title":"不限"
     }]
+    var area=[{
+      "id":0,
+      "title":"不限"
+    }]
+    var style=[{
+      "id": 0,
+      "title": "不限"
+    }]
+    var orientations=[{
+      "id": 0,
+      "title": "不限"
+    }]
     //加载数据渲染页面
     this.fetchServiceData();
     //获取北京地区
@@ -55,7 +67,6 @@ Page({
             wx.request({
               url: 'http://localhost:8092/Dwelling/GetPrice',
               success: function (res) {
-                console.log(res)
                 for (var i = 0; i < res.data.length; i++) {
                   price.push(
                     {
@@ -64,15 +75,57 @@ Page({
                     }
                   )
                 }
-                that.fetchFilterData(reg, housetype,price);
-
+                //获取面积范围
+                wx.request({
+                  url: 'http://localhost:8092/Dwelling/GetArea',
+                  success: function (res) {
+                    for (var i = 0; i < res.data.length; i++) {
+                      area.push(
+                        {
+                          "id": res.data[i].Area_ID,
+                          "title": res.data[i].Area_Name
+                        }
+                      )
+                    }
+                    //获取装修风格
+                    wx.request({
+                      url: 'http://localhost:8092/Dwelling/GetStyle',
+                      success: function (res) {
+                        for (var i = 0; i < res.data.length; i++) {
+                          style.push(
+                            {
+                              "id": res.data[i].Style_ID,
+                              "title": res.data[i].Style_Name
+                            }
+                          )
+                        }
+                        //获取朝向
+                        wx.request({
+                          url: 'http://localhost:8092/Dwelling/GetOrientation',
+                          success: function (res) {
+                            for (var i = 0; i < res.data.length; i++) {
+                              orientations.push(
+                                {
+                                  "id": res.data[i].Orientation_ID,
+                                  "title": res.data[i].Orientation_Name
+                                }
+                              )
+                            }
+                            that.fetchFilterData(reg, housetype, price, area, style,orientations);
+                          }
+                        })
+                      }
+                    })
+                  }
+                })
               }
+          })
           }
         })
       }
     })
   },
-  fetchFilterData: function (region, housetype) { //获取筛选条件
+  fetchFilterData: function (region, housetype, price, area, style, orientations) { //获取筛选条件
     this.setData({
       filterdata: {
         "sort": [
@@ -80,93 +133,17 @@ Page({
             "id": 1,
             "title": "最新"
           },
-          
+          {
+            "id": 2,
+            "title": "热门"
+          },
         ],
         "region": region,
         "Prices": price,
-        "acreage": [
-          {
-            "id": '0',
-            "title": "不限"
-          },
-          {
-            "id": '0,50',
-            "title": "50㎡以下"
-          },
-        ],
+        "acreage": area,
         "housetype": housetype,
-        "Decoration": [
-          {
-            "id": '0',
-            "title": "全部"
-          },
-          {
-            "id": '豪装',
-            "title": "豪装"
-          },
-          {
-            "id": '简装',
-            "title": "简装"
-          },
-          {
-            "id": '毛坯',
-            "title": "毛坯"
-          },
-          {
-            "id": '精装',
-            "title": "精装"
-          },
-          {
-            "id": '中装',
-            "title": "中装"
-          },
-        ],
-        "orientations": [
-          {
-            "id": '0',
-            "title": "全部"
-          },
-          {
-            "id": '东南',
-            "title": "东南"
-          },
-          {
-            "id": '正东',
-            "title": "正东"
-          },
-          {
-            "id": '正西',
-            "title": "正西"
-          },
-          {
-            "id": '南北',
-            "title": "南北"
-          },
-          {
-            "id": '正南',
-            "title": "正南"
-          },
-          {
-            "id": '正北',
-            "title": "正北"
-          },
-          {
-            "id": '东西',
-            "title": "东西"
-          },
-          {
-            "id": '西南',
-            "title": "西南"
-          },
-          {
-            "id": '东北',
-            "title": "东北"
-          },
-          {
-            "id": '西北',
-            "title": "西北"
-          },
-        ],
+        "Decoration":style,
+        "orientations": orientations,
       }
     })
   },
@@ -213,28 +190,6 @@ Page({
     })
     console.log('排序方式id：' + this.data.sortid);
     this.fetchConferenceData();
-  },
-  inputStartTime: function (e) {   //输入会议开始时间
-    this.setData({
-      filter: Object.assign({}, this.data.filter, {
-        starttime: e.detail.value
-      })
-    })
-  },
-  inputEndTime: function (e) {     //输入会议结束时间
-    this.setData({
-      filter: Object.assign({}, this.data.filter, {
-        endtime: e.detail.value
-      })
-    })
-  },
-  chooseContain: function (e) {    //选择会议室容纳人数
-    this.setData({
-      filter: Object.assign({}, this.data.filter, {
-        containid: e.currentTarget.dataset.id
-      })
-    })
-    console.log('选择的会议室容量id：' + this.data.filter.containid);
   },
   region: function (e) {           //区域
     this.setData({

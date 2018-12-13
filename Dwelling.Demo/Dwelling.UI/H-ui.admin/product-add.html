@@ -21,7 +21,7 @@
 <body>
     <div class="page-container">
         <form method="post" class="form form-horizontal" id="form-article-add">
-            <input id="Hidden1" type="hidden" name="House_Facility" />
+            <input type="text" hidden="hidden" class="input-text" name="House_Facility">
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>标题：</label>
                 <div class="formControls col-xs-8 col-sm-9">
@@ -82,6 +82,12 @@
                     </span>
                 </div>
             </div>
+            <div id="dHouse_Num" class="row cl" hidden="hidden">
+                <label class="form-label col-xs-4 col-sm-2">居室号：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" name="House_Num">
+                </div>
+            </div>
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">地址：</label>
                 <div class="formControls col-xs-8 col-sm-9">
@@ -135,7 +141,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">房源所属人：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" name="House_Owner" class="input-text" style="width:90%">                  
+                    <input type="text" name="House_Owner" class="input-text" style="width:90%">
                 </div>
             </div>
             <div class="row cl">
@@ -172,7 +178,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2">房源描述：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <textarea name="House_Describe" class="textarea" placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
+                    <textarea name="House_Describe" class="textarea" placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！"></textarea>
                     <p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
                 </div>
             </div>
@@ -196,6 +202,7 @@
                         </div>
                     </div>
                 </div>
+                <input type="text" hidden="hidden" name="House_ImgUrl" class="input-text" style="width:90%">
             </div>
             <div class="row cl">
                 <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
@@ -222,7 +229,14 @@
     <script type="text/javascript" src="lib/ueditor/1.4.3/ueditor.all.min.js"></script>
     <script type="text/javascript" src="lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
     <script type="text/javascript">
+        var imgs=[];
         $(function () {
+            //当所选为合租
+            $("select[name=LeaseType_ID]").change(function () {
+                if ($("select[name=LeaseType_ID]").val() == 2) {
+                    $("#dHouse_Num").show();
+                }
+            })
                 //获取房源设施
                 $.ajax({
                 url: "http://localhost:8092/Dwelling/GetFacility",
@@ -232,7 +246,7 @@
                         $("#s1").append("<input type='checkbox' class='Interest'  value='" + data.Facility_Name + "'>" + data.Facility_Name+"    ")
                     })
                 }
-            })
+                })
                 //获取户型信息
                 $.ajax({
                     url: "http://localhost:8092/Dwelling/GetHabitableRoom",
@@ -312,25 +326,26 @@
                 })
             })
 
-            
-            
-
+ 
             //添加数据
             $("#add").click(function () {
+                //遍历获取房屋设施
                 var facility = "";
                 $(".Interest:checked").each(function () {
                     facility += $(this).val() + ",";
                 })
-                facility.substring(0, facility.length-1);
-                alert(facility);
+                facility = facility.substr(0, facility.length - 1);
                 $("input[name=House_Facility]").val(facility);
-
+                //获取第一张图片
+                $("input[name=House_ImgUrl]").val();
+                //获得标题
+                var name = $("#sRgion").find("option:selected").text() +" "+ $("#sStreet").find("option:selected").text()+" "+$("input[name=House_Address]").val() +" "+ $("select[name=HabitableRoom_ID]").find("option:selected").text() +" "+ $("select[name=Orientation_ID]").find("option:selected").text() +" "+ $("input[name=House_Num]").val();
+                $("input[name=House_Name]").val(name)
                 $.ajax({                    
                     url: "http://localhost:8092/Dwelling/AddHouse",
                     type: "post",
                     data: $("#form-article-add").serialize(),
                     success: function (data) {
-                        alert(0);
                         if (data > 0) {
                             alert("保存成功!!!");
                         }
@@ -632,7 +647,12 @@
 
                     return !denied;
                 });
-
+                //获取上传图片路径
+                uploader.on('uploadSuccess', function (file, response) {
+                    imgs.push(response[0]);
+                    $("input[name=House_ImgUrl]").val(imgs[0].toString());
+                    // $( '#'+file.id ).addClass('upload-state-done');
+                });
                 uploader.on('dialogOpen', function () {
                     console.log('here');
                 });

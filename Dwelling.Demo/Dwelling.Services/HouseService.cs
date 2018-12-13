@@ -56,6 +56,7 @@ namespace Dwelling.Services
             parameters.Add("_House_OwnerWx", house.House_OwnerWx);
             parameters.Add("_House_RentMoney", house.House_RentMoney);
             parameters.Add("_House_Payment", house.House_Payment);
+            parameters.Add("_House_Num", house.House_Num);
 
             return conn.Execute("proc_AddHouse", parameters, commandType: CommandType.StoredProcedure);
         }
