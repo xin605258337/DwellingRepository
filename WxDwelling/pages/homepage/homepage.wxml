@@ -31,7 +31,7 @@
 <view>热门房源</view>
     <scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" bindscroll="scrollHandle" lower-threshold="50" bindscrolltolower="scrollLoading">
 		<view class="service-list">
-			<navigator class="service-item" wx:for="{{conferencelist}}" url="../details/details?id={{item.House_ID}}">
+			<navigator class="service-item" wx:for="{{conferencelist}}" url="../details/details?ID={{item.House_ID}}">
 				<view class="service-img">
 					<image src="../../image/{{item.House_ImgUrl}}" mode="aspectFill"></image>
 				</view>
