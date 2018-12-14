@@ -104,5 +104,13 @@ namespace Dwelling.Services
             House house= conn.Query<House>("pro_GetHouseIDByImgurl", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             return house.House_ID;
         }
+        /// <summary>
+        /// 获取热门房源排序
+        /// </summary>
+        /// <returns></returns>
+        public List<HouseDetails> GetHotHouses()
+        {
+            return conn.Query<HouseDetails>("GetHotHouse", null, commandType: CommandType.StoredProcedure).ToList();
+        }
     }
 }

@@ -40,5 +40,10 @@ namespace Dwelling.IServices
         /// <param name="imgUrl"></param>
         /// <returns></returns>
         int GetHouseIdByImgUrl(string imgUrl);
+        /// <summary>
+        /// 获取热门房源排序
+        /// </summary>
+        /// <returns></returns>
+        List<HouseDetails> GetHotHouses();
     }
 }

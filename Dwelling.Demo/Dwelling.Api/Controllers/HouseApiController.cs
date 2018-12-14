@@ -78,6 +78,16 @@ namespace Dwelling.Api.Controllers
             return HouseService.GetHouseByID(houseId);
         }
         /// <summary>
+        /// 获取热门房源排序
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetHotHouses")]
+        public List<HouseDetails> GetHotHouses()
+        {
+            return HouseService.GetHotHouses();
+        }
+        /// <summary>
         /// 获取所有房源信息
         /// </summary>
         /// <returns></returns>
