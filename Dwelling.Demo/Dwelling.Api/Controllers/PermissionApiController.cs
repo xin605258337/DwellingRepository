@@ -14,6 +14,7 @@ namespace Dwelling.Api.Controllers
     [RoutePrefix("Dwelling")]
     public class PermissionApiController : ApiController
     {
+        [Dependency]
         public IPermissionService PermissionService { get; set; }
 
         /// <summary>
@@ -32,14 +33,18 @@ namespace Dwelling.Api.Controllers
         /// </summary>
         /// <param name="Permissions_id"></param>
         /// <returns></returns>
-        public int delPermissions(int Permissions_id)
+       [HttpGet]
+       [Route("delPermissions")]
+        public int delPermissions(int id)
         {
-            return PermissionService.delPermissions(Permissions_id);
+            return PermissionService.delPermissions(id);
         }
         /// <summary>
         /// 查看权限信息
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
+        [Route("GetPermissions")]
         public List<Permission> GetPermissions()
         {
             return PermissionService.GetPermissions();

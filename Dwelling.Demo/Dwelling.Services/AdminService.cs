@@ -84,7 +84,7 @@ namespace Dwelling.Services
         public int DeleteAdmin(int adminId)
         {
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("_Admin_ID",adminId);
+            parameters.Add("@_Admin_ID",adminId);
             return conn.Execute("pro_DeleteAdmin", parameters, commandType: CommandType.StoredProcedure);
         }
 

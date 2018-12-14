@@ -100,6 +100,8 @@
     <Content Include="Global.asax" />
     <Content Include="H-ui.admin\404.html" />
     <Content Include="H-ui.admin\AddRole.html" />
+    <Content Include="H-ui.admin\add_permission.html" />
+
     <Content Include="H-ui.admin\admin-add.html" />
     <Content Include="H-ui.admin\admin-list.html" />
     <Content Include="H-ui.admin\admin-password-edit.html" />
