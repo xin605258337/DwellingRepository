@@ -1,5 +1,7 @@
+
 Page({
   data: {
+    
     filterdata: {},  //筛选条件数据
     showfilter: false, //是否显示下拉筛选
     showfilterindex: null, //显示哪个筛选类目
@@ -10,6 +12,7 @@ Page({
     scrolltop: null, //滚动位置
     page: 1,  //分页
     Counts: 0, //总页数
+    name: ''
   },
   onLoad: function () {
     var that=this;
@@ -160,16 +163,33 @@ Page({
   fetchServiceData: function () {  //获取城市列表
    
   },
+  
   inputSearch: function (e) {  //输入搜索文字
+    var that = this;
     this.setData({
       showsearch: e.detail.cursor > 0,
       searchtext: e.detail.value
     })
+    that.setData({
+      name: e.detail.value
+    })
   },
+  
   submitSearch: function () {  //提交搜索
-    console.log(this.data.searchtext);
-    this.fetchServiceData();
-    
+  console.log(123)
+    wx.request({
+      url: 'http://localhost:8092/Dwelling/GetHouses',
+      data: {
+        houseName:this.data.name
+      },
+      method: 'get',
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          conferencelist: res.data
+        })
+      },
+    })
   },
   setFilterPanel: function (e) { //展开筛选面板
     const d = this.data;
