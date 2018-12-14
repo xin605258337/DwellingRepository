@@ -58,7 +58,6 @@
     <Compile Include="PriceService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishHouseService.cs" />
-    <Compile Include="RoleService.cs" />
     <Compile Include="StyleService.cs" />
   </ItemGroup>
   <ItemGroup>

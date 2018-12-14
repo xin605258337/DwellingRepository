@@ -58,8 +58,6 @@
     <Compile Include="PublishHouse.cs" />
     <Compile Include="OurMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Role.cs" />
-    <Compile Include="roleuser.cs" />
     <Compile Include="Style.cs" />
     <Compile Include="Suggest.cs" />
     <Compile Include="Track.cs" />
