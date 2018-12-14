@@ -4,7 +4,7 @@
 	<view class="search-flex {{scrolltop>200?'tophide':''}}">
 		<view class="search-bar">
 			<input type="text" name='tName' maxlength="12" placeholder="请输入关键字查询" bindinput="inputSearch"></input>
-      <button bindinput="submitSearch" class="search-extra-btn" >搜索</button>
+      <button bindtap="submitSearch" class="search-extra-btn" >搜索</button>
 		</view>
 		
 	</view>

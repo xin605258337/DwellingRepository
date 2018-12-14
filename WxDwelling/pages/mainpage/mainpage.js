@@ -176,6 +176,7 @@ Page({
   },
   
   submitSearch: function () {  //提交搜索
+  var that=this;
   console.log(123)
     wx.request({
       url: 'http://localhost:8092/Dwelling/GetHouses',
