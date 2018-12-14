@@ -20,7 +20,7 @@ namespace Dwelling.Api.Controllers
 
         [HttpPost]
         [Route("addRolePermission")]
-        public int RolePermission(RolePermission rolePermission)
+        public int RolePermission(List<RolePermission> rolePermission)
         {
 
             return RolePermissionService.RolePermission(rolePermission);

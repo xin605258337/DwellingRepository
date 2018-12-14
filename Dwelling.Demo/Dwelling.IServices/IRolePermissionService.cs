@@ -9,6 +9,6 @@ namespace Dwelling.IServices
     using Dwelling.Model;
     public  interface IRolePermissionService
     {
-        int RolePermission(RolePermission rolePermission);
+        int RolePermission(List<RolePermission> rolePermission);
     }
 }
