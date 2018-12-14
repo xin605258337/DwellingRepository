@@ -44,12 +44,11 @@ Page({
     var that = this;
     //加载房源信息
     wx.request({
-      url: 'http://localhost:8092/Dwelling/GetHouses',
+      url: 'http://localhost:8092/Dwelling/GetHotHouses',
       success: function (res) {
         that.setData({
           conferencelist: res.data
         })
-        console.log(that.data.conferencelist)
       }
     }) 
 

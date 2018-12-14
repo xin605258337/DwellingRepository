@@ -28,17 +28,22 @@ namespace Dwelling.IServices
         /// </summary>
         /// <param name="houseId"></param>
         /// <returns></returns>
-        House GetHouseByID(int houseId);
+        HouseDetails GetHouseByID(int houseId);
         /// <summary>
         /// 获取所有房源信息
         /// </summary>
         /// <returns></returns>
-        List<House> GetHouses();
+        List<HouseDetails> GetHouses(string houseName = "", int buildingTypeId = 0, int habitableRoomId = 0, int leaseTypeId = 0, int Orientation = 0, int styleId = 0);
         /// <summary>
         /// 根据添加房源的第一张图片url获得房源ID
         /// </summary>
         /// <param name="imgUrl"></param>
         /// <returns></returns>
         int GetHouseIdByImgUrl(string imgUrl);
+        /// <summary>
+        /// 获取热门房源排序
+        /// </summary>
+        /// <returns></returns>
+        List<HouseDetails> GetHotHouses();
     }
 }

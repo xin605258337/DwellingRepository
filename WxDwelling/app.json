@@ -1,14 +1,15 @@
 {
   "pages": [   
-    "pages/mainpage/mainpage", 
+    
     "pages/homepage/homepage",
     "pages/userpage/userpage",
     "pages/index/index",
-    "pages/homeissue/homeissue",
+    "pages/mainpage/mainpage", 
     "pages/homeissueone/homeissueone",
     "pages/details/details",
     "pages/mappage/mappage",
     "pages/Complaints/Complaints",
+    "pages/homeissue/homeissue",
     "pages/track/track"
   ],
   "window": {

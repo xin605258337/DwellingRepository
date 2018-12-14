@@ -73,51 +73,35 @@ namespace Dwelling.Api.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("GetHouseByID")]
-        public House GetHouseByID(int houseId)
+        public HouseDetails GetHouseByID(int houseId)
         {
             return HouseService.GetHouseByID(houseId);
         }
         /// <summary>
+        /// 获取热门房源排序
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetHotHouses")]
+        public List<HouseDetails> GetHotHouses()
+        {
+            return HouseService.GetHotHouses();
+        }
+        /// <summary>
         /// 获取所有房源信息
         /// </summary>
+        /// <param name="buildingTypeId">房源类型ID（电梯，楼梯）</param>
+        /// <param name="habitableRoomId">户型ID</param>
+        /// <param name="leaseTypeId">出租类型ID</param>
+        /// <param name="Orientation">朝向ID</param>
+        /// <param name="styleId">装修风格ID</param>
         /// <returns></returns>
         [HttpGet]   
         [Route("GetHouses")]
-        public List<House> GetHouses()
+        public List<HouseDetails> GetHouses(string houseName="",int buildingTypeId=0,int habitableRoomId=0,int leaseTypeId=0,int Orientation=0,int styleId=0)
         {
-
-            //if (!string.IsNullOrWhiteSpace(House_Name))
-            //{
-            //    getHouse = getHouse.Where(r => r.House_Name.Contains(House_Name)).ToList();
-            //}
-            //if (!string.IsNullOrWhiteSpace(Area_Name))
-            //{
-            //    getHouse = getHouse.Where(r => r.Area_Name.Equals(Area_Name)).ToList();
-            //}
-            //if (!string.IsNullOrWhiteSpace(BuildingType_Name))
-            //{
-            //    getHouse = getHouse.Where(r => r.BuildingType_Name.Equals(BuildingType_Name)).ToList();
-            //}
-            //if (!string.IsNullOrWhiteSpace(HabitableRoom_Name))
-            //{
-            //    getHouse = getHouse.Where(r => r.HabitableRoom_Name.Equals(HabitableRoom_Name)).ToList();
-            //}
-            //if (!string.IsNullOrWhiteSpace(LeaseType_Name))
-            //{
-            //    getHouse = getHouse.Where(r => r.LeaseType_Name.Equals(LeaseType_Name)).ToList();
-            //}
-            //if (!string.IsNullOrWhiteSpace(Orientation_Name))
-            //{
-            //    getHouse = getHouse.Where(r => r.Orientation_Name.Equals(Orientation_Name)).ToList();
-            //}
-            //if (!string.IsNullOrWhiteSpace(Style_Name))
-            //{
-            //    getHouse = getHouse.Where(r => r.Style_Name.Equals(Style_Name)).ToList();
-            //}
-
-            //getHouse = getHouse.Where(r => r.House_IsEnable.Equals(House_IsEnable)).ToList();
-
-            return HouseService.GetHouses(); 
+            List<HouseDetails> houseDetailsList = HouseService.GetHouses(houseName, buildingTypeId, habitableRoomId, leaseTypeId, Orientation, styleId);
+            return houseDetailsList; 
         }
 
         /// <summary>

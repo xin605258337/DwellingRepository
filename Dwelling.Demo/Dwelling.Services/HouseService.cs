@@ -78,19 +78,51 @@ namespace Dwelling.Services
         /// </summary>
         /// <param name="houseId"></param>
         /// <returns></returns>
-        public House GetHouseByID(int houseId)
+        public HouseDetails GetHouseByID(int houseId)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("_House_ID", houseId);
-            return conn.Query<House>("pro_GetHouseByID", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            return conn.Query<HouseDetails>("pro_GetHouseByID", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
         }
         /// <summary>
         /// 获取所有房源信息
         /// </summary>
         /// <returns></returns>
-        public List<House> GetHouses()
+        public List<HouseDetails> GetHouses(string houseName = "", int buildingTypeId = 0, int habitableRoomId = 0, int leaseTypeId = 0, int Orientation = 0, int styleId = 0)
         {
-            return conn.Query<House>("proc_GetHouse", null, commandType: CommandType.StoredProcedure).ToList();
+            List<HouseDetails> houseDetailsList = conn.Query<HouseDetails>("proc_GetHouse", null, commandType: CommandType.StoredProcedure).ToList();
+            //判断模糊查询
+            if(!string.IsNullOrEmpty(houseName))
+            {
+                houseDetailsList = houseDetailsList.Where(n => n.House_Name.Contains(houseName)).ToList();
+            }
+            //房源类型(电梯楼或楼梯楼)
+            if(buildingTypeId!=0)
+            {
+                houseDetailsList = houseDetailsList.Where(n => n.BuildingType_ID== buildingTypeId).ToList();
+            }
+            //户型
+            if (habitableRoomId != 0)
+            {
+                houseDetailsList = houseDetailsList.Where(n => n.HabitableRoom_ID == habitableRoomId).ToList();
+            }
+            //出租类型
+            if (leaseTypeId != 0)
+            {
+                houseDetailsList = houseDetailsList.Where(n => n.LeaseType_ID == leaseTypeId).ToList();
+            }
+            //朝向
+            if (Orientation != 0)
+            {
+                houseDetailsList = houseDetailsList.Where(n => n.Orientation_ID == Orientation).ToList();
+            }
+            //房源装修风格
+            if (styleId != 0)
+            {
+                houseDetailsList = houseDetailsList.Where(n => n.Style_ID == styleId).ToList();
+            }
+
+            return houseDetailsList;
         }
         /// <summary>
         /// 根据添加房源的第一张图片url获得房源ID
@@ -103,6 +135,14 @@ namespace Dwelling.Services
             parameters.Add("_House_ImgUrl", imgUrl);
             House house= conn.Query<House>("pro_GetHouseIDByImgurl", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             return house.House_ID;
+        }
+        /// <summary>
+        /// 获取热门房源排序
+        /// </summary>
+        /// <returns></returns>
+        public List<HouseDetails> GetHotHouses()
+        {
+            return conn.Query<HouseDetails>("GetHotHouse", null, commandType: CommandType.StoredProcedure).ToList();
         }
     }
 }

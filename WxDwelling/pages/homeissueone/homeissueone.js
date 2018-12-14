@@ -6,14 +6,72 @@ Page({
    */
   data: {
     /**默认合租页面 */
-    currentTab: 0
+    currentTab: 0,
+    Orientation: [],
+    BuildingType:[],
+    Style:[],
+    hx_index: 0,
+    Facilityitems:[],
   },
-
+  //下拉选框绑定
+  bindPickerChange_hx: function (e) {
+    // console.log('picker发送选择改变，携带值为', e.detail.value);
+    this.setData({   //给变量赋值
+      hx_index: e.detail.value,  //每次选择了下拉列表的内容同时修改下标然后修改显示的内容，显示的内容和选择的内容一致
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      owner: options.owner,
+      tel: options.tel,
+      price: options.price,
+      roomTypeId: options.roomTypeId,
+      description: options.description,
+    })
+    console.log(options.owner)
+    console.log(options.tel)
+    console.log(options.price)
 
+    var that = this;
+    //获取朝向
+    wx.request({
+      url: 'http://localhost:8092/Dwelling/GetOrientation',
+      success: function (res) {
+        that.setData({
+          Orientation: res.data  //把json数据赋值给变量Orientation
+        })
+        //获取楼房类型
+        wx.request({
+          url: 'http://localhost:8092/Dwelling/GetBuildingType',
+          success: function (res) {
+            that.setData({
+              BuildingType: res.data  //把json数据赋值给变量BuildingType
+            })
+            //获取装修风格
+            wx.request({
+              url: 'http://localhost:8092/Dwelling/GetStyle',
+              success: function (res) {
+                that.setData({
+                  Style: res.data  //把json数据赋值给变量Style
+                })
+                //获取房屋设施
+                wx.request({
+                  url: 'http://localhost:8092/Dwelling/GetFacility',
+                  success: function (res) {
+                    that.setData({
+                      Facilityitems: res.data  //把json数据赋值给变量Facilityitems
+                    })
+                  }
+                }) 
+              }
+            }) 
+          }
+        }) 
+      }
+    })
   },
 
   /**

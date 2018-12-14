@@ -102,5 +102,12 @@
 	top: -12rpx;
 }
 
-
-
+.cks{
+  float: left;
+  height: 23px;
+  width: 103px;
+  text-align: left;
+}
+checkbox-group{
+  height: 190px;
+}
