@@ -88,7 +88,7 @@ namespace Dwelling.Services
         /// 获取所有房源信息
         /// </summary>
         /// <returns></returns>
-        public List<HouseDetails> GetHouses(string houseName = "", int buildingTypeId = 0, int habitableRoomId = 0, int leaseTypeId = 0, int Orientation = 0, int styleId = 0)
+        public List<HouseDetails> GetHouses(string houseName = "", string regionId="", int buildingTypeId = 0, int habitableRoomId = 0, int leaseTypeId = 0, int Orientation = 0, int styleId = 0)
         {
             List<HouseDetails> houseDetailsList = conn.Query<HouseDetails>("proc_GetHouse", null, commandType: CommandType.StoredProcedure).ToList();
             //判断模糊查询
@@ -96,8 +96,13 @@ namespace Dwelling.Services
             {
                 houseDetailsList = houseDetailsList.Where(n => n.House_Name.Contains(houseName)).ToList();
             }
+            //判断地区
+            if (!string.IsNullOrEmpty(regionId))
+            {
+                houseDetailsList = houseDetailsList.Where(n => n.Region_ID.Equals(regionId)).ToList();
+            }
             //房源类型(电梯楼或楼梯楼)
-            if(buildingTypeId!=0)
+            if (buildingTypeId!=0)
             {
                 houseDetailsList = houseDetailsList.Where(n => n.BuildingType_ID== buildingTypeId).ToList();
             }
@@ -143,6 +148,19 @@ namespace Dwelling.Services
         public List<HouseDetails> GetHotHouses()
         {
             return conn.Query<HouseDetails>("GetHotHouse", null, commandType: CommandType.StoredProcedure).ToList();
+        }
+        /// <summary>
+        /// 修改房源点击数
+        /// </summary>
+        /// <param name="clickNum"></param>
+        /// <param name="houseId"></param>
+        /// <returns></returns>
+        public int UpdateHouseClickNum(int clickNum,int houseId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_House_ClickNum", clickNum);
+            parameters.Add("_House_ID", houseId);
+            return conn.Execute("pro_UpdateClickNum", parameters, commandType: CommandType.StoredProcedure);
         }
     }
 }

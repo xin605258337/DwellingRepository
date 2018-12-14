@@ -56,7 +56,7 @@ Page({
         for (var i = 0; i < res.data.result[0].length;i++){
           reg.push(
             {
-              "id": i+1,
+              "id": res.data.result[0][i].id,
               "title": res.data.result[0][i].fullname
             }
           )
@@ -158,6 +158,7 @@ Page({
     })
   },
   fetchServiceData: function () {  //获取城市列表
+   
   },
   inputSearch: function (e) {  //输入搜索文字
     this.setData({
@@ -168,6 +169,7 @@ Page({
   submitSearch: function () {  //提交搜索
     console.log(this.data.searchtext);
     this.fetchServiceData();
+    
   },
   setFilterPanel: function (e) { //展开筛选面板
     const d = this.data;
@@ -199,7 +201,6 @@ Page({
       sortid: dataset.sortid
     })
     console.log('排序方式id：' + this.data.sortid);
-    this.fetchConferenceData();
   },
   region: function (e) {           //区域
     this.setData({
@@ -288,7 +289,23 @@ Page({
   },
   submitFilter: function () {      //提交筛选条件
     console.log(this.data.filter);
-    this.fetchConferenceData();
+    var that = this;
+    wx.request({
+      url: 'http://localhost:8092/Dwelling/GetHouses',
+      data: {
+        regionId: this.data.filter.region, 
+        habitableRoomId: this.data.filter.housetype,
+        Orientation: this.data.filter.orientations,
+        styleId: this.data.filter.Decoration,
+      },
+      method: 'get',
+      success: function(res) {
+        console.log(res.data)
+        that.setData({
+          conferencelist: res.data
+        })  
+      },
+    })
   },
   goToTop: function () {           //回到顶部
     this.setData({

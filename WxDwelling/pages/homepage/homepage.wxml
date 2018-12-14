@@ -14,7 +14,6 @@
  <view class="category">
   <view class="category_item" wx:for="{{iconArray}}">
     <view class="category_item_wrap">
-    
       <view class="icon_wrap" >
       <navigator url="{{item.url}}">
         <image src="{{item.iconUrl}}" class="index_icon"></image>

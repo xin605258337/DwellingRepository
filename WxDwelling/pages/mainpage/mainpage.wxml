@@ -73,7 +73,7 @@
 					<view class="service-tags">
 						<text>{{item.House_RentMoney}}/每月</text>
 					</view>
-					<text class="service-city">出租类型：{{item.city}}</text>
+					<text class="service-city">出租类型：{{item.LeaseType_Name}}</text>
 				</view>
 			</navigator>
 		</view>
