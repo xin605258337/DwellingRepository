@@ -58,7 +58,7 @@ namespace Dwelling.Api
             container.RegisterType<IImageService, ImageService>();
             container.RegisterType<IRoleService, RoleService>();
             container.RegisterType<IPermissionService, PermissionService>();
-            container.RegisterType<IRolePermissionService, RolePermissionService>();
+          
             //container.RegisterType<IStyleService, StyleService>();
             //container.RegisterType<IStyleService, StyleService>();
         }

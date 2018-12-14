@@ -12,6 +12,7 @@ namespace Dwelling.IServices
     /// </summary>
     public interface IRoleService
     {
+        //int AddRole(string role_Name, string ids);
         int AddRole(Role role);
 
         List<Role> GetRoles();

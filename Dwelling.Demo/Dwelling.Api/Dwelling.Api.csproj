@@ -130,7 +130,6 @@
     <Compile Include="Controllers\PermissionApiController.cs" />
     <Compile Include="Controllers\PublishHouseApiController.cs" />
     <Compile Include="Controllers\RoleApiController.cs" />
-    <Compile Include="Controllers\RolePermissionApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

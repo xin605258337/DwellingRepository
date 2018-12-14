@@ -30,16 +30,32 @@ namespace Dwelling.Services
         /// </summary>
         /// <param name="role"></param>
         /// <returns></returns>
-        public int AddRole(Role role)
-        {
-            using (MySqlConnection conn = new MySqlConnection(connStr))
-            {
-                conn.Open();
-                string sql = string.Format("insert into role(role_Name,permission_Name) values(@role_Name,@permission_Name)");
-                return conn.Execute(sql, role);
-            }
+        //public int AddRole( string role_Name, string ids)
+        //{
 
-        }
+        //    using (MySqlConnection conn = new MySqlConnection(connStr))
+        //    {
+        //        conn.Open();
+                
+        //        string sql = string.Format("insert into role(role_Name) values(@role_Name)");
+               
+        //         conn.Execute(sql, role_Name);
+        //        string str1 = "select role_ID from role order by role_ID desc";
+        //        int n=  conn.Query<int>(str1,null).FirstOrDefault();
+        //        List<RolePermission> rolePermissions = new List<RolePermission>();
+        //        foreach (var item in ids.ToArray())
+        //        {
+        //            RolePermission rolePermission = new RolePermission();
+        //            rolePermission.role_ID = n;
+        //            rolePermission.Rolepermission_ID = item;
+        //            rolePermissions.Add(rolePermission);
+        //        }
+        //        string str2 = string.Format("insert  into RolePermission(role_ID,Rolepermission_ID) values(@role_ID,@Rolepermission_ID)");
+        //        int n1=  conn.Execute(str2, rolePermissions);
+        //        return n1;
+        //    }
+
+        //}
         /// <summary>
         /// 获取角色信息
         /// </summary>
@@ -65,6 +81,16 @@ namespace Dwelling.Services
                 conn.Open();
                 string sql = string.Format("delete from role where role_ID=@roleID");
                 return conn.Execute(sql,new { roleID = roleID });
+            }
+        }
+
+        public int AddRole(Role role)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connStr))
+            {
+                conn.Open();
+                string sql = string.Format("insert into role(role_Name,permission_Name) values(@role_Name,@permission_Name)");
+                return conn.Execute(sql, role);
             }
         }
     }
