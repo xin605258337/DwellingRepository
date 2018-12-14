@@ -1,6 +1,6 @@
 <!--pages/details/details.wxml-->
 <view class="">
-	<view class="container-body space-content" wx:for="{{conferencelist}}" wx:for-item="item">
+	<view class="container-body space-content" wx:for="{{conferencelist}}">
 	  <view class="space-top">
 	  	<view class="space-banner" bindtap="imgPreview">
 		  	<swiper
@@ -15,9 +15,9 @@
 
   	  	<view class="space-list">
   	  		<view class="space-item">
-  	  			<text class="text-left">最低价格：</text>
+  	  			<text class="text-left">价格：</text>
   	  			<text class="text-right">
-  	  				<text class="text-orange">{{item.HousePrice}}元</text>
+  	  				<text class="text-orange">{{item.HousePrice}}元/月</text>
   	  			</text>
   	  		</view>
   	  		<view class="space-item halfwidth-item">
@@ -29,8 +29,8 @@
   	  			<text class="text-right">{{item.HouseBuilt_upArea}}㎡</text>
   	  		</view>
           <view class="space-item halfwidth-item">
-  	  			<text class="text-left">建设时间：</text>
-  	  			<text class="text-right">{{item.HouseCreateTime}}年</text>
+  	  			<text class="text-left">出租类型：</text>
+  	  			<text class="text-right">{{item.HouseCreateTime}}</text>
   	  		</view>
            <view class="space-item halfwidth-item">
   	  			<text class="text-left">装饰情况：</text>
@@ -51,7 +51,7 @@
 	  	<view class="space-block-title">房源详情</view>
 	  	<view class="space-block-content">
 	  		<view class="space-passage">房源描述：{{item.DetaDescribe}}</view>
-	  		<view class="space-passage">特色描述：{{item.DetaIntroduce}}、{{item.DetaMentality}}</view>
+	  		<view class="space-passage">房屋设施描述：{{item.DetaIntroduce}}</view>
 	  		<view class="space-passage">房屋所在地描述：交通便利，可乘坐公交或地铁，及多处基础设施建设，银行、医院、餐饮、超市等。</view>
 	  	</view>
   	</view>
@@ -62,9 +62,10 @@
 	  		<view class="space-passage"></view>
 	  	</view>
   	</view>
-	</view>
 	<view class="container-footer">
-		<text class="apply-btn">电话联系：17899000099</text>
+		<view class="apply-btn">电话联系：{{item.House_OwnerTel}}</view>
+    <view class="apply-btn">微信联系：{{item.House_OwnerWx}}</view>
+	</view>
 	</view>
 </view>
 

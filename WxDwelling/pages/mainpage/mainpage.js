@@ -19,9 +19,7 @@ Page({
       success:function(res){
         that.setData({
           conferencelist:res.data
-        })
-        console.log(that.data.conferencelist)
-          
+        })   
       }
     })  
     var that=this;
