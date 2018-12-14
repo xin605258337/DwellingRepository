@@ -85,7 +85,39 @@ namespace Dwelling.Api.Controllers
         [Route("GetHouses")]
         public List<House> GetHouses()
         {
-            return HouseService.GetHouses();
+
+            //if (!string.IsNullOrWhiteSpace(House_Name))
+            //{
+            //    getHouse = getHouse.Where(r => r.House_Name.Contains(House_Name)).ToList();
+            //}
+            //if (!string.IsNullOrWhiteSpace(Area_Name))
+            //{
+            //    getHouse = getHouse.Where(r => r.Area_Name.Equals(Area_Name)).ToList();
+            //}
+            //if (!string.IsNullOrWhiteSpace(BuildingType_Name))
+            //{
+            //    getHouse = getHouse.Where(r => r.BuildingType_Name.Equals(BuildingType_Name)).ToList();
+            //}
+            //if (!string.IsNullOrWhiteSpace(HabitableRoom_Name))
+            //{
+            //    getHouse = getHouse.Where(r => r.HabitableRoom_Name.Equals(HabitableRoom_Name)).ToList();
+            //}
+            //if (!string.IsNullOrWhiteSpace(LeaseType_Name))
+            //{
+            //    getHouse = getHouse.Where(r => r.LeaseType_Name.Equals(LeaseType_Name)).ToList();
+            //}
+            //if (!string.IsNullOrWhiteSpace(Orientation_Name))
+            //{
+            //    getHouse = getHouse.Where(r => r.Orientation_Name.Equals(Orientation_Name)).ToList();
+            //}
+            //if (!string.IsNullOrWhiteSpace(Style_Name))
+            //{
+            //    getHouse = getHouse.Where(r => r.Style_Name.Equals(Style_Name)).ToList();
+            //}
+
+            //getHouse = getHouse.Where(r => r.House_IsEnable.Equals(House_IsEnable)).ToList();
+
+            return HouseService.GetHouses(); 
         }
 
         /// <summary>

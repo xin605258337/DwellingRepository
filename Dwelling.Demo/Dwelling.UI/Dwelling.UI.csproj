@@ -92,11 +92,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Img\bootstrap.css" />
     <Content Include="Content\Img\jquery-1.10.2.js" />
     <Content Include="Content\jquery-3.1.1.js" />
     <Content Include="Global.asax" />
     <Content Include="H-ui.admin\404.html" />
+    <Content Include="H-ui.admin\AddRole.html" />
     <Content Include="H-ui.admin\admin-add.html" />
     <Content Include="H-ui.admin\admin-list.html" />
     <Content Include="H-ui.admin\admin-password-edit.html" />

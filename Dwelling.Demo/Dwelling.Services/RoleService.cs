@@ -49,7 +49,7 @@ namespace Dwelling.Services
             using (MySqlConnection conn = new MySqlConnection(connStr))
             {
                 conn.Open();
-                string sql = string.Format("select role_Name,permission_Name from role");
+                string sql = string.Format("select role_ID,role_Name,permission_Name from role");
                 return conn.Query<Role>(sql, null).ToList();
             }
         }
@@ -63,8 +63,8 @@ namespace Dwelling.Services
             using (MySqlConnection conn = new MySqlConnection(connStr))
             {
                 conn.Open();
-                string sql = string.Format("delete from role where role_ID=roleID");
-                return conn.Execute(sql, roleID);
+                string sql = string.Format("delete from role where role_ID=@roleID");
+                return conn.Execute(sql,new { roleID = roleID });
             }
         }
     }
