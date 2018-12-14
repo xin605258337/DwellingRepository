@@ -30,7 +30,7 @@ namespace Dwelling.UI.Controllers
                 //file.SaveAs(HttpContext.Request.MapPath("~"+path));//必须得是相对路径
                 //pathList.Add(".." + path);
                 string path= Guid.NewGuid().ToString() + file.FileName;
-                file.SaveAs(HttpContext.Request.MapPath(path));//必须得是相对路径径
+                file.SaveAs(HttpContext.Request.MapPath("~/Content/Img/"+path));//必须得是相对路径径
                 pathList.Add(path);
             }
             return Json(pathList);

@@ -24,7 +24,7 @@
                 <div class="row cl">
                     <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
                     <div class="formControls col-xs-8">
-                        <input id="" name="Admin_Name" type="text" placeholder="账户" class="input-text size-L">
+                        <input id="name" name="Admin_Name" type="text" placeholder="账户" class="input-text size-L">
                     </div>
                 </div>
                 <div class="row cl">
@@ -72,7 +72,16 @@
             
                 if (data) {
                     alert("登录成功");
-                    location.href = "index.html";
+                
+                    if ($("#name").val() == "admin") {
+                        location.href = "index.html";
+                    }
+                    else {
+                        location.href = "Zshow.html";
+                      
+                    }
+                   
+                  
                 }
                 else {
                     alert("保存失败");

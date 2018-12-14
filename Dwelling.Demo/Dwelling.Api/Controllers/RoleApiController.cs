@@ -22,12 +22,20 @@ namespace Dwelling.Api.Controllers
         /// </summary>
         /// <param name="role"></param>
         /// <returns></returns>
+        //[HttpPost]
+        //[Route("AddRole")]
+        //public int AddRole(string role_Name, string permison)
+        //{
+
+        //    return roleService.AddRole(role_Name, permison);
+
+        //}
+
         [HttpPost]
         [Route("AddRole")]
         public int AddRole(Role role)
         {
-            return roleService.AddRole(role);
-
+            return roleService.AddRole(role);
         }
         /// <summary>
         /// 获取角色信息
