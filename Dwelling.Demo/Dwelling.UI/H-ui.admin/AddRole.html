@@ -6,7 +6,19 @@
     <script src="../Content/jquery-3.1.1.js"></script>
     <link href="../Content/bootstrap.css" rel="stylesheet" />
     <script>
+       
         $(function () {
+            $.ajax({
+                url: "http://localhost:8092/Dwelling/GetPermissions",
+                type: "get",
+                success: function (data) {
+
+                    $(data).each(function (index, data) {                     
+                        $("#permison").append("<input id='Checkbox1' type='checkbox' class='permiss' name='cks' value='" + data.permission_Name + "' />" + data.permission_Name + "      ");
+                    })
+                }
+            })
+
             $("#btnadd").click(function () {
                 var role = "";
                 $(".permiss:checked").each(function () {
@@ -26,24 +38,23 @@
                     }
                 })
             })
+
+
         })
     </script>
 </head>
 <body>
     <form id="forms" method="post">
         <input id="Hidden1" type="hidden" name="permission_Name" />
-        <table class="table table-striped">
+        <table class="table table-striped" id="tab">
             <tr>
                 <td>角色名称</td>
                 <td><input id="Text1" type="text" name="role_Name" /></td>
             </tr>
-            <tr>
+            <tr >
                 <td>权限名称</td>
-                <td>
-                    <input id="Checkbox1" type="checkbox" class="permiss" name="cks" value="查看信息" />查看信息
-                    <input id="Checkbox1" type="checkbox" class="permiss" name="cks" value="修改信息" />修改信息
-                    <input id="Checkbox1" type="checkbox" class="permiss" name="cks" value="删除信息" />删除信息
-                    <input id="Checkbox1" type="checkbox" class="permiss" name="cks" value="添加信息" />添加信息
+                <td id="permison">
+                   
                 </td>
             </tr>
             <tr>
