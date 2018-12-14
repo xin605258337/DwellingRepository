@@ -35,19 +35,19 @@ namespace Dwelling.Services
             using (MySqlConnection conn = new MySqlConnection (connStr))
             {
                 conn.Open();
-                string sql = string.Format("insert  into permission values(@permission_ID,@permission_Name,@permission_Url,@Pid,@enable,@rank,@remark)");
+                string sql = string.Format("insert  into permission(permission_ID,permission_Name,permission_Url,Pid,enable,rank,remark) values(@permission_ID,@permission_Name,@permission_Url,@Pid,@enable,@rank,@remark)");
                 int n = conn.Execute(sql, permission);
                 return n;
             }
         }
 
-        public int delPermissions(int Permissions_id)
+        public int delPermissions(int id)
         {
             using (MySqlConnection conn = new MySqlConnection(connStr))
             {
                 conn.Open();
-                string sql = string.Format("delete from permission where id=@Permissions_id");
-                int n = conn.Execute(sql, Permissions_id);
+                string sql = string.Format("delete from permission where permission_ID=@pid");
+                int n = conn.Execute(sql, new { pid=id});
                 return n;
 
             }
