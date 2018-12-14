@@ -38,7 +38,7 @@
   	  		</view>
   	  		<view class="space-item">
   	  			<text class="text-left">地理位置：</text>
-  	  			<text class="text-right">{{item.ResidRegion}}</text>
+  	  			<text class="text-right">{{item.DetaTitle}}</text>
   	  		</view>
           	<view class="space-item">
   	  			<text class="text-left">所在小区：</text>
