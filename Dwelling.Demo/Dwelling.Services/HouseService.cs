@@ -104,27 +104,27 @@ namespace Dwelling.Services
             //房源类型(电梯楼或楼梯楼)
             if (buildingTypeId!=0)
             {
-                houseDetailsList = houseDetailsList.Where(n => n.BuildingType_ID== buildingTypeId).ToList();
+                houseDetailsList = houseDetailsList.Where(n => n.BuildingType_ID.Equals(buildingTypeId)).ToList();
             }
             //户型
             if (habitableRoomId != 0)
             {
-                houseDetailsList = houseDetailsList.Where(n => n.HabitableRoom_ID == habitableRoomId).ToList();
+                houseDetailsList = houseDetailsList.Where(n => n.HabitableRoom_ID.Equals(habitableRoomId)).ToList();
             }
             //出租类型
             if (leaseTypeId != 0)
             {
-                houseDetailsList = houseDetailsList.Where(n => n.LeaseType_ID == leaseTypeId).ToList();
+                houseDetailsList = houseDetailsList.Where(n => n.LeaseType_ID.Equals(leaseTypeId)).ToList();
             }
             //朝向
             if (Orientation != 0)
             {
-                houseDetailsList = houseDetailsList.Where(n => n.Orientation_ID == Orientation).ToList();
+                houseDetailsList = houseDetailsList.Where(n => n.Orientation_ID.Equals(Orientation)).ToList();
             }
             //房源装修风格
             if (styleId != 0)
             {
-                houseDetailsList = houseDetailsList.Where(n => n.Style_ID == styleId).ToList();
+                houseDetailsList = houseDetailsList.Where(n => n.Style_ID.Equals(styleId)).ToList();
             }
 
             return houseDetailsList;

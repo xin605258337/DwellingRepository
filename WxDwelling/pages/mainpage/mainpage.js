@@ -7,7 +7,7 @@ Page({
     showfilterindex: null, //显示哪个筛选类目
     sortindex: 0,  //排序索引
     sortid: 1,  //排序id
-    filter: { region: "0", Prices: '0', acreage: '0', housetype: 0, Decoration: '0', orientations: '0' },
+    filter: { region: "", Prices: '0', acreage: '0', housetype: 0, Decoration: '0', orientations: '0' },
     conferencelist: [], //房源显示
     scrolltop: null, //滚动位置
     page: 1,  //分页
