@@ -177,7 +177,6 @@ Page({
   
   submitSearch: function () {  //提交搜索
   var that=this;
-  console.log(123)
     wx.request({
       url: 'http://localhost:8092/Dwelling/GetHouses',
       data: {
@@ -185,7 +184,6 @@ Page({
       },
       method: 'get',
       success: function (res) {
-        console.log(res.data)
         that.setData({
           conferencelist: res.data
         })
