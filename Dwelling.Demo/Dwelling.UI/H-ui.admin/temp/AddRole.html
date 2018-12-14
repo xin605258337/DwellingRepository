@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../Content/jquery-3.1.1.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script>
+        $(function () {
+            $("#btnadd").click(function () {
+                var role = "";
+                $(".permiss:checked").each(function () {
+                    role += $(this).val() + ",";
+                })
+                role = role.substring(0, role.length - 1);
+                $("input[name=permission_Name]").val(role);
+                alert(role);
+                $.ajax({
+                    url: "http://localhost:8092/Dwelling/AddRole",
+                    type: "post",
+                    data: $("#forms").serialize(),
+                    success: function (data) {
+                        if (data > 0) {
+                            alert("添加成功!!!");
+                        }
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <form id="forms" method="post">
+        <input id="Hidden1" type="hidden" name="permission_Name" />
+        <table class="table table-striped">
+            <tr>
+                <td>角色名称</td>
+                <td><input id="Text1" type="text" name="role_Name" /></td>
+            </tr>
+            <tr>
+                <td>权限名称</td>
+                <td>
+                    <input id="Checkbox1" type="checkbox" class="permiss" name="cks" value="查看信息" />查看信息
+                    <input id="Checkbox1" type="checkbox" class="permiss" name="cks" value="修改信息" />修改信息
+                    <input id="Checkbox1" type="checkbox" class="permiss" name="cks" value="删除信息" />删除信息
+                    <input id="Checkbox1" type="checkbox" class="permiss" name="cks" value="添加信息" />添加信息
+                </td>
+            </tr>
+            <tr>
+                <td><input id="btnadd" type="button" value="添加" /></td>
+                <td><input id="Button1" type="button" value="显示" onclick="location.href='admin-role.html'" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
