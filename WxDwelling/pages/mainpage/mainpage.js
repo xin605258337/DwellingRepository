@@ -1,15 +1,18 @@
+
 Page({
   data: {
+    
     filterdata: {},  //筛选条件数据
     showfilter: false, //是否显示下拉筛选
     showfilterindex: null, //显示哪个筛选类目
     sortindex: 0,  //排序索引
     sortid: 1,  //排序id
-    filter: { region: "0", Prices: '0', acreage: '0', housetype: 0, Decoration: '0', orientations: '0' },
+    filter: { region: "", Prices: '0', acreage: '0', housetype: 0, Decoration: '0', orientations: '0' },
     conferencelist: [], //房源显示
     scrolltop: null, //滚动位置
     page: 1,  //分页
     Counts: 0, //总页数
+    name: ''
   },
   onLoad: function () {
     var that=this;
@@ -56,7 +59,7 @@ Page({
         for (var i = 0; i < res.data.result[0].length;i++){
           reg.push(
             {
-              "id": i+1,
+              "id": res.data.result[0][i].id,
               "title": res.data.result[0][i].fullname
             }
           )
@@ -158,16 +161,36 @@ Page({
     })
   },
   fetchServiceData: function () {  //获取城市列表
+   
   },
+  
   inputSearch: function (e) {  //输入搜索文字
+    var that = this;
     this.setData({
       showsearch: e.detail.cursor > 0,
       searchtext: e.detail.value
     })
+    that.setData({
+      name: e.detail.value
+    })
   },
+  
   submitSearch: function () {  //提交搜索
-    console.log(this.data.searchtext);
-    this.fetchServiceData();
+  var that=this;
+  console.log(123)
+    wx.request({
+      url: 'http://localhost:8092/Dwelling/GetHouses',
+      data: {
+        houseName:this.data.name
+      },
+      method: 'get',
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          conferencelist: res.data
+        })
+      },
+    })
   },
   setFilterPanel: function (e) { //展开筛选面板
     const d = this.data;
@@ -199,7 +222,6 @@ Page({
       sortid: dataset.sortid
     })
     console.log('排序方式id：' + this.data.sortid);
-    this.fetchConferenceData();
   },
   region: function (e) {           //区域
     this.setData({
@@ -288,7 +310,23 @@ Page({
   },
   submitFilter: function () {      //提交筛选条件
     console.log(this.data.filter);
-    this.fetchConferenceData();
+    var that = this;
+    wx.request({
+      url: 'http://localhost:8092/Dwelling/GetHouses',
+      data: {
+        regionId: this.data.filter.region, 
+        habitableRoomId: this.data.filter.housetype,
+        Orientation: this.data.filter.orientations,
+        styleId: this.data.filter.Decoration,
+      },
+      method: 'get',
+      success: function(res) {
+        console.log(res.data)
+        that.setData({
+          conferencelist: res.data
+        })  
+      },
+    })
   },
   goToTop: function () {           //回到顶部
     this.setData({

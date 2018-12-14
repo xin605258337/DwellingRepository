@@ -1,10 +1,15 @@
+
 <view class="containerr">
+<form bindsubmit='getName'>
 	<view class="search-flex {{scrolltop>200?'tophide':''}}">
 		<view class="search-bar">
-			<input type="text" maxlength="12" placeholder="请输入关键字查询" bindinput="inputSearch"></input>
+			<input type="text" name='tName' maxlength="12" placeholder="请输入关键字查询" bindinput="inputSearch"></input>
+      <button bindtap="submitSearch" class="search-extra-btn" >搜索</button>
 		</view>
-		<button class="search-extra-btn">搜索</button>
+		
 	</view>
+</form>
+
 	<view class="filter-flex">
 		<view class="filter-tab">
 			<text bindtap="setFilterPanel" data-findex="1" class="{{showfilterindex==1?'active':''}}">排序</text>
@@ -73,7 +78,7 @@
 					<view class="service-tags">
 						<text>{{item.House_RentMoney}}/每月</text>
 					</view>
-					<text class="service-city">出租类型：{{item.city}}</text>
+					<text class="service-city">出租类型：{{item.LeaseType_Name}}</text>
 				</view>
 			</navigator>
 		</view>

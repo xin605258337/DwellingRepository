@@ -16,6 +16,7 @@ Page({
       success: function (res) {
         console.log(res.data)
         console.log(res.data.Style_Name);
+        console.log(res.data.House_ClickNum);
         newlist.push({
           "HousePrice": res.data.House_RentMoney,//价格
           "Renovation": res.data.Style_Name,//装饰情况
@@ -33,9 +34,20 @@ Page({
           "House_OwnerTel": res.data.House_OwnerTel,//所属人电话
           "House_OwnerWx": res.data.House_OwnerWx,//所属人微信
         })
-        console.log(newlist[0])
         that.setData({
           conferencelist: newlist
+        })
+        //修改点击数
+        wx.request({
+          url: 'http://localhost:8092/Dwelling/UpdateHouseClickNum',
+          method:'GET',
+          data:{
+            clickNum: res.data.House_ClickNum,
+            houseId: options.ID
+          },
+          success:function(res){
+            console.log(res.data)   
+          }
         })
       }
     })

@@ -33,7 +33,7 @@ namespace Dwelling.IServices
         /// 获取所有房源信息
         /// </summary>
         /// <returns></returns>
-        List<HouseDetails> GetHouses(string houseName = "", int buildingTypeId = 0, int habitableRoomId = 0, int leaseTypeId = 0, int Orientation = 0, int styleId = 0);
+        List<HouseDetails> GetHouses(string houseName = "", string regionId = "", int buildingTypeId = 0, int habitableRoomId = 0, int leaseTypeId = 0, int Orientation = 0, int styleId = 0);
         /// <summary>
         /// 根据添加房源的第一张图片url获得房源ID
         /// </summary>
@@ -45,5 +45,12 @@ namespace Dwelling.IServices
         /// </summary>
         /// <returns></returns>
         List<HouseDetails> GetHotHouses();
+        /// <summary>
+        /// 修改房源点击数
+        /// </summary>
+        /// <param name="clickNum"></param>
+        /// <param name="houseId"></param>
+        /// <returns></returns>
+        int UpdateHouseClickNum(int clickNum, int houseId);
     }
 }

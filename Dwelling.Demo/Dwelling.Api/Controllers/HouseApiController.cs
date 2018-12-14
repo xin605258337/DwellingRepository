@@ -98,12 +98,23 @@ namespace Dwelling.Api.Controllers
         /// <returns></returns>
         [HttpGet]   
         [Route("GetHouses")]
-        public List<HouseDetails> GetHouses(string houseName="",int buildingTypeId=0,int habitableRoomId=0,int leaseTypeId=0,int Orientation=0,int styleId=0)
+        public List<HouseDetails> GetHouses(string houseName="", string regionId = "", int buildingTypeId=0,int habitableRoomId=0,int leaseTypeId=0,int Orientation=0,int styleId=0)
         {
-            List<HouseDetails> houseDetailsList = HouseService.GetHouses(houseName, buildingTypeId, habitableRoomId, leaseTypeId, Orientation, styleId);
+            List<HouseDetails> houseDetailsList = HouseService.GetHouses(houseName, regionId,buildingTypeId, habitableRoomId, leaseTypeId, Orientation, styleId);
             return houseDetailsList; 
         }
-
+        /// <summary>
+        /// 修改房源点击数
+        /// </summary>
+        /// <param name="clickNum"></param>
+        /// <param name="houseId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("UpdateHouseClickNum")]
+        public int UpdateHouseClickNum(int clickNum, int houseId)
+        {
+            return HouseService.UpdateHouseClickNum(clickNum, houseId);
+        }
         /// <summary>
         /// 获取房源类型信息
         /// </summary>
