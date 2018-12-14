@@ -27,5 +27,8 @@ namespace Dwelling.IServices
         /// <param name="Permissions_id"></param>
         /// <returns></returns>
         int delPermissions(int id);
+
+
+      
     }
 }

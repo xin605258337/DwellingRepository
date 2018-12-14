@@ -41,6 +41,8 @@ namespace Dwelling.Services
             }
         }
 
+
+
         public int delPermissions(int id)
         {
             using (MySqlConnection conn = new MySqlConnection(connStr))
