@@ -82,7 +82,7 @@ namespace Dwelling.Services
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("_House_ID", houseId);
-            return conn.Query<House>("pro_GetHouseByID", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            return conn.Query<HouseDetails>("pro_GetHouseByID", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
         }
         /// <summary>
         /// 获取所有房源信息
