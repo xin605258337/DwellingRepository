@@ -122,6 +122,9 @@
                 alert('两次输入密码不匹配');
                 return;
             }
+            if ($("#Admin_Name").val().trim().length <= 0) {
+                alert("管理员不能为空")
+            }
             $.ajax({
                 url: "http://localhost:8092/Dwelling/AddAdmin",
                 type: "post",
