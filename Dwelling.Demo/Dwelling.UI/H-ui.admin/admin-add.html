@@ -125,6 +125,16 @@
             if ($("#Admin_Name").val().trim().length <= 0) {
                 alert("管理员不能为空")
             }
+            if ($("#Admin_Tel").val().trim().length <= 0) {
+                alert("手机号不能为空")
+            }
+            if ($("#Admin_Email").val().trim().length <= 0) {
+                alert("邮箱不能为空")
+            }
+            if ($("#Admin_Remark").val().trim().length <= 0) {
+                alert("备注不能为空")
+            }
+          
             $.ajax({
                 url: "http://localhost:8092/Dwelling/AddAdmin",
                 type: "post",
