@@ -20,7 +20,7 @@
     <div class="header"></div>
     <div class="loginWraper">
         <div id="loginform" class="loginBox">
-            <form class="form form-horizontal"  method="post" id="login1">
+            <form class="form form-horizontal"  method="post" id="fromData">
                 <div class="row cl">
                     <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
                     <div class="formControls col-xs-8">
@@ -49,7 +49,7 @@
                 </div>
                 <div class="row cl">
                     <div class="formControls col-xs-8 col-xs-offset-3">
-                        <input  type="button" onclick="login()" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
+                        <input id="btnLogin" type="button" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
                         <input name="" type="reset" class="btn btn-default radius size-L" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
                     </div>
                 </div>
@@ -63,31 +63,27 @@
 </body>
 </html>
 <script>
-    function login() {
-        $.ajax({
-            url: "http://localhost:8092/Dwelling/adminLogin",
-            type: "post",
-            data: $("#login1").serialize(),
-            success: function (data) {
-            
-                if (data) {
-                    alert("登录成功");
-                
-                    if ($("#name").val() == "admin") {
-                        location.href = "index.html";
+    $(function () {
+        //登录
+        $("#btnLogin").click(function () {
+            $.ajax({
+                url: "http://localhost:8092/Dwelling/AdminLogin",
+                type: "post",
+                data: $("#fromData").serialize(),
+                success: function (data) {
+                    if (data) {
+                        if ($("#name").val() == "admin") {
+                            location.href = "index.html";
+                        }
+                        else {
+                            location.href = "Zshow.html";
+                        }
                     }
                     else {
-                        location.href = "Zshow.html";
-                      
+                        alert("保存失败");
                     }
-                   
-                  
                 }
-                else {
-                    alert("保存失败");
-                }
-            }
+            })
         })
-    }
-
+    })
 </script>

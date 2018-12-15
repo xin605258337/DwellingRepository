@@ -105,6 +105,7 @@
     <Content Include="H-ui.admin\admin-list.html" />
     <Content Include="H-ui.admin\admin-password-edit.html" />
     <Content Include="H-ui.admin\admin-permission.html" />
+    <Content Include="H-ui.admin\admin-role-add.html" />
     <Content Include="H-ui.admin\admin-role.html" />
     <Content Include="H-ui.admin\charts-4.html" />
     <Content Include="H-ui.admin\charts-5.html" />

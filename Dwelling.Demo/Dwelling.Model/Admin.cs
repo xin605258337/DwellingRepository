@@ -20,15 +20,31 @@ namespace Dwelling.Model
         /// <summary>
         /// 密码
         /// </summary>
-        public string Admin_Password { get; set; }
+        public string Admin_Password { get; set; }       
+        /// <summary>
+        /// 性别
+        /// </summary>
+        public int Admin_Gender { get; set; }
+        /// <summary>
+        /// 手机
+        /// </summary>
+        public string Admin_Tel { get; set; }
+        /// <summary>
+        /// 邮箱
+        /// </summary>
+        public string Admin_Email { get; set; }
         /// <summary>
         /// 身份
         /// </summary>
-        public string Admin_Permission { get; set; }
+        public int Role_ID { get; set; }
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Admin_Remark { get; set; }
+        /// <summary>
+        /// 角色名称
+        /// </summary>
+        public string Role_Name { get; set; }
 
-        public int Admin_number { get; set; }
-        public string Admin_remark { get; set; }
-        public string Admin_email { get; set; }
-        public string Admin_sex { get; set; }
     }
 }

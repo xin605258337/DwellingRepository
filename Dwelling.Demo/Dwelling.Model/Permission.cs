@@ -11,34 +11,25 @@ namespace Dwelling.Model
         /// <summary>
         /// 权限ID
         /// </summary>
-        public int permission_ID { get; set; }
+        public int Permission_ID { get; set; }
         /// <summary>
         /// 权限名称
         /// </summary>
-        public string permission_Name { get; set; }
+        public string Permission_Name { get; set; }
 
         /// <summary>
         /// 权限路径
         /// </summary>
-        public string permission_Url { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-       
-        public int Pid { get; set; }
+        public string Permission_Url { get; set; }
         /// <summary>
         /// 是否启用
         /// </summary>
 
-        public string enable { get; set; }
+        public string Permission_Enabel { get; set; }
         /// <summary>
-        /// 排序
-        /// </summary>
-        public int rank { get; set; }
-        /// <summary>
-        ///描述 
+        ///备注
         /// </summary>
 
-        public string remark { get; set; }
+        public string Permission_Remark { get; set; }
     }
 }

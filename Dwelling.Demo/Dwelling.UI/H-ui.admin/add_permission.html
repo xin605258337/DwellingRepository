@@ -16,7 +16,7 @@
 </head>
 <body>
 
-    <form class="form form-horizontal" id="login1">
+    <form class="form form-horizontal" id="formData">
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>权限名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
@@ -42,11 +42,6 @@
             </div>
         </div>
     </form>
-
-    
-
-
-
 </body>
 </html>
 <script>
@@ -54,15 +49,11 @@
         $.ajax({
             url: "http://localhost:8092/Dwelling/addPermission",
             type: "post",
-            data: $("#login1").serialize(),
+            data: $("#formData").serialize(),
             success: function (data) {
-
                 if (data > 0) {
                     alert("添加权限成功");
                     location.href ="/H-ui.admin/admin-permission.html"
-
-
-
                 }
                 else {
                     alert("添加失败");

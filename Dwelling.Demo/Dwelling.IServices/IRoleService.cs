@@ -12,11 +12,22 @@ namespace Dwelling.IServices
     /// </summary>
     public interface IRoleService
     {
-        //int AddRole(string role_Name, string ids);
-        int AddRole(Role role);
-
+        /// <summary>
+        /// 获取角色信息
+        /// </summary>
+        /// <returns></returns>
         List<Role> GetRoles();
-
-        int DeleteRole(int roleID);
+        /// <summary>
+        /// 删除角色显示
+        /// </summary>
+        /// <param name="roleID"></param>
+        /// <returns></returns>
+        int DeleteRole(int roleId);
+        /// <summary>
+        /// 添加角色
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns></returns>
+        int AddRole(Role role);
     }
 }

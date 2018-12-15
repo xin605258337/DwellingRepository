@@ -23,24 +23,24 @@ namespace Dwelling.Api.Controllers
         /// <param name="permission"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("addPermission")]
-        public int addPermission(Permission permission)
+        [Route("AddPermission")]
+        public int AddPermission(Permission permission)
         {
-            return PermissionService.addPermission(permission);
+            return PermissionService.AddPermission(permission);
         }
         /// <summary>
         /// 删除权限信息
         /// </summary>
-        /// <param name="Permissions_id"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-       [HttpGet]
-       [Route("delPermissions")]
-        public int delPermissions(int id)
+        [HttpGet]
+        [Route("DelPermissions")]
+        public int DelPermissions(int permissionId)
         {
-            return PermissionService.delPermissions(id);
+            return PermissionService.DelPermissions(permissionId);
         }
         /// <summary>
-        /// 查看权限信息
+        /// 获取所有权限
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -50,5 +50,5 @@ namespace Dwelling.Api.Controllers
             return PermissionService.GetPermissions();
         }
 
-        }
+    }
 }
