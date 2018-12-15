@@ -11,14 +11,14 @@ namespace Dwelling.Model
         /// <summary>
         /// 权限角色关联表
         /// </summary>
-        public int Rolepermission_ID { get; set; }
+        public int RolePermission_ID { get; set; }
         /// <summary>
         /// 权限id关联
         /// </summary>
-        public int permission_ID { get; set; }
+        public int Permission_ID { get; set; }
         /// <summary>
         /// 角色id关联
         /// </summary>
-        public int role_ID { get; set; }
+        public int Role_ID { get; set; }
     }
 }

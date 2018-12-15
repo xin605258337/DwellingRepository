@@ -14,7 +14,8 @@ namespace Dwelling.IServices
         /// 管理员登录
         /// </summary>
         /// <returns></returns>
-        Admin adminLogin(Admin admin);
+        Admin AdminLogin(Admin admin);
+
         /// <summary>
         /// 获取所有普通管理员
         /// </summary>

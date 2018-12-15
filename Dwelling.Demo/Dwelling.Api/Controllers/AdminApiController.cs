@@ -22,10 +22,10 @@ namespace Dwelling.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [Route("adminLogin")]
-        public Admin adminLogin(Admin admin)
+        [Route("AdminLogin")]
+        public Admin AdminLogin(Admin admin)
         {
-            return AdminService.adminLogin(admin);
+            return AdminService.AdminLogin(admin);
         }
         /// <summary>
         /// 获取所有普通管理员
@@ -57,9 +57,6 @@ namespace Dwelling.Api.Controllers
         public int DeleteAdmin(int adminId)
         {
             return AdminService.DeleteAdmin(adminId);
-        }
-       
-        
-
+        }  
     }
 }

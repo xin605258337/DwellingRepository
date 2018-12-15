@@ -6,19 +6,22 @@ using System.Threading.Tasks;
 
 namespace Dwelling.Model
 {
-    public class Role
+    /// <summary>
+    /// 管理员角色关联表
+    /// </summary>
+    public class AdminRole
     {
+        /// <summary>
+        /// ID
+        /// </summary>
+        public int AdminRole_ID { get; set; }
+        /// <summary>
+        ///管理员ID 
+        /// </summary>
+        public int Admin_ID { get; set; }
         /// <summary>
         /// 角色ID
         /// </summary>
         public int Role_ID { get; set; }
-        /// <summary>
-        /// 角色名称
-        /// </summary>
-        public string Role_Name { get; set; }
-        /// <summary>
-        /// 备注
-        /// </summary>
-        public string Role_Remark { get; set; }
     }
 }

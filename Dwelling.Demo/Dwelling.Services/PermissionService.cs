@@ -30,42 +30,36 @@ namespace Dwelling.Services
         /// </summary>
         /// <param name="permission"></param>
         /// <returns></returns>
-        public int addPermission(Permission permission)
+        public int AddPermission(Permission permission)
         {
-            using (MySqlConnection conn = new MySqlConnection (connStr))
-            {
-                conn.Open();
-                string sql = string.Format("insert  into permission(permission_ID,permission_Name,permission_Url,Pid,enable,rank,remark) values(@permission_ID,@permission_Name,@permission_Url,@Pid,@enable,@rank,@remark)");
-                int n = conn.Execute(sql, permission);
-                return n;
-            }
+            MySqlConnection conn = new MySqlConnection(connStr);
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_Permission_Name", permission.Permission_Name);
+            parameters.Add("_Permission_Url", permission.Permission_Url);
+            parameters.Add("_Permission_Enabel", permission.Permission_Enabel);
+            parameters.Add("_Permission_Remark", permission.Permission_Remark);
+            return conn.Execute("pro_AddPermission", parameters, commandType: CommandType.StoredProcedure);
         }
-
-
-
-        public int delPermissions(int id)
+        /// <summary>
+        /// 删除权限信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int DelPermissions(int permissionId)
         {
-            using (MySqlConnection conn = new MySqlConnection(connStr))
-            {
-                conn.Open();
-                string sql = string.Format("delete from permission where permission_ID=@pid");
-                int n = conn.Execute(sql, new { pid=id});
-                return n;
-
-            }
-            }
-
+            MySqlConnection conn = new MySqlConnection(connStr);
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_Permission_ID", permissionId);
+            return conn.Execute("pro_DeletePermission", parameters, commandType: CommandType.StoredProcedure);
+        }
+        /// <summary>
+        /// 获取所有权限
+        /// </summary>
+        /// <returns></returns>
         public List<Permission> GetPermissions()
         {
-            using (MySqlConnection conn = new MySqlConnection (connStr))
-            {
-                conn.Open();
-                string sql = string.Format("select * from permission");
-                IEnumerable<Permission> result = conn.Query<Permission>(sql, null);
-
-
-                return result.ToList<Permission>();
-            }
+            MySqlConnection conn = new MySqlConnection(connStr);
+            return conn.Query<Permission>("pro_GetPermission", null, commandType: CommandType.StoredProcedure).ToList();
         }
     }
 }

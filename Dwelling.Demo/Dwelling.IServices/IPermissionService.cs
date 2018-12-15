@@ -14,21 +14,20 @@ namespace Dwelling.IServices
         /// </summary>
         /// <param name="permission"></param>
         /// <returns></returns>
-        int addPermission(Permission permission);
+        int AddPermission(Permission permission);
         /// <summary>
-        /// 权限展示
+        /// 删除权限信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        int DelPermissions(int permissionId);
+        /// <summary>
+        /// 获取所有权限
         /// </summary>
         /// <returns></returns>
         List<Permission> GetPermissions();
 
-        /// <summary>
-        /// 删除权限信息
-        /// </summary>
-        /// <param name="Permissions_id"></param>
-        /// <returns></returns>
-        int delPermissions(int id);
 
 
-      
     }
 }

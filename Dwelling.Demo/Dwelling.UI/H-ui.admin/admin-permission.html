@@ -37,105 +37,66 @@
                     <th scope="col" colspan="7">权限节点</th>
                 </tr>
                 <tr class="text-c">
-                    <th width="25"><input type="checkbox" name="" value=""></th>
-                    <th width="40">ID</th>
-                    <th width="200">权限名称</th>
-                    <th>URL</th>
-                    <th width="300">权限描述</th>
-                    <th width="100">操作</th>
+                    <th><input type="checkbox" name="" value=""></th>
+                    <th>ID</th>
+                    <th>权限名称</th>
+                    <th>权限路径</th>
+                    <th>是否启用</th>
+                    <th>备注</th>
+                    <th>操作</th>
                 </tr>
             </thead>
-            <!--<tbody>
-                <tr class="text-c">
-                    <td><input type="checkbox" value="1" name=""></td>
-                    <td>1</td>
-                    <td>栏目添加</td>
-                    <td></td>
-                    <td><a title="编辑" href="javascript:;" onclick="admin_permission_edit('角色编辑','admin-permission-add.html','1','','310')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_permission_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-                </tr>
-            </tbody>-->
         </table>
     </div>
     <!--_footer 作为公共模版分离出去-->
     <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
-    <script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
-    <script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+    <!--/_footer 作为公共模版分离出去-->
     <script src="../Content/jquery-3.1.1.js"></script>
     <!--请在下方写此页面业务相关的脚本-->
     <script type="text/javascript" src="lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="lib/laypage/1.2/laypage.js"></script>
     <script type="text/javascript">
-        /*
-            参数解释：
-            title	标题
-            url		请求的url
-            id		需要操作的数据id
-            w		弹出层宽度（缺省调默认值）
-            h		弹出层高度（缺省调默认值）
-        */
-        /*管理员-权限-添加*/
-        function admin_permission_add(title, url, w, h) {
-            layer_show(title, url, w, h);
+        $(function () {
+            //获取权限信息
+            $.ajax({
+                url: "http://localhost:8092/Dwelling/GetPermissions",
+                type: "get",
+                success: function (data) {
+
+                    $(data).each(function (index, data) {
+                        var tr = '<tbody>'
+                            + '<tr class="text-c" >'
+                            + '<td><input type = "checkbox" value = "3" name = "" ></td>'
+                            + '<td>' + data.Permission_ID + '</td>'
+                            + '<td>' + data.Permission_Name + '</td>'
+                            + '<td>' + data.Permission_Url + '</td>'
+                            + '<td>' + data.Permission_Enabel + '</td>'
+                            + '<td>' + data.Permission_Remark + '</td>'
+                            + '<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,"10001")" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a><a title="删除" href="javascript:;" onclick="Del(this,' + data.Permission_ID + ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
+                            + '</tr></tbody>';
+                        $("#tab").append(tr);
+                    })
+                }
+            })
+        })
+        //删除权限信息
+        function Del(Id) {
+            $.ajax({
+                url: "http://localhost:8092/Dwelling/DelPermissions",
+                type: "get",
+                data: {
+                    permissionId: Id,
+                },
+                success: function (i) {
+                    alert('删除成功！');
+                }
+            })
         }
-        /*管理员-权限-编辑*/
-        function admin_permission_edit(title, url, id, w, h) {
-            layer_show(title, url, w, h);
+        //跳转添加权限页面
+        function permission_add() {
+            location.href = "/H-ui.admin/add_permission.html"
         }
-
-
-
     </script>
 </body>
 </html>
-<script>
-    function permission_add() {
-        location.href ="/H-ui.admin/add_permission.html"
-    }
-
-
-    $(function () {
-
-
-        $.ajax({
-            url: "http://localhost:8092/Dwelling/GetPermissions",
-            type: "get",
-            success: function (data) {
-
-                $(data).each(function (index, data) {
-                    var tr = '<tbody>'
-                        + '<tr class="text-c" >'
-                        + '<td><input type = "checkbox" value = "3" name = "" ></td>'
-                        + '<td>' + data.permission_ID + '</td>'
-                        + '<td>' + data.permission_Name + '</td>'
-                        + '<td>' + data.permission_Url + '</td>'
-                        + '<td>' + data.remark + '</td>'
-                        + '<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,"10001")" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a><a title="删除" href="javascript:;" onclick="del(this,' + data.permission_ID + ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
-                        + '</tr></tbody>';
-                    $("#tab").append(tr);
-                })
-            }
-        })
-    })
-
-    
-    function del(obj, id) {
-        layer.confirm('确认要删除吗？', function (index) {
-
-            $.ajax({
-                type: 'get',
-                url: 'http://localhost:8092/Dwelling/delPermissions?id=' + id,
-                dataType: 'json',
-                success: function (data) {
-                    $(obj).parents("tr").remove();
-                    layer.msg('已删除!', { icon: 1, time: 1000 });
-                  
-                },
-                error: function (data) {
-                    console.log(data.msg);
-                },
-            });
-        });
-
-    }
-</script>

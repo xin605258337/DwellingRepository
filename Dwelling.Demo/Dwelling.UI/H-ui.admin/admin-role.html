@@ -34,8 +34,7 @@
                 <th width="25"><input type="checkbox" value="" name=""></th>
                 <th width="40">ID</th>
                 <th width="200">角色名</th>
-                <th>用户列表</th>
-                <th width="300">权限</th>
+                <th width="300">备注</th>
                 <th width="70">操作</th>
             </tr>
         </thead>        
@@ -78,10 +77,9 @@ function admin_role_edit(title,url,id,w,h){
                         + '<tr class="text-c" >'
                         + '<td><input type = "checkbox" value = "3" name = "" ></td>'
                         + '<td>' + (index+1) + '</td>'
-                        + '<td>' + data.role_Name + '</td>'
-                        + '<td>1</td>'
-                        + '<td>' + data.permission_Name + '</td>'
-                        + '<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,"10001")" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a><a title="删除" href="javascript:;" onclick="delRole(this,' + data.role_ID + ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
+                        + '<td>' + data.Role_Name + '</td>'
+                        + '<td>' + data.Role_Remark + '</td>'
+                        + '<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,"10001")" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a><a title="删除" href="javascript:;" onclick="delRole(this,' + data.Role_ID + ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
                         + '</tr></tbody>';
                     $("#tab1").append(tr);
                    

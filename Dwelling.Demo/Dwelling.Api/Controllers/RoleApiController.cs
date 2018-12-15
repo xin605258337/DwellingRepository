@@ -16,27 +16,6 @@ namespace Dwelling.Api.Controllers
     {
         [Dependency]
         public IRoleService roleService { get; set; }
-
-        /// <summary>
-        /// 添加角色
-        /// </summary>
-        /// <param name="role"></param>
-        /// <returns></returns>
-        //[HttpPost]
-        //[Route("AddRole")]
-        //public int AddRole(string role_Name, string permison)
-        //{
-
-        //    return roleService.AddRole(role_Name, permison);
-
-        //}
-
-        [HttpPost]
-        [Route("AddRole")]
-        public int AddRole(Role role)
-        {
-            return roleService.AddRole(role);
-        }
         /// <summary>
         /// 获取角色信息
         /// </summary>
@@ -54,9 +33,20 @@ namespace Dwelling.Api.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("DeleteRole")]
-        public int DeleteRole(int roleID)
+        public int DeleteRole(int roleId)
         {
-            return roleService.DeleteRole(roleID);
+            return roleService.DeleteRole(roleId);
+        }
+        /// <summary>
+        /// 添加角色
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("AddRole")]
+        public int AddRole(Role role)
+        {
+            return roleService.AddRole(role);
         }
     }
 }

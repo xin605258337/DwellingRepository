@@ -26,72 +26,38 @@ namespace Dwelling.Services
             }
         }
         /// <summary>
-        /// 添加角色
-        /// </summary>
-        /// <param name="role"></param>
-        /// <returns></returns>
-        //public int AddRole( string role_Name, string ids)
-        //{
-
-        //    using (MySqlConnection conn = new MySqlConnection(connStr))
-        //    {
-        //        conn.Open();
-                
-        //        string sql = string.Format("insert into role(role_Name) values(@role_Name)");
-               
-        //         conn.Execute(sql, role_Name);
-        //        string str1 = "select role_ID from role order by role_ID desc";
-        //        int n=  conn.Query<int>(str1,null).FirstOrDefault();
-        //        List<RolePermission> rolePermissions = new List<RolePermission>();
-        //        foreach (var item in ids.ToArray())
-        //        {
-        //            RolePermission rolePermission = new RolePermission();
-        //            rolePermission.role_ID = n;
-        //            rolePermission.Rolepermission_ID = item;
-        //            rolePermissions.Add(rolePermission);
-        //        }
-        //        string str2 = string.Format("insert  into RolePermission(role_ID,Rolepermission_ID) values(@role_ID,@Rolepermission_ID)");
-        //        int n1=  conn.Execute(str2, rolePermissions);
-        //        return n1;
-        //    }
-
-        //}
-        /// <summary>
         /// 获取角色信息
         /// </summary>
         /// <returns></returns>
         public List<Role> GetRoles()
         {
-            using (MySqlConnection conn = new MySqlConnection(connStr))
-            {
-                conn.Open();
-                string sql = string.Format("select role_ID,role_Name,permission_Name from role");
-                return conn.Query<Role>(sql, null).ToList();
-            }
+            MySqlConnection conn = new MySqlConnection(connStr);
+            return conn.Query<Role>("pro_GetRole", null, commandType: CommandType.StoredProcedure).ToList();
         }
         /// <summary>
         /// 删除角色显示
         /// </summary>
         /// <param name="roleID"></param>
         /// <returns></returns>
-        public int DeleteRole(int roleID)
+        public int DeleteRole(int roleId)
         {
-            using (MySqlConnection conn = new MySqlConnection(connStr))
-            {
-                conn.Open();
-                string sql = string.Format("delete from role where role_ID=@roleID");
-                return conn.Execute(sql,new { roleID = roleID });
-            }
+            MySqlConnection conn = new MySqlConnection(connStr);
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_Role_ID", roleId);
+            return conn.Execute("pro_DeleteRole", parameters, commandType: CommandType.StoredProcedure);
         }
-
+        /// <summary>
+        /// 添加角色
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns></returns>
         public int AddRole(Role role)
         {
-            using (MySqlConnection conn = new MySqlConnection(connStr))
-            {
-                conn.Open();
-                string sql = string.Format("insert into role(role_Name,permission_Name) values(@role_Name,@permission_Name)");
-                return conn.Execute(sql, role);
-            }
+            MySqlConnection conn = new MySqlConnection(connStr);
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_Role_Name", role.Role_Name);
+            parameters.Add("_Role_Remark", role.Role_Remark);
+            return conn.Execute("pro_AddRole", parameters, commandType: CommandType.StoredProcedure);
         }
     }
 }
