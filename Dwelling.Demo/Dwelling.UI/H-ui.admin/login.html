@@ -72,15 +72,10 @@
                 data: $("#fromData").serialize(),
                 success: function (data) {
                     if (data) {
-                        if ($("#name").val() == "admin") {
-                            location.href = "index.html";
-                        }
-                        else {
-                            location.href = "Zshow.html";
-                        }
+                        location.href = "index.html?Id=" + data.Admin_ID;
                     }
                     else {
-                        alert("保存失败");
+                        alert("用户名或密码失败！");
                     }
                 }
             })

@@ -50,6 +50,7 @@
     <Compile Include="IImageService.cs" />
     <Compile Include="ILeaseTypeService.cs" />
     <Compile Include="IOrientationService.cs" />
+ <Compile Include="IRolePermissionService.cs" />
     <Compile Include="IPermissionService.cs" />
     <Compile Include="IPriceService.cs" />
     <Compile Include="IPublishHouseService.cs" />

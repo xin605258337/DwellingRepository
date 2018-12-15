@@ -57,6 +57,16 @@ namespace Dwelling.Api.Controllers
         public int DeleteAdmin(int adminId)
         {
             return AdminService.DeleteAdmin(adminId);
-        }  
+        }
+        /// <summary>
+        /// 获取管理员权限(url)
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetAdminPermissionUrls")]
+        public List<Admin> GetAdminPermissionUrls(int adminId)
+        {
+            return AdminService.GetAdminPermissionUrls(adminId);
+        }
     }
 }

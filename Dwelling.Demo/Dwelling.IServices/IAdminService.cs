@@ -32,5 +32,10 @@ namespace Dwelling.IServices
         /// </summary>
         /// <returns></returns>
         int DeleteAdmin(int adminId);
+        /// <summary>
+        /// 获取管理员权限(url)
+        /// </summary>
+        /// <returns></returns>
+        List<Admin> GetAdminPermissionUrls(int adminId);
     }
 }

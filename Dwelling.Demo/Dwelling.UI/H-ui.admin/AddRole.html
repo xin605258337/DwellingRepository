@@ -6,40 +6,7 @@
     <script src="../Content/jquery-3.1.1.js"></script>
     <link href="../Content/bootstrap.css" rel="stylesheet" />
     <script>
-       //添加权限
-        $(function () {
-            $.ajax({
-                url: "http://localhost:8092/Dwelling/GetPermissions",
-                type: "get",
-                success: function (data) {
-                    $(data).each(function (index, data) {                     
-                        $("#permission").append("<input id='Checkbox1' type='checkbox' class='permiss' name='cks' value='" + data.Permission_ID + "' />" + data.Permission_Name + "</br>");
-                    })
-                }
-            })
-
-            $("#btnadd").click(function () {
-                var role = "";
-                $(".permiss:checked").each(function () {
-                    role += $(this).val() + ",";
-                })
-                role = role.substring(0, role.length - 1);
-                $("input[name=permission_Name]").val(role);
-                alert(role);
-                $.ajax({
-                    url: "http://localhost:8092/Dwelling/AddRole",
-                    type: "post",
-                    data: $("#forms").serialize(),
-                    success: function (data) {
-                        if (data > 0) {
-                            alert("添加成功!!!");
-                        }
-                    }
-                })
-            })
-
-
-        })
+       
     </script>
 </head>
 <body>

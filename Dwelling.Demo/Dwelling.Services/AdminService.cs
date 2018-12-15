@@ -76,6 +76,16 @@ namespace Dwelling.Services
             parameters.Add("_Admin_ID",adminId);
             return conn.Execute("pro_DeleteAdmin", parameters, commandType: CommandType.StoredProcedure);
         }
-
+        /// <summary>
+        /// 获取管理员权限(url)
+        /// </summary>
+        /// <returns></returns>
+        public List<Admin> GetAdminPermissionUrls(int adminId)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_Admin_ID", adminId);
+            return conn.Query<Admin>("pro_GetAdminPermissionUrls", parameters, commandType: CommandType.StoredProcedure).ToList();
+        }
     }
 }

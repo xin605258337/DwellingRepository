@@ -35,6 +35,20 @@ namespace Dwelling.Services
             return conn.Query<Role>("pro_GetRole", null, commandType: CommandType.StoredProcedure).ToList();
         }
         /// <summary>
+        /// 根据添加角色名字和备注角色ID
+        /// </summary>
+        /// <param name="roleName"></param>
+        /// <param name="roleRemark"></param>
+        /// <returns></returns>
+        public Role GetRoleByName(string roleName,string roleRemark)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_Role_Name", roleName);
+            parameters.Add("_Role_Remark", roleRemark);
+            return conn.Query<Role>("pro_GetRoleByName", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+        }
+        /// <summary>
         /// 删除角色显示
         /// </summary>
         /// <param name="roleID"></param>

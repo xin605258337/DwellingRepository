@@ -45,6 +45,14 @@ namespace Dwelling.Model
         /// 角色名称
         /// </summary>
         public string Role_Name { get; set; }
+        /// <summary>
+        /// 权限路径
+        /// </summary>
+        public string Permission_Url { get; set; }
+        /// <summary>
+        /// 权限名称
+        /// </summary>
+        public string Permission_Name { get; set; }
 
     }
 }

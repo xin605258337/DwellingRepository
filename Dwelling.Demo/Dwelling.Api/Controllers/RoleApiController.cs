@@ -27,6 +27,18 @@ namespace Dwelling.Api.Controllers
             return roleService.GetRoles();
         }
         /// <summary>
+        /// 根据添加角色名字和备注角色ID
+        /// </summary>
+        /// <param name="roleName"></param>
+        /// <param name="roleRemark"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetRoleByName")]
+        public Role GetRoleByName(string roleName, string roleRemark)
+        {
+            return roleService.GetRoleByName(roleName, roleRemark);
+        }
+        /// <summary>
         /// 删除角色显示
         /// </summary>
         /// <param name="roleID"></param>
