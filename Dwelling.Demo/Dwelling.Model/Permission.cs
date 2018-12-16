@@ -31,5 +31,9 @@ namespace Dwelling.Model
         /// </summary>
 
         public string Permission_Remark { get; set; }
+        /// <summary>
+        /// 父ID
+        /// </summary>
+        public int pID { get; set; }
     }
 }

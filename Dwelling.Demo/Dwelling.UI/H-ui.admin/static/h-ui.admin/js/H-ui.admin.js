@@ -231,8 +231,27 @@ function getHTMLDate(obj) {
     _ww = weekday[d.getDay()];
     obj.html(_yy + "年" + _mm + "月" + _dd + "日 " + _ww);
 };
-
-$(function(){
+$(function () {
+    $.ajax({
+        url: "http://localhost:8092/Dwelling/GetAdminPermissionUrls",
+        type: "get",
+        async: false,
+        data: {
+            adminId: location.search.substr(4),
+        },
+        success: function (data) {
+            $(data).each(function (index, data) {
+                if (data.pID == 0) {
+                    $("#Permision_List").append("<dl><dt>" + data.Permission_Name + "<i class=\"Hui-iconfont menu_dropdown-arrow\">&#xe6d5;</i></dt><dd><ul id=\"Permision" + data.Permission_ID + "\"></ul></dd></dl>");
+                }
+            })
+            $(data).each(function (index, data) {
+                if (data.pID != 0) {
+                    $("#Permision" + data.pID).append("<li><a data-href='" + data.Permission_Url + "' data-title='" + data.Permission_Name + "' href='javascript: void (0)'>" + data.Permission_Name + "</a></li>");
+                }
+            })
+        }
+    })
 	getHTMLDate($("#top_time"));
 	getskincookie();
 	//layer.config({extend: 'extend/layer.ext.js'});
@@ -314,4 +333,5 @@ $(function(){
 		var hrefRes=hrefStr.substring(0,hrefStr.lastIndexOf('skin/'))+'skin/'+v+'/skin.css';
 		$(window.frames.document).contents().find("#skin").attr("href",hrefRes);
 	});
+
 }); 

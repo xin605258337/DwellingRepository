@@ -38,6 +38,7 @@ namespace Dwelling.Services
             parameters.Add("_Permission_Url", permission.Permission_Url);
             parameters.Add("_Permission_Enabel", permission.Permission_Enabel);
             parameters.Add("_Permission_Remark", permission.Permission_Remark);
+            parameters.Add("_pID", permission.pID);
             return conn.Execute("pro_AddPermission", parameters, commandType: CommandType.StoredProcedure);
         }
         /// <summary>
@@ -60,6 +61,15 @@ namespace Dwelling.Services
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             return conn.Query<Permission>("pro_GetPermission", null, commandType: CommandType.StoredProcedure).ToList();
+        }
+        /// <summary>
+        /// 获得权限所有父节点
+        /// </summary>
+        /// <returns></returns>
+        public List<Permission> GetPermissionPid()
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            return conn.Query<Permission>("pro_GetPermissionPid", null, commandType: CommandType.StoredProcedure).ToList();
         }
     }
 }

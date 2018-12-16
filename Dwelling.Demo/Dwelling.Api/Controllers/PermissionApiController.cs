@@ -49,6 +49,15 @@ namespace Dwelling.Api.Controllers
         {
             return PermissionService.GetPermissions();
         }
-
+        /// <summary>
+        /// 获得权限所有父节点
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetPermissionPid")]
+        public List<Permission> GetPermissionPid()
+        {
+            return PermissionService.GetPermissionPid();
+        }
     }
 }

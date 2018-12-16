@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Dwelling.Model
 {
     //管理员表
-    public class Admin
+    public class Admin:Permission
     {
         /// <summary>
         ///管理员ID 
@@ -45,14 +45,5 @@ namespace Dwelling.Model
         /// 角色名称
         /// </summary>
         public string Role_Name { get; set; }
-        /// <summary>
-        /// 权限路径
-        /// </summary>
-        public string Permission_Url { get; set; }
-        /// <summary>
-        /// 权限名称
-        /// </summary>
-        public string Permission_Name { get; set; }
-
     }
 }

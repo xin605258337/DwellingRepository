@@ -26,8 +26,10 @@ namespace Dwelling.IServices
         /// </summary>
         /// <returns></returns>
         List<Permission> GetPermissions();
-
-
-
+        /// <summary>
+        /// 获得权限所有父节点
+        /// </summary>
+        /// <returns></returns>
+        List<Permission> GetPermissionPid();
     }
 }
