@@ -41,6 +41,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //token
+    var that = this;
+    wx.getStorage({
+      key: 'token',
+      success: function (res) {
+        wx.request({
+          url: 'http://localhost:8092/Dwelling/GetUsers',
+          method: 'GET',
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + res.data
+          }, 
+          success: function (res) {
+            console.log('token验证成功')
+          }
+        })
+      },
+    })
+
+
     var that = this;
     //加载房源信息
     wx.request({
