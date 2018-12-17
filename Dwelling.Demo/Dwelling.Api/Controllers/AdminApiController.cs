@@ -68,5 +68,16 @@ namespace Dwelling.Api.Controllers
         {
             return AdminService.GetAdminPermissionUrls(adminId);
         }
+        /// <summary>
+        /// 根据管理员名获取管理员ID
+        /// </summary>
+        /// <param name="adminName"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetAdminIDByName")]
+        public Admin GetAdminIDByName(string adminName)
+        {
+            return AdminService.GetAdminIDByName(adminName);
+        }
     }
 }

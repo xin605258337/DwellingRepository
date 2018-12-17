@@ -87,5 +87,18 @@ namespace Dwelling.Services
             parameters.Add("_Admin_ID", adminId);
             return conn.Query<Admin>("pro_GetAdminPermissionUrls", parameters, commandType: CommandType.StoredProcedure).ToList();
         }
+        /// <summary>
+        /// 根据管理员名获取管理员IDpro_GetAdminByName
+        /// </summary>
+        /// <param name="adminName"></param>
+        /// <returns></returns>
+        public Admin GetAdminIDByName(string adminName)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_Admin_Name", adminName);
+            return conn.Query<Admin>("pro_GetAdminByName", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+        }
+
     }
 }

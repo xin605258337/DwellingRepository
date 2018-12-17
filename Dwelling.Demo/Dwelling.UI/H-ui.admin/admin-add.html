@@ -11,7 +11,6 @@
     <script type="text/javascript" src="lib/respond.min.js"></script>
     <![endif]-->
     <link href="../Content/bootstrap.css" rel="stylesheet" />
-    <script src="../Content/jquery-3.1.1.js"></script>
     <link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
     <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
     <link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
@@ -82,7 +81,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-3">备注：</label>
                 <div class="formControls col-xs-8 col-sm-9">
-                    <textarea name="Admin_Remark" class="textarea" placeholder="说点什么...100个字符以内" dragonfly="true" onKeyUp="$.Huitextarealength(this,100)"></textarea>
+                    <textarea name="Admin_Remark" class="textarea" placeholder="说点什么...100个字符以内" dragonfly="true"></textarea>
                     <p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
                 </div>
             </div>
@@ -99,6 +98,7 @@
 <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
+
 <script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script>
@@ -118,95 +118,56 @@
         })
         //添加管理员
         $("#btnAdd").click(function () {
-            if ($("#pwd1").val() != $("#pwd2").val()) {
-                alert('两次输入密码不匹配');
-                return;
-            }
-            if ($("#Admin_Name").val().trim().length <= 0) {
-                alert("管理员不能为空")
-            }
-            if ($("#Admin_Tel").val().trim().length <= 0) {
-                alert("手机号不能为空")
-            }
-            if ($("#Admin_Email").val().trim().length <= 0) {
-                alert("邮箱不能为空")
-            }
-            if ($("#Admin_Remark").val().trim().length <= 0) {
-                alert("备注不能为空")
-            }
-          
+            //if ($("#pwd1").val() != $("#pwd2").val()) {
+            //    alert('两次输入密码不匹配');
+            //    return;
+            //}
+            //if ($("#Admin_Name").val().trim().length <= 0) {
+            //    alert("管理员不能为空")
+            //}
+            //if ($("#Admin_Tel").val().trim().length <= 0) {
+            //    alert("手机号不能为空")
+            //}
+            //if ($("#Admin_Email").val().trim().length <= 0) {
+            //    alert("邮箱不能为空")
+            //}
+            //if ($("#Admin_Remark").val().trim().length <= 0) {
+            //    alert("备注不能为空")
+            //}
+
             $.ajax({
-                url: "http://localhost:8092/Dwelling/AddAdmin",
+                url: "http://localhost:8092/Dwelling/AddAdmin", 
                 type: "post",
                 data: $("#fromData").serialize(),
                 success: function (data) {
                     if (data > 0) {
-                        alert("添加管理员成功");
-
-                        location.href = "admin-list.html";
-                    }
-                    else {
-                        alert("添加失败");
+                        $.ajax({
+                            url: "http://localhost:8092/Dwelling/GetAdminIDByName", 
+                            type: "get",
+                            data: {
+                                adminName: $("input[name=Admin_Name]").val(),
+                            },
+                            success: function (data) {
+                                if (data) {
+                                    $.ajax({
+                                        url: "http://localhost:8092/Dwelling/AddAdminRole",
+                                        type: "get",
+                                        data: {
+                                            roleId: $("select[name=Role_ID]").val(),
+                                            AdminId: data.Admin_ID,
+                                        },
+                                        success: function (i) {
+                                            alert("添加管理员成功");
+                                            location.href = "admin-list.html";
+                                        }
+                                    })
+                                }
+                            }
+                        })   
                     }
                 }
             })
         })
-
-
-        $('.skin-minimal input').iCheck({
-            checkboxClass: 'icheckbox-blue',
-            radioClass: 'iradio-blue',
-            increaseArea: '20%'
-        });
-
-        $("#form-admin-add").validate({
-            rules: {
-                adminName: {
-                    required: true,
-                    minlength: 4,
-                    maxlength: 16
-                },
-                password: {
-                    required: true,
-                },
-                password2: {
-                    required: true,
-                    equalTo: "#password"
-                },
-                sex: {
-                    required: true,
-                },
-                phone: {
-                    required: true,
-                    isPhone: true,
-                },
-                email: {
-                    required: true,
-                    email: true,
-                },
-                adminRole: {
-                    required: true,
-                },
-            },
-            onkeyup: false,
-            focusCleanup: true,
-            success: "valid",
-            submitHandler: function (form) {
-                $(form).ajaxSubmit({
-                    type: 'post',
-                    url: "xxxxxxx",
-                    success: function (data) {
-                        layer.msg('添加成功!', { icon: 1, time: 1000 });
-                    },
-                    error: function (XmlHttpRequest, textStatus, errorThrown) {
-                        layer.msg('error!', { icon: 1, time: 1000 });
-                    }
-                });
-                var index = parent.layer.getFrameIndex(window.name);
-                parent.$('.btn-refresh').click();
-                parent.layer.close(index);
-            }
-        });
     });
 </script>
 <!--/请在上方写此页面业务相关的脚本-->

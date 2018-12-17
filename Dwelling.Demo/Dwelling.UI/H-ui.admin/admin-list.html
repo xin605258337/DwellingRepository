@@ -36,10 +36,9 @@
         <table class="table table-border table-bordered table-bg" id="tab1">
             <thead>
                 <tr>
-
                     <th scope="col" colspan="9">员工列表</th>
                 </tr>
-                <tr class="text-c">
+                <tr id="adminShow" class="text-c">
                     <th><input type="checkbox" name="" value=""></th>
                     <th>ID</th>
                     <th>登录名</th>
@@ -66,6 +65,9 @@
     <script src="../Content/jquery-3.1.1.js"></script>
     <script type="text/javascript">
         $(function () {
+            GetData();
+        })
+        function GetData() {
             //获得所有管理员信息
             $.ajax({
                 url: "http://localhost:8092/Dwelling/GetAdmins",
@@ -83,29 +85,29 @@
                             + '<td>' + data.Admin_Email + '</td>'
                             + '<td>' + data.Role_Name + '</td>'
                             + '<td>' + data.Admin_Remark + '</td>'
-                            + '<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,"10001")" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a><a title="删除" href="javascript:;" onclick="del(this,' + data.Admin_ID + ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
+                            + '<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,"10001")" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a><a title="删除" href="javascript:;" onclick="DelAdmin(' + data.Admin_ID + ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
                             + '</tr></tbody>';
                         $("#tab1").append(tr);
                     })
                 }
             })
-        })
-        function del(obj, id) {
-            layer.confirm('确认要删除吗？', function (index) {
-                $.ajax({
-                    type: 'get',
-                    url: 'http://localhost:8092/Dwelling/DeleteAdmin?adminId=' + id,
-                    dataType: 'json',
-                    success: function (data) {
-                        $(obj).parents("tr").remove();
-                        layer.msg('已删除!', { icon: 1, time: 1000 });
-                    },
-                    error: function (data) {
-                        console.log(data.msg);
-                    },
-                });
-            });
-
+        }
+        //删除管理员
+        function DelAdmin(Id) {
+            $.ajax({
+                url: "http://localhost:8092/Dwelling/DeleteAdmin",
+                type: "get",
+                data: {
+                    adminId: Id,
+                },
+                success: function (i) {
+                    if (i > 0) {
+                        alert('删除成功！');
+                        $("#adminShow").children().not(":first").remove();
+                        GetData();
+                    }
+                }
+            })
         }
         function add() {
             location.href = "/H-ui.admin/admin-add.html";

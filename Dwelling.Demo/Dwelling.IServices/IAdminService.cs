@@ -37,5 +37,11 @@ namespace Dwelling.IServices
         /// </summary>
         /// <returns></returns>
         List<Admin> GetAdminPermissionUrls(int adminId);
+        /// <summary>
+        /// 根据管理员名获取管理员ID
+        /// </summary>
+        /// <param name="adminName"></param>
+        /// <returns></returns>
+        Admin GetAdminIDByName(string adminName);
     }
 }

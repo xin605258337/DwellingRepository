@@ -37,17 +37,17 @@ function Huiasidedisplay(){
 	} 
 }
 /*获取皮肤cookie*/
-function getskincookie(){
-	var v = $.cookie("Huiskin");
-	var hrefStr=$("#skin").attr("href");
-	if(v==null||v==""){
-		v="default";
-	}
-	if(hrefStr!=undefined){
-		var hrefRes=hrefStr.substring(0,hrefStr.lastIndexOf('skin/'))+'skin/'+v+'/skin.css';
-		$("#skin").attr("href",hrefRes);
-	}
-}
+//function getskincookie(){
+//	var v = $.cookie("Huiskin");
+//	var hrefStr=$("#skin").attr("href");
+//	if(v==null||v==""){
+//		v="default";
+//	}
+//	if(hrefStr!=undefined){
+//		var hrefRes=hrefStr.substring(0,hrefStr.lastIndexOf('skin/'))+'skin/'+v+'/skin.css';
+//		$("#skin").attr("href",hrefRes);
+//	}
+//}
 /*菜单导航*/
 function Hui_admin_tab(obj){
 	var bStop = false,
@@ -232,7 +232,26 @@ function getHTMLDate(obj) {
     obj.html(_yy + "年" + _mm + "月" + _dd + "日 " + _ww);
 };
 $(function () {
-   
+    $.ajax({
+        url: "http://localhost:8092/Dwelling/GetAdminPermissionUrls",
+        type: "get",
+        async: false,
+        data: {
+            adminId: location.search.substr(4),
+        },
+        success: function (data) {
+            $(data).each(function (index, data) {
+                if (data.pID == 0) {
+                    $("#Permision_List").append("<dl><dt>" + data.Permission_Name + "<i class=\"Hui-iconfont menu_dropdown-arrow\">&#xe6d5;</i></dt><dd><ul id=\"Permision" + data.Permission_ID + "\"></ul></dd></dl>");
+                }
+            })
+            $(data).each(function (index, data) {
+                if (data.pID != 0) {
+                    $("#Permision" + data.pID).append("<li><a data-href='" + data.Permission_Url + "' data-title='" + data.Permission_Name + "' href='javascript: void (0)'>" + data.Permission_Name + "</a></li>");
+                }
+            })
+        }
+    })
 	getHTMLDate($("#top_time"));
 	getskincookie();
 	//layer.config({extend: 'extend/layer.ext.js'});
@@ -307,12 +326,12 @@ $(function () {
 	}
 	
 	/*换肤*/
-	$("#Hui-skin .dropDown-menu a").click(function(){
-		var v = $(this).attr("data-val");
-		$.cookie("Huiskin", v);
-		var hrefStr=$("#skin").attr("href");
-		var hrefRes=hrefStr.substring(0,hrefStr.lastIndexOf('skin/'))+'skin/'+v+'/skin.css';
-		$(window.frames.document).contents().find("#skin").attr("href",hrefRes);
-	});
+	//$("#Hui-skin .dropDown-menu a").click(function(){
+	//	var v = $(this).attr("data-val");
+	//	$.cookie("Huiskin", v);
+	//	var hrefStr=$("#skin").attr("href");
+	//	var hrefRes=hrefStr.substring(0,hrefStr.lastIndexOf('skin/'))+'skin/'+v+'/skin.css';
+	//	$(window.frames.document).contents().find("#skin").attr("href",hrefRes);
+	//});
 
 }); 

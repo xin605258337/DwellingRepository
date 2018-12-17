@@ -65,13 +65,11 @@ function admin_role_edit(title,url,id,w,h){
 </html>
 <script>
     $(function () {
-
-
+        //显示所有角色信息
         $.ajax({
             url: "http://localhost:8092/Dwelling/GetRoles",
             type: "get",
             success: function (data) {
-
                 $(data).each(function (index, data) {
                     var tr = '<tbody>'
                         + '<tr class="text-c" >'
@@ -79,29 +77,24 @@ function admin_role_edit(title,url,id,w,h){
                         + '<td>' + (index+1) + '</td>'
                         + '<td>' + data.Role_Name + '</td>'
                         + '<td>' + data.Role_Remark + '</td>'
-                        + '<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,"10001")" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a><a title="删除" href="javascript:;" onclick="delRole(this,' + data.Role_ID + ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
+                        + '<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,"10001")" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a><a title="删除" href="javascript:;" onclick="DelRole(this,' + data.Role_ID + ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
                         + '</tr></tbody>';
                     $("#tab1").append(tr);
-                   
                 })
                 $("#sum").append("<strong>" + data.length + "条</strong>");
-            }
-            
+            } 
         })
     })
-
-    function delRole(obj, id) {
+    //删除角色信息
+    function DelRole(obj, id) {
         layer.confirm('确认要删除吗？', function (index) {
             $.ajax({
                 type: 'get',
-                url: 'http://localhost:8092/Dwelling/DeleteRole?roleID=' + id,
+                url: 'http://localhost:8092/Dwelling/DeleteRole?roleId=' + id,
                 dataType: 'json',
                 success: function (data) {
                     $(obj).parents("tr").remove();
                     layer.msg('已删除!', { icon: 1, time: 1000 });
-                },
-                error: function (data) {
-                    console.log(data.msg);
                 },
             });
         });

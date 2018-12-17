@@ -961,6 +961,7 @@
     <Content Include="H-ui.admin\static\h-ui.admin\images\logo.png" />
     <Content Include="H-ui.admin\static\h-ui.admin\images\um.gif" />
     <Content Include="H-ui.admin\static\h-ui.admin\js\de_DE.txt" />
+    <Content Include="H-ui.admin\static\h-ui.admin\js\H-ui.adminIndex.js" />
     <Content Include="H-ui.admin\static\h-ui.admin\js\H-ui.admin.js" />
     <Content Include="H-ui.admin\static\h-ui.admin\skin\blue\acrossTab-bg.png" />
     <Content Include="H-ui.admin\static\h-ui.admin\skin\blue\acrossTab.png" />
