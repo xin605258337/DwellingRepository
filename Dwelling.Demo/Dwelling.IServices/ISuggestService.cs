@@ -13,5 +13,7 @@ namespace Dwelling.IServices
         int AddSuggest(Suggest suggest);
 
         List<Suggest> GetSuggests();
+
+        Suggest GetSuggestByID(int id);
     }
 }

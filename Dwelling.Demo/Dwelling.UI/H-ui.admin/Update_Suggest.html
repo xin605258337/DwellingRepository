@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Content/jquery-1.10.2.js"></script>
+    
+</head>
+<body>
+    <form id="form1" method="post">
+        <input id="Hidden1" type="hidden" name="Suggest_ID" />
+        <table class="table table-striped">           
+            <tr>
+                <td>建议内容</td>
+                <td><textarea id="TextArea1" rows="2" cols="20" name="Suggest_Content"></textarea></td>
+            </tr>
+            <tr>
+                <td>回复结果</td>
+                <td><textarea id="TextArea1" rows="2" cols="20" name="Suggest_Result"></textarea></td>
+            </tr>
+            <tr>
+                <td><input id="upt" type="button" value="提交" /></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+<script>
+    var loc = location.href;
+    var n1 = loc.length;//地址的总长度
+    var n2 = loc.indexOf("=");//取得=号的位置
+    var id = decodeURI(loc.substr(n2 + 1, n1 - n2));//从=号后面的内容   
+    $(function () {
+        $.ajax({
+            url: "http://localhost:8092/Dwelling/GetSuggestByID",
+            data: {
+                id:id
+            },
+            success: function (data) {
+                $("textarea[name=Suggest_Content]").val(data.Suggest_Content);
+            }
+
+        })
+    })
+</script>
