@@ -61,6 +61,7 @@ namespace Dwelling.Api
             container.RegisterType<IRolePermissionService, RolePermissionService>();
             container.RegisterType<IAdminRoleService, AdminRoleService>();
             container.RegisterType<IUsersService, UsersService>();
+            container.RegisterType<IComplainService, ComplainService>();
             //container.RegisterType<IStyleService, StyleService>();
             //container.RegisterType<IStyleService, StyleService>();
         }

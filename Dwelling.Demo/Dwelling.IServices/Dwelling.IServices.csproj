@@ -45,6 +45,7 @@
     <Compile Include="IAdminService.cs" />
     <Compile Include="IAreaService.cs" />
     <Compile Include="IBuildingTypeService.cs" />
+    <Compile Include="IComplainService.cs" />
     <Compile Include="IFacilityService.cs" />
     <Compile Include="IHabitableroomServices.cs" />
     <Compile Include="IHouseService.cs" />
