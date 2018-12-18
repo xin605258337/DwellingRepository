@@ -21,7 +21,7 @@ namespace Dwelling.Model
         /// <summary>
         /// 建议图片
         /// </summary>
-        public string Suggest_Img { get; set; }
+        public string Suggest_Result { get; set; }
         /// <summary>
         /// 建议所属用户
         /// </summary>

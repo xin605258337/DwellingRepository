@@ -34,7 +34,7 @@
             <input type="text" class="input-text" style="width:250px" placeholder="输入关键词" id="" name="">
             <button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜意见</button>
         </div>
-        <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> </span> <span class="r">共有数据：<strong>88</strong> 条</span> </div>
+        <div class="cl pd-5 bg-1 bk-gray mt-20"><span>投诉管理</span> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> </span> <span id="s1" class="r">共有数据： </span> </div>
         <div class="mt-20">
             <table class="table table-border table-bordered table-hover table-bg table-sort" id="tab1">
                 <thead>
@@ -45,61 +45,7 @@
                         <th>留言内容</th>
                         <th width="100">操作</th>
                     </tr>
-                </thead>
-                <tbody>
-                    <tr class="text-c">
-                        <td><input type="checkbox" value="1" name=""></td>
-                        <td>1</td>
-                        <td><a href="javascript:;" onclick="member_show('张三','member-show.html','10001','360','400')"><i class="avatar size-L radius"><img alt="" src="static/h-ui/images/ucnter/avatar-default-S.gif"></i></a></td>
-                        <td class="text-l">
-                            <div class="c-999 f-12">
-                                <u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')">张三</u> <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20">2014-8-31 15:20</time> <span class="ml-20">13000000000</span> <span class="ml-20">admin@mail.com</span>
-                            </div>
-                            <div class="f-12 c-999"><a href="http://www.h-ui.net/Hui-4.22-comment.shtml" target="_blank">http://www.h-ui.net/Hui-4.22-comment.shtml</a></div>
-                            <div>留言内容</div>
-                        </td>
-                        <td class="td-manage"><a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-                    </tr>
-                    <tr class="text-c">
-                        <td><input type="checkbox" value="1" name=""></td>
-                        <td>1</td>
-                        <td><a href="javascript:;" onclick="member_show('张三','member-show.html','10001','360','400')"><i class="avatar size-L radius"><img alt="" src="static/h-ui/images/ucnter/avatar-default-S.gif"></i></a></td>
-                        <td class="text-l">
-                            <div class="c-999 f-12">
-                                <u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')">张三</u> <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20">2014-8-31 15:20</time> <span class="ml-20">13000000000</span> <span class="ml-20">admin@mail.com</span>
-                            </div>
-                            <div class="f-12 c-999"><a href="http://www.h-ui.net/Hui-4.22-comment.shtml" target="_blank">http://www.h-ui.net/Hui-4.22-comment.shtml</a></div>
-                            <div>留言内容</div>
-                        </td>
-                        <td class="td-manage"><a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-                    </tr>
-                    <tr class="text-c">
-                        <td><input type="checkbox" value="1" name=""></td>
-                        <td>1</td>
-                        <td><a href="javascript:;" onclick="member_show('张三','member-show.html','10001','360','400')"><i class="avatar size-L radius"><img alt="" src="static/h-ui/images/ucnter/avatar-default-S.gif"></i></a></td>
-                        <td class="text-l">
-                            <div class="c-999 f-12">
-                                <u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')">张三</u> <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20">2014-8-31 15:20</time> <span class="ml-20">13000000000</span> <span class="ml-20">admin@mail.com</span>
-                            </div>
-                            <div class="f-12 c-999"><a href="http://www.h-ui.net/Hui-4.22-comment.shtml" target="_blank">http://www.h-ui.net/Hui-4.22-comment.shtml</a></div>
-                            <div>留言内容</div>
-                        </td>
-                        <td class="td-manage"><a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-                    </tr>
-                    <tr class="text-c">
-                        <td><input type="checkbox" value="1" name=""></td>
-                        <td>1</td>
-                        <td><a href="javascript:;" onclick="member_show('张三','member-show.html','10001','360','400')"><i class="avatar size-L radius"><img alt="" src="static/h-ui/images/ucnter/avatar-default-S.gif"></i></a></td>
-                        <td class="text-l">
-                            <div class="c-999 f-12">
-                                <u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')">张三</u> <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20">2014-8-31 15:20</time> <span class="ml-20">13000000000</span> <span class="ml-20">admin@mail.com</span>
-                            </div>
-                            <div class="f-12 c-999"><a href="http://www.h-ui.net/Hui-4.22-comment.shtml" target="_blank">http://www.h-ui.net/Hui-4.22-comment.shtml</a></div>
-                            <div>留言内容</div>
-                        </td>
-                        <td class="td-manage"><a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-                    </tr>
-                </tbody>
+                </thead>              
             </table>
         </div>
     </div>
@@ -107,9 +53,9 @@
     <!--//////////////////////////建议-->
 
 
-    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> </span> <span class="r">共有数据：<strong>88</strong> 条</span> </div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span>建议管理</span><span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> </span> <span id="s2" class="r">共有数据： </span> </div>
     <div class="mt-20">
-        <table class="table table-border table-bordered table-hover table-bg table-sort">
+        <table id="tab2" class="table table-border table-bordered table-hover table-bg table-sort">
             <thead>
                 <tr class="text-c">
                     <th width="25"><input type="checkbox" name="" value=""></th>
@@ -118,64 +64,11 @@
                     <th>留言内容</th>
                     <th width="100">操作</th>
                 </tr>
-            </thead>
-            <tbody>
-                <tr class="text-c">
-                    <td><input type="checkbox" value="1" name=""></td>
-                    <td>1</td>
-                    <td><a href="javascript:;" onclick="member_show('张三','member-show.html','10001','360','400')"><i class="avatar size-L radius"><img alt="" src="static/h-ui/images/ucnter/avatar-default-S.gif"></i></a></td>
-                    <td class="text-l">
-                        <div class="c-999 f-12">
-                            <u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')">张三</u> <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20">2014-8-31 15:20</time> <span class="ml-20">13000000000</span> <span class="ml-20">admin@mail.com</span>
-                        </div>
-                        <div class="f-12 c-999"><a href="http://www.h-ui.net/Hui-4.22-comment.shtml" target="_blank">http://www.h-ui.net/Hui-4.22-comment.shtml</a></div>
-                        <div>留言内容</div>
-                    </td>
-                    <td class="td-manage"><a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-                </tr>
-                <tr class="text-c">
-                    <td><input type="checkbox" value="1" name=""></td>
-                    <td>1</td>
-                    <td><a href="javascript:;" onclick="member_show('张三','member-show.html','10001','360','400')"><i class="avatar size-L radius"><img alt="" src="static/h-ui/images/ucnter/avatar-default-S.gif"></i></a></td>
-                    <td class="text-l">
-                        <div class="c-999 f-12">
-                            <u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')">张三</u> <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20">2014-8-31 15:20</time> <span class="ml-20">13000000000</span> <span class="ml-20">admin@mail.com</span>
-                        </div>
-                        <div class="f-12 c-999"><a href="http://www.h-ui.net/Hui-4.22-comment.shtml" target="_blank">http://www.h-ui.net/Hui-4.22-comment.shtml</a></div>
-                        <div>留言内容</div>
-                    </td>
-                    <td class="td-manage"><a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-                </tr>
-                <tr class="text-c">
-                    <td><input type="checkbox" value="1" name=""></td>
-                    <td>1</td>
-                    <td><a href="javascript:;" onclick="member_show('张三','member-show.html','10001','360','400')"><i class="avatar size-L radius"><img alt="" src="static/h-ui/images/ucnter/avatar-default-S.gif"></i></a></td>
-                    <td class="text-l">
-                        <div class="c-999 f-12">
-                            <u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')">张三</u> <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20">2014-8-31 15:20</time> <span class="ml-20">13000000000</span> <span class="ml-20">admin@mail.com</span>
-                        </div>
-                        <div class="f-12 c-999"><a href="http://www.h-ui.net/Hui-4.22-comment.shtml" target="_blank">http://www.h-ui.net/Hui-4.22-comment.shtml</a></div>
-                        <div>留言内容</div>
-                    </td>
-                    <td class="td-manage"><a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-                </tr>
-                <tr class="text-c">
-                    <td><input type="checkbox" value="1" name=""></td>
-                    <td>1</td>
-                    <td><a href="javascript:;" onclick="member_show('张三','member-show.html','10001','360','400')"><i class="avatar size-L radius"><img alt="" src="static/h-ui/images/ucnter/avatar-default-S.gif"></i></a></td>
-                    <td class="text-l">
-                        <div class="c-999 f-12">
-                            <u style="cursor:pointer" class="text-primary" onclick="member_show('张三','member-show.html','10001','360','400')">张三</u> <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20">2014-8-31 15:20</time> <span class="ml-20">13000000000</span> <span class="ml-20">admin@mail.com</span>
-                        </div>
-                        <div class="f-12 c-999"><a href="http://www.h-ui.net/Hui-4.22-comment.shtml" target="_blank">http://www.h-ui.net/Hui-4.22-comment.shtml</a></div>
-                        <div>留言内容</div>
-                    </td>
-                    <td class="td-manage"><a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-                </tr>
-            </tbody>
+            </thead>   
         </table>
     </div>
-    </div>
+ 
+
 
     <!--_footer 作为公共模版分离出去-->
     <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
@@ -187,17 +80,6 @@
     <script type="text/javascript" src="lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="lib/laypage/1.2/laypage.js"></script>
     <script type="text/javascript">
-        $(function () {
-            $('.table-sort').dataTable({
-                "aaSorting": [[1, "desc"]],//默认第几个排序
-                "bStateSave": true,//状态保存
-                "aoColumnDefs": [
-                    //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-                    { "orderable": false, "aTargets": [0, 2, 4] }// 制定列不参与排序
-                ]
-            });
-
-        });
         /*用户-添加*/
         function member_add(title, url, w, h) {
             layer_show(title, url, w, h);
@@ -250,27 +132,47 @@
                 });
             });
         }
+        
+        $(function () {
+            /*显示用户投诉信息*/
+            $.ajax({
+                url: "http://localhost:8092/Dwelling/GetComplains",
+                type: "get",
+                success: function (data) {
+                    $(data).each(function (index, data) {
+                        var tr = '<tbody>'
+                            + '<tr class="text-c" >'
+                            + '<td><input type = "checkbox" value = "3" name = "" ></td>'
+                            + '<td>' + data.Complain_ID + '</td>'
+                            + '<td>' + data.Role_Remark + '</td>'
+                            + '<td>' + data.Complain_Content + '</td>'
+                            + '<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,"10001")" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a><a title="删除" href="javascript:;" onclick="DelRole(this,' + data.Role_ID + ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
+                            + '</tr></tbody>';
+                        $("#tab1").append(tr);
+                    })
+                    $("#s1").append("<strong>" + data.length + "条</strong>");
+                }
+            })
+            /*显示用户建议信息*/
+            $.ajax({
+                url: "http://localhost:8092/Dwelling/GetSuggests",
+                type: "get",
+                success: function (data) {
+                    $(data).each(function (index, data) {
+                        var tr = '<tbody>'
+                            + '<tr class="text-c" >'
+                            + '<td><input type = "checkbox" value = "3" name = "" ></td>'
+                            + '<td>' + (index+1) + '</td>'
+                            + '<td>' + data.Users_ID + '</td>'
+                            + '<td>' + data.Suggest_Content + '</td>'
+                            + '<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,"10001")" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a><a title="删除" href="javascript:;" onclick="DelRole(this,' + data.Role_ID + ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
+                            + '</tr></tbody>';
+                        $("#tab2").append(tr);
+                    })
+                    $("#s2").append("<strong>" + data.length + "条</strong>");
+                }
+            })
+        })
     </script>
 </body>
 </html>
-<script>
-    $(function () {
-        $.ajax({
-            url: "http://localhost:8092/Dwelling/GetComplains",
-            type: "get",
-            success: function (data) {
-                $(data).each(function (index, data) {
-                    var tr = '<tbody>'
-                        + '<tr class="text-c" >'
-                        + '<td><input type = "checkbox" value = "3" name = "" ></td>'
-                        + '<td>' +data.Complain_ID+ '</td>'
-                        + '<td>' +data.Role_Remark + '</td>'
-                        + '<td>' + data.Complain_Content + '</td>'
-                        + '<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,"10001")" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a><a title="删除" href="javascript:;" onclick="DelRole(this,' + data.Role_ID + ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
-                        + '</tr></tbody>';
-                    $("#tab1").append(tr);
-                })
-            }
-        })
-    })
-</script>
