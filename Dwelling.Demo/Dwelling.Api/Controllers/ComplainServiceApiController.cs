@@ -27,5 +27,12 @@ namespace Dwelling.Api.Controllers
         {
             return ComplainService.AddComplain(complain);
         }
+
+        [HttpGet]
+        [Route("GetComplains")]
+        public List<Complain> GetComplains()
+        {
+            return ComplainService.GetComplains();
+        }
         }
 }
