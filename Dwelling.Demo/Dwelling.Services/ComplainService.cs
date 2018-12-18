@@ -45,7 +45,8 @@ namespace Dwelling.Services
 
         public List<Complain> GetComplains()
         {
-            throw new NotImplementedException();
+            MySqlConnection conn = new MySqlConnection(connStr);
+            return conn.Query<Complain>("proc_getComplain", null, commandType: CommandType.StoredProcedure).ToList();
         }
     }
 }
