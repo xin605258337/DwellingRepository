@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Dwelling.IServices
 {
-        using Dwelling.Model;
+    using Dwelling.Model;
+    //建议接口
     public interface ISuggestService
     {
-        
+        int AddSuggest(Suggest suggest);
+
+        List<Suggest> GetSuggests();
     }
 }

@@ -86,6 +86,8 @@ Page({
       Complain_Content: e.detail.value
     })
 
+    
+
   }, 
   onSubmit12:function(event)
   {
@@ -108,6 +110,36 @@ Page({
             }
         }
       })
+
+  },
+
+  bindBlur: function (e) {
+    this.setData({
+      Suggest_Content: e.detail.value
+    })
+
+
+
+  }, 
+
+  onSubmit:function(event)
+  {
+    wx.request({
+      url: 'http://localhost:8092/Dwelling/AddSuggest',
+      method: 'post',
+      data: {
+        Suggest_Content: this.data.Suggest_Content
+      },
+      success: function (res) {
+        if (res.data > 0) {
+
+          wx.showToast({
+            title: '添加成功',
+            duration: 2000 //提示两秒钟后关闭标题
+          })
+        }
+      }
+    })
 
   }
 })

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Dwelling.Model
 {
     //建议表
-     public class Suggest
+     public class Suggest:Users
     {
         /// <summary>
         /// 建议ID
@@ -25,7 +25,7 @@ namespace Dwelling.Model
         /// <summary>
         /// 建议所属用户
         /// </summary>
-        public int Users_ID { get; set; }
+        public new int Users_ID { get; set; }
         /// <summary>
         /// 审批状态
         /// </summary>
