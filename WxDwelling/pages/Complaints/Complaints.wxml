@@ -33,7 +33,7 @@
 <form bindsubmit="onSubmit" bindreset="">
 <view class="container1">
     <view class='row text_box'>
-        <textarea class='text1' name="Complain_Content" value="{{content}}" placeholder="请输入您的建议内容" />
+        <textarea class='text1' name="content" value="{{content}}" placeholder="请输入您的建议内容" />
     </view>
     <view class='row btn_box'>
         <button formType="submit" class='submit'>提交建议</button>
