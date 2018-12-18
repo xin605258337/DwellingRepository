@@ -73,6 +73,28 @@ Page({
       }
     })
   },
+  //发布房源信息
+  formSubmit:function(e){
+console.log(e.detail.value);
+wx.request({
+  url: 'http://localhost:8092/Dwelling/AddPublishHouse',
+  method: 'post',
+  data: { PublishHouse_Num: this.value.PublishHouse_Num},
+  success: function (res) {
+    if (res.data > 0) {
+
+      wx.showToast({
+        title: '添加成功',
+        duration: 2000 //提示两秒钟后关闭标题
+      })
+    }
+  }
+
+
+})
+
+
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

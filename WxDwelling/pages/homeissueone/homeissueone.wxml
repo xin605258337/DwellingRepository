@@ -8,7 +8,7 @@
 
 <!--合租页面-->
   <swiper-item >
-  <form bindsubmit="formSubmit" bindreset="formReset">
+  <form bindsubmit="formSubmit" bindreset="formReset" name="from1">
   <view class="group-header">基本信息</view>
 <!--出租房间-->
 	<view class="input-item">
