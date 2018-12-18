@@ -126,6 +126,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminApiController.cs" />
     <Compile Include="Controllers\AdminRoleController.cs" />
+    <Compile Include="Controllers\ComplainApiController.cs" />
     <Compile Include="Controllers\HouseApiController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\PermissionApiController.cs" />
