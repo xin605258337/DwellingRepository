@@ -21,7 +21,8 @@ namespace Dwelling.Api.Controllers
         /// 添加投诉表
         /// </summary>
         /// <param name="complain"></param>
-        /// <returns></returns>
+        [HttpPost]
+        [Route("AddComplain")]
         public int AddComplain(Complain complain)
         {
             return ComplainService.AddComplain(complain);

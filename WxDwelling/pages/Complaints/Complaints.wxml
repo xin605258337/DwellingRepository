@@ -11,20 +11,20 @@
  <swiper-item >
  <view>--24小时受理投诉--</view>
    <!--用户反馈-->
-<form bindsubmit="onSubmit" bindreset="">
+
 <view class="container1">
     <view class='row text_box'>
-        <textarea class='text' name="content" value="{{content}}" placeholder="请输入您的反馈" />
+        <textarea class='text' bindblur='bindTextAreaBlur'  value="{{Complain_Content}}"  placeholder="请输入您的反馈" />
     </view>
     <view class='row btn_box'>
-        <button formType="submit" class='submit'>提交反馈</button>
+        <button bindtap='onSubmit12' class='submit'>提交反馈</button>
     </view>
     <view class='row version'>
         <view class='txt'>版本1.0</view>
         
     </view>
 </view>
-</form>
+
   </swiper-item >
   <!--建议-->
    <swiper-item >
@@ -33,7 +33,7 @@
 <form bindsubmit="onSubmit" bindreset="">
 <view class="container1">
     <view class='row text_box'>
-        <textarea class='text1' name="content" value="{{content}}" placeholder="请输入您的建议内容" />
+        <textarea class='text1' name="Complain_Content" value="{{content}}" placeholder="请输入您的建议内容" />
     </view>
     <view class='row btn_box'>
         <button formType="submit" class='submit'>提交建议</button>

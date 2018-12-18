@@ -80,4 +80,34 @@ Page({
   swiperChange: function (e) {
     this.setData({ swiperCurrent: e.detail.current });
   },
+
+  bindTextAreaBlur: function (e) {
+    this.setData({
+      Complain_Content: e.detail.value
+    })
+
+  }, 
+  onSubmit12:function(event)
+  {
+    
+      wx.request({
+        url: 'http://localhost:8092/Dwelling/AddComplain',
+        method:'post',
+        data:{
+          Complain_Content: this.data.Complain_Content
+        },
+        success:function(res)
+        {
+            if(res.data>0)
+            {
+
+                wx.showToast({
+                  title: '添加成功',
+                  duration: 2000 //提示两秒钟后关闭标题
+                })
+            }
+        }
+      })
+
+  }
 })
