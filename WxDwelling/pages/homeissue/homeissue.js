@@ -61,8 +61,6 @@ Page({
     wx.navigateTo({
       url: '../homeissueone/homeissueone?owner=' + param.owner + '&tel=' + param.tel +'&price=' + param.price + '&roomTypeId=' + param.roomTypeId + '&description=' + param.description
     })
-
-    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

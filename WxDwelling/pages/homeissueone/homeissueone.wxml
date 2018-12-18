@@ -7,8 +7,9 @@
 <swiper current="{{currentTab}}" duration="300"  bindchange="swiperTab" style="height: 1000px;">
 
 <!--合租页面-->
-    <swiper-item >
-<view class="group-header">基本信息</view>
+  <swiper-item >
+  <form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="group-header">基本信息</view>
 <!--出租房间-->
 	<view class="input-item">
 			<text class="input-item-label">出租房间:</text>
@@ -45,35 +46,35 @@
        <view class="input-item">
 			<text class="input-item-label">楼层:</text>
 			<view class="input-item-content">
-				<input type="idcard" placeholder="请输入层数"bindinput="inputPhone"></input>
+				<input name='PublishHouse_Floor' type="idcard" placeholder="请输入层数"bindinput="inputPhone"></input>
 			</view>
 		</view>
     <!--总楼层-->
        <view class="input-item">
 			<text class="input-item-label">总楼层:</text>
 			<view class="input-item-content">
-				<input type="idcard" placeholder="请输入层数"bindinput="inputPhone"></input>
+				<input name='PublishHouse_SumFloor' type="idcard" placeholder="请输入层数"bindinput="inputPhone"></input>
 			</view>
 		</view>
     <!--付款方式-->
        <view class="input-item">
 			<text class="input-item-label">付款方式:</text>
 			<view class="input-item-content">
-				<input type="idcard" placeholder="请输入月租/季租/整租"bindinput="inputPhone"></input>
+				<input name='PublishHouse__Payment' type="idcard" placeholder="请输入月租/季租/整租"bindinput="inputPhone"></input>
 			</view>
 		</view>
     <!--起租日期 -->
     <view class="input-item">
 			<text class="input-item-label">起租日期:</text>
 			<view class="input-item-content">
-			 	<input type="text" auto-focus placeholder="请输入:年/月/日" bindinput="inputName"></input>
+			 	<input name='PublishHouse_RentTimeBegin' type="text" auto-focus placeholder="请输入:年/月/日" bindinput="inputName"></input>
 			</view>
 		</view>
          <!--止租日期 -->
     <view class="input-item">
 			<text class="input-item-label">止租日期:</text>
 			<view class="input-item-content">
-			 	<input type="text" auto-focus placeholder="请输入:年/月/日" bindinput="inputName"></input>
+			 	<input name='PublishHouse_RentTimeEnd' type="text" auto-focus placeholder="请输入:年/月/日" bindinput="inputName"></input>
 			</view>
 		</view>
     <!--房屋设施-->
@@ -95,11 +96,16 @@
 						</view>
 					</view>
 				</view>
-    
+    <!--发布-->
+        <view class="btn-submit">
+    <button class="btn-block btn-orange" form-type="submit" >确认发布</button>
+	       </view>
+  </form>
   </swiper-item>
 <!--整租页面-->
    <swiper-item >
-<view class="group-header">基本信息</view>
+   <form bindsubmit="formSubmit" bindreset="formReset">
+   <view class="group-header">基本信息</view>
 
 <view class="containerhouse">
 	<view class="input-list">
@@ -144,8 +150,6 @@
 			 	<input type="text" auto-focus placeholder="请输入:年/月/日" bindinput="inputName"></input>
 			</view>
 		</view>
-
-    
         <!--房源图片 -->
     <view class="input-item input-item-full">
 				<text class="input-item-label">房源图片</text>
@@ -159,15 +163,12 @@
 						</view>
 					</view>
 				</view>
-  
-
-        	</view>
-
+	</view>
+   <!--发布-->
+        <view class="btn-submit">
+    <button class="btn-block btn-orange" form-type="submit" >确认发布</button>
+	       </view>
 </view>
-    
-    
-
-  
-
+   </form>
   </swiper-item>
 </swiper>
