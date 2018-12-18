@@ -58,6 +58,7 @@
     <Compile Include="IRoleService.cs" />
     <Compile Include="IStyleService.cs" />
     <Compile Include="ISuggestService.cs" />
+    <Compile Include="IUsersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

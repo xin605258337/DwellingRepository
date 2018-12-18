@@ -132,6 +132,7 @@
     <Compile Include="Controllers\PublishHouseApiController.cs" />
     <Compile Include="Controllers\RoleApiController.cs" />
     <Compile Include="Controllers\RolePermissionController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -151,6 +152,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Dwelling.Common\Dwelling.Common.csproj">
+      <Project>{4b680199-e44d-459d-8c29-63546b3ff308}</Project>
+      <Name>Dwelling.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Dwelling.IServices\Dwelling.IServices.csproj">
       <Project>{a16f136a-d873-46b6-a31a-2747b2bc8bfe}</Project>
       <Name>Dwelling.IServices</Name>

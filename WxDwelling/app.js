@@ -8,8 +8,23 @@ App({
 
     // 登录
     wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+      success: function (data) {
+        console.log(data.code);
+        if (data.code) {
+          wx.request({
+            url: 'http://localhost:8092/Dwelling/Logins',
+            method: 'get',
+            data: {
+              code: data.code,
+            },
+            success: function (res) {
+              wx.setStorage({
+                key: 'token',
+                data: res.data.session_key,
+              })
+            }
+          })
+        }
       }
     })
     // 获取用户信息

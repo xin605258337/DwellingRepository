@@ -63,6 +63,7 @@
     <Compile Include="RolePermissionService.cs" />
     <Compile Include="RoleService.cs" />
     <Compile Include="StyleService.cs" />
+    <Compile Include="UsersService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dwelling.IServices\Dwelling.IServices.csproj">
