@@ -72,7 +72,7 @@
                 data: $("#fromData").serialize(),
                 success: function (data) {
                     if (data) {
-                        location.href = "index.html?Id=" + data.Admin_ID;
+                        location.href = "http://localhost:55909/House/Index";
                     }
                     else {
                         alert("用户名或密码失败！");

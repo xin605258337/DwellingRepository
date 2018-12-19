@@ -39,5 +39,17 @@ namespace Dwelling.Api.Controllers
         {
             return SuggestService.GetSuggests();
         }
+
+        /// <summary>
+        /// 根据ID获取信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("GetSuggestByID")]
+        [HttpGet]
+        public Suggest GetSuggestByID(int id)
+        {
+            return SuggestService.GetSuggestByID(id);
+        }
     }
 }

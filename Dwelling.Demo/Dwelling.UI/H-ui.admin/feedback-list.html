@@ -53,15 +53,15 @@
     <!--//////////////////////////建议-->
 
 
-    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span>建议管理</span><span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> </span> <span id="s2" class="r">共有数据： </span> </div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span></span><span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 建议管理</a> </span> <span id="s2" class="r">共有数据： </span> </div>
     <div class="mt-20">
         <table id="tab2" class="table table-border table-bordered table-hover table-bg table-sort">
             <thead>
-                <tr class="text-c">
-                    <th width="25"><input type="checkbox" name="" value=""></th>
+                <tr class="text-c">                
                     <th width="60">ID</th>
-                    <th width="60">用户名</th>
+                    <th width="60">建议编号</th>
                     <th>留言内容</th>
+                    <th>回复</th>
                     <th width="100">操作</th>
                 </tr>
             </thead>   
@@ -160,11 +160,11 @@
                 success: function (data) {
                     $(data).each(function (index, data) {
                         var tr = '<tbody>'
-                            + '<tr class="text-c" >'
-                            + '<td><input type = "checkbox" value = "3" name = "" ></td>'
+                            + '<tr class="text-c" >'                           
                             + '<td>' + (index+1) + '</td>'
-                            + '<td>' + data.Users_ID + '</td>'
+                            + '<td>' + data.Suggest_ID + '</td>'
                             + '<td>' + data.Suggest_Content + '</td>'
+                            + '<td><a href="#" onclick="UpdateSuggest('+data.Suggest_ID+')" >回复</a></td>'
                             + '<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,"10001")" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a><a title="删除" href="javascript:;" onclick="DelRole(this,' + data.Role_ID + ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
                             + '</tr></tbody>';
                         $("#tab2").append(tr);
@@ -173,6 +173,10 @@
                 }
             })
         })
+
+        function UpdateSuggest(id) {
+            location.href = 'Update_Suggest.html?id=' + id;
+        }
     </script>
 </body>
 </html>
