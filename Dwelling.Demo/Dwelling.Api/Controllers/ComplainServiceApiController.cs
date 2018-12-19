@@ -12,7 +12,6 @@ namespace Dwelling.Api.Controllers
     using Dwelling.IServices;
     using Dwelling.Model;
     using Dwelling.Common;
-    [RequestAuthorization]
     [RoutePrefix("Dwelling")]
     public class ComplainServiceApiController : ApiController
     {

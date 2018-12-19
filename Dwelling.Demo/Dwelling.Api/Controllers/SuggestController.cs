@@ -11,8 +11,7 @@ namespace Dwelling.Api.Controllers
     using Unity.Attributes;
     using Dwelling.IServices;
     using Dwelling.Model;
-    using Dwelling.Common;
-    [RequestAuthorization]
+    using Dwelling.Common;   
     [RoutePrefix("Dwelling")]
     public class SuggestController : ApiController
     {
