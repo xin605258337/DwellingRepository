@@ -110,11 +110,6 @@
 <view class="containerhouse">
 	<view class="input-list">
     <!--房屋类型-->
-    <view class="input-item">
-					<text class="input-item-label">户型</text>
-					<picker class="input-item-content" bindchange="bindPickerChange" data-pickername="status" value="{{statusindex}}" range="{{statusarr}}" mode="selector">{{statusarr[statusindex]}}
-					</picker>
-				</view>
           <!--整套面积-->
 		<view class="input-item">
 			<text class="input-item-label">整套面积:</text>
@@ -140,7 +135,7 @@
 <!--楼房类型 -->
       <view class="input-item">
 					<text class="input-item-label">楼房类型</text>
-					<picker class="input-item-content" bindchange="bindPickerChange" data-pickername="status" value="{{statusindex}}" range="{{statusarr}}" mode="selector">{{statusarr[statusindex]}}
+				<picker name='BuildingType_ID' class="input-item-content" bindchange="bindPickerChange" data-pickername="{{BuildingType[hx_index].BuildingType_ID}}" value="{{BuildingType[hx_index].BuildingType_ID}}" range="{{BuildingType}}" range-key="{{'BuildingType_Name'}}" mode="selector" bindchange="bindPickerChange_hx">{{BuildingType[hx_index].BuildingType_Name}} 
 					</picker>
 				</view>
     <!--房屋租金 -->
