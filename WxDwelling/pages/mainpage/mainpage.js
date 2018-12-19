@@ -7,7 +7,7 @@ Page({
     showfilterindex: null, //显示哪个筛选类目
     sortindex: 0,  //排序索引
     sortid: 1,  //排序id
-    filter: { region: "", Prices: '0', acreage: '0', housetype: 0, Decoration: '0', orientations: '0' },
+    filter: { region: "", housetype: 0, Decoration: '0', orientations: '0' },
     conferencelist: [], //房源显示
     scrolltop: null, //滚动位置
     page: 1,  //分页
@@ -33,14 +33,6 @@ Page({
     var housetype=[{
       "id": 0,
       "title": "全部"
-    }]
-    var price=[{
-      "id":0,
-      "title":"不限"
-    }]
-    var area=[{
-      "id":0,
-      "title":"不限"
     }]
     var style=[{
       "id": 0,
@@ -76,69 +68,41 @@ Page({
                 }
               )
             }
-            //获取价格范围
+            //获取装修风格
             wx.request({
-              url: 'http://localhost:8092/Dwelling/GetPrice',
+              url: 'http://localhost:8092/Dwelling/GetStyle',
               success: function (res) {
                 for (var i = 0; i < res.data.length; i++) {
-                  price.push(
+                  style.push(
                     {
-                      "id": res.data[i].Price_ID,
-                      "title": res.data[i].Price_Name
+                      "id": res.data[i].Style_ID,
+                      "title": res.data[i].Style_Name
                     }
                   )
                 }
-                //获取面积范围
+                //获取朝向
                 wx.request({
-                  url: 'http://localhost:8092/Dwelling/GetArea',
+                  url: 'http://localhost:8092/Dwelling/GetOrientation',
                   success: function (res) {
                     for (var i = 0; i < res.data.length; i++) {
-                      area.push(
+                      orientations.push(
                         {
-                          "id": res.data[i].Area_ID,
-                          "title": res.data[i].Area_Name
+                          "id": res.data[i].Orientation_ID,
+                          "title": res.data[i].Orientation_Name
                         }
                       )
                     }
-                    //获取装修风格
-                    wx.request({
-                      url: 'http://localhost:8092/Dwelling/GetStyle',
-                      success: function (res) {
-                        for (var i = 0; i < res.data.length; i++) {
-                          style.push(
-                            {
-                              "id": res.data[i].Style_ID,
-                              "title": res.data[i].Style_Name
-                            }
-                          )
-                        }
-                        //获取朝向
-                        wx.request({
-                          url: 'http://localhost:8092/Dwelling/GetOrientation',
-                          success: function (res) {
-                            for (var i = 0; i < res.data.length; i++) {
-                              orientations.push(
-                                {
-                                  "id": res.data[i].Orientation_ID,
-                                  "title": res.data[i].Orientation_Name
-                                }
-                              )
-                            }
-                            that.fetchFilterData(reg, housetype, price, area, style,orientations);
-                          }
-                        })
-                      }
-                    })
+                    that.fetchFilterData(reg, housetype,style, orientations);
                   }
                 })
               }
-          })
+            })
           }
         })
       }
     })
   },
-  fetchFilterData: function (region, housetype, price, area, style, orientations) { //获取筛选条件
+  fetchFilterData: function (region, housetype,style, orientations) { //获取筛选条件
     this.setData({
       filterdata: {
         "sort": [
@@ -152,8 +116,6 @@ Page({
           },
         ],
         "region": region,
-        "Prices": price,
-        "acreage": area,
         "housetype": housetype,
         "Decoration":style,
         "orientations": orientations,
@@ -229,22 +191,6 @@ Page({
     })
     console.log('选择区域id：' + this.data.filter.region);
   },
-  Prices: function (e) {           //价格
-    this.setData({
-      filter: Object.assign({}, this.data.filter, {
-        Prices: e.currentTarget.dataset.id
-      })
-    })
-    console.log('价格id：' + this.data.filter.Prices);
-  },
-  acreage: function (e) {          //面积
-    this.setData({
-      filter: Object.assign({}, this.data.filter, {
-        acreage: e.currentTarget.dataset.id
-      })
-    })
-    console.log('面积id：' + this.data.filter.acreage);
-  },
   housetype: function (e) {        //户型
     this.setData({
       filter: Object.assign({}, this.data.filter, {
@@ -282,12 +228,6 @@ Page({
   },
   setClass: function (e) {         //区域
     return this.data.region.equipments.indexOf(e.currentTarget.dataset.id) > -1 ? 'active' : ''
-  },
-  setClass: function (e) {         //价格
-    return this.data.Prices.equipments.indexOf(e.currentTarget.dataset.id) > -1 ? 'active' : ''
-  },
-  setClass: function (e) {         //面积
-    return this.data.acreage.equipments.indexOf(e.currentTarget.dataset.id) > -1 ? 'active' : ''
   },
   setClass: function (e) {         //户型
     return this.data.housetype.equipments.indexOf(e.currentTarget.dataset.id) > -1 ? 'active' : ''

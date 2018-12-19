@@ -18,9 +18,14 @@ App({
               code: data.code,
             },
             success: function (res) {
+              console.log(res.data)
               wx.setStorage({
                 key: 'token',
                 data: res.data.Users_SessionKey,
+              })
+              wx.setStorage({
+                key: 'userId',
+                data: res.data.Users_ID,
               })
             }
           })

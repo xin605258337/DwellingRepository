@@ -66,6 +66,7 @@
     <Compile Include="RoleService.cs" />
     <Compile Include="StyleService.cs" />
     <Compile Include="SuggestService.cs" />
+    <Compile Include="TrackService.cs" />
     <Compile Include="UsersService.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -67,5 +67,9 @@
       <view class="apply-btn">电话联系：{{item.House_OwnerTel}}</view>
       <view class="apply-btn">微信联系：{{item.House_OwnerWx}}</view>
     </view>
+    <!--收藏房源-->
+        <view class="btn-submit">
+    <button class="btn-block btn-orange" form-type="submit" bindtap='AddCollect'>收藏</button>
+	       </view>
   </view>
 </view>

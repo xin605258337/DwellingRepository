@@ -52,14 +52,16 @@ namespace Dwelling.Common
             var results = JsonConvert.DeserializeObject<Users>(result);
             user.Users_OpenID = results.openid;//用户唯一标识
             user.Users_SessionKey = results.session_key;//密钥
-            var u = usersList.Where(n => n.Equals(user.Users_OpenID)).FirstOrDefault();//判断是否为已注册用户
+            var u = usersList.Where(n => n.Users_OpenID.Equals(user.Users_OpenID)).FirstOrDefault();//判断是否为已注册用户
             if (u == null)
             {
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("_Users_OpenID", user.Users_OpenID);
                 parameters.Add("_Users_SessionKey", user.Users_SessionKey);
                 conn.Execute("pro_AddUsers", parameters, commandType: CommandType.StoredProcedure);
+                u= conn.Query<Users>("pro_GetUsers", null, commandType: CommandType.StoredProcedure).Where(n => n.Users_OpenID.Equals(user.Users_OpenID)).FirstOrDefault();
             }
+            user.Users_ID = u.Users_ID;
             RedisHelper.Set<Users>(user.Users_SessionKey, user, DateTime.Now.AddHours(10));
             return user;
         }

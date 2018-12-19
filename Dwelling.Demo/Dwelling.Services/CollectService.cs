@@ -29,11 +29,12 @@ namespace Dwelling.Services
         /// </summary>
         /// <param name="_House_ID"></param>
         /// <returns></returns>
-        public int AddCollect(int _House_ID)
+        public int AddCollect(Collect collect)
         {
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("_House_ID", _House_ID);
-            return conn.Execute("proc_AddCollect", parameters, commandType: CommandType.StoredProcedure);
+            parameters.Add("_House_ID", collect.House_ID);
+            parameters.Add("_Users_ID", collect.Users_ID);
+            return conn.Execute("pro_AddCollect", parameters, commandType: CommandType.StoredProcedure);
         }
 
         /// <summary>

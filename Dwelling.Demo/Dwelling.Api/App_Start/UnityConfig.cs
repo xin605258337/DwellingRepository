@@ -63,8 +63,8 @@ namespace Dwelling.Api
             container.RegisterType<IUsersService, UsersService>();
             container.RegisterType<IComplainService, ComplainService>();
             container.RegisterType<ISuggestService, SuggestService>();
-            //container.RegisterType<IStyleService, StyleService>();
-            //container.RegisterType<IStyleService, StyleService>();
+            container.RegisterType<ITrackService, TrackService>();
+            container.RegisterType<ICollectService, CollectService>();
         }
     }
 }

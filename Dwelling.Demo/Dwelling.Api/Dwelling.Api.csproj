@@ -134,6 +134,7 @@
     <Compile Include="Controllers\RoleApiController.cs" />
     <Compile Include="Controllers\RolePermissionController.cs" />
     <Compile Include="Controllers\SuggestController.cs" />
+    <Compile Include="Controllers\TrackController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

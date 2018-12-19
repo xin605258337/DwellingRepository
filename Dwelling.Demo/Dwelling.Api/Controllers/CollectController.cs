@@ -24,11 +24,14 @@ namespace Dwelling.Api.Controllers
         /// </summary>
         /// <param name="_House_ID"></param>
         /// <returns></returns>
-        [Route("AddCollect")]
         [HttpGet]
-        public int AddCollect(int _House_ID)
+        [Route("AddCollect")]
+        public int AddCollect(int houseId,int userId)
         {
-            return CollectService.AddCollect(_House_ID);
+            Collect collect = new Collect();
+            collect.House_ID = houseId;
+            collect.Users_ID = userId;
+            return CollectService.AddCollect(collect);
         }
 
         /// <summary>

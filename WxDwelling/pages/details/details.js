@@ -6,6 +6,9 @@ Page({
     url:[]
   },
   onLoad: function (options) {
+    this.setData({
+      houseID: options.ID
+    })
     const newlist = [];
     var that = this;
     //获得房源所有图片
@@ -58,7 +61,26 @@ Page({
               },
               success: function (res) {
                 console.log(res.data)
-
+                wx.getStorage({
+                  key: 'userId',
+                  success: function(res) {
+                    //加入足迹
+                    wx.request({
+                      url: 'http://localhost:8092/Dwelling/AddTrack',
+                      method: 'GET',
+                      data: {
+                        houseId: options.ID,
+                        userId:res.data
+                      },
+                      success:function(reg){
+                        if(res.data>0)
+                        {
+                          console.log('添加足迹成功')
+                        }
+                      }
+                    })
+                  },
+                })
               }
             })
           }
@@ -67,5 +89,27 @@ Page({
     })
     
   },
+  //添加收藏
+  AddCollect:function(){
+    wx.getStorage({
+      key: 'userId',
+      success: function (res) {
+        wx.request({
+          url: 'http://localhost:8092/Dwelling/AddCollect',
+          method: 'GET',
+          data: {
+            houseId: houseID,
+            userId: res.data
+          },
+          success: function (reg) {
+            if (res.data > 0) {
+              console.log('添加收藏成功')
+            }
+          }
+        })
+      },
+    })
+
+  }
   })
 

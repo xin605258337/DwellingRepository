@@ -7,18 +7,13 @@ using System.Threading.Tasks;
 namespace Dwelling.IServices
 {
     using Dwelling.Model;
-    //收藏接口
-    public interface ICollectService
+    //足迹接口
+    public interface ITrackService
     {
         /// <summary>
-        /// 添加收藏表
+        /// 添加足迹
         /// </summary>
-        /// <param name="_House_ID"></param>
         /// <returns></returns>
-        int AddCollect(Collect collect);
-
-        House GetHouseByName(string _House_Name);
-
-        List<House> GetHousesByCollect();
+        int AddTrack(Track track);
     }
 }

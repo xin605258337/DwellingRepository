@@ -27,18 +27,6 @@
 							<text wx:for="{{filterdata.region}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="region" class="{{filter.region==item.id?'active':''}}">{{item.title}}</text>
 						</view>
 					</view>
-					<view class="group-header">价格</view>
-					<view class="group-body">
-						<view class="filter-tags">
-							<text wx:for="{{filterdata.Prices}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="Prices" class="{{filter.Prices==item.id?'active':''}}">{{item.title}}</text>
-						</view>
-					</view>
-					<view class="group-header">面积</view>
-					<view class="group-body">
-						<view class="filter-tags">
-							<text wx:for="{{filterdata.acreage}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="acreage" class="{{filter.acreage==item.id?'active':''}}">{{item.title}}</text>
-						</view>
-					</view>
           <view class="group-header">户型</view>
 					<view class="group-body">
 						<view class="filter-tags">
