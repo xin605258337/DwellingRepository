@@ -75,11 +75,20 @@ Page({
   },
   //发布房源信息
   formSubmit:function(e){
+    var PublishHouse_Num=e.detail.value.PublishHouse_Num;
+    var PublishHouse_Area = e.detail.value.PublishHouse_Area;
+    var Orientation_ID=e.detail.value.Orientation_ID;
+
+
 console.log(e.detail.value);
 wx.request({
   url: 'http://localhost:8092/Dwelling/AddPublishHouse',
   method: 'post',
-  data: { PublishHouse_Num: this.value.PublishHouse_Num},
+  data: {
+    PublishHouse_Num: PublishHouse_Num,
+    PublishHouse_Area: PublishHouse_Area,
+    Orientation_ID: Orientation_ID
+  },
   success: function (res) {
     if (res.data > 0) {
 
