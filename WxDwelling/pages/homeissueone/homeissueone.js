@@ -6,7 +6,7 @@ Page({
    */
   data: {
     /**默认合租页面 */
-    currentTab: 0,
+    currentTab: 1,
     Orientation: [],
     BuildingType:[],
     Style:[],
