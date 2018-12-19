@@ -10,6 +10,8 @@ namespace Dwelling.Api.Controllers
     using Unity.Attributes;
     using Dwelling.IServices;
     using Dwelling.Model;
+    using Dwelling.Common;
+    [RequestAuthorization]
     [RoutePrefix("Dwelling")]
     public class PublishHouseApiController : ApiController
     {
