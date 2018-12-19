@@ -14,7 +14,7 @@
 	<view class="input-item">
 			<text class="input-item-label">出租房间:</text>
 			<view class="input-item-content">
-				<input type="idcard" placeholder="请输入出租房间" bindinput="inputPhone" name='PublishHouse_Num'></input>
+				<input type="idcard" placeholder="请输入出租房间" bindinput="inputPhone" name='PublishHouse_Num'  value='{{PublishHouse_Num}}'></input>
 			</view>
 		</view>
      <!--房间面积-->
@@ -98,7 +98,7 @@
 				</view>
     <!--发布-->
         <view class="btn-submit">
-    <button class="btn-block btn-orange" form-type="submit" >确认发布</button>
+    <button class="btn-block btn-orange" form-type="submit" bindtap='onSubmitf' >确认发布</button>
 	       </view>
   </form>
   </swiper-item>
