@@ -46,7 +46,6 @@ Page({
     wx.getStorage({
       key: 'token',
       success: function (res) {
-        console.log(res.data)
         wx.request({
           url: 'http://localhost:8092/Dwelling/GetUsers',
           method: 'GET',
@@ -58,20 +57,26 @@ Page({
             console.log('token验证成功')
           }
         })
+        wx.request({
+          url: 'http://localhost:8092/Dwelling/GetHotHouses',
+          header: {
+            'content-type': 'application/json',
+            'Authorization': 'BasicAuth ' + res.data
+          }, 
+          success: function (res) {
+            that.setData({
+              conferencelist: res.data
+            })
+          }
+        }) 
       },
     })
 
 
-    var that = this;
+    
     //加载房源信息
-    wx.request({
-      url: 'http://localhost:8092/Dwelling/GetHotHouses',
-      success: function (res) {
-        that.setData({
-          conferencelist: res.data
-        })
-      }
-    }) 
+    
+    
 
   },
 

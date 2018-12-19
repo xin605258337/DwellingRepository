@@ -13,6 +13,7 @@ namespace Dwelling.Api.Controllers
     using Dwelling.Common;
     [RequestAuthorization]
     [RoutePrefix("Dwelling")]
+
     public class PublishHouseApiController : ApiController
     {
         [Dependency]

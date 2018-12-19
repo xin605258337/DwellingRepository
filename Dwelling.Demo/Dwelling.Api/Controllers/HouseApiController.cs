@@ -11,8 +11,8 @@ namespace Dwelling.Api.Controllers
     using Unity.Attributes;
     using Dwelling.IServices;
     using Dwelling.Model;
-    [RoutePrefix("Dwelling")]
     using Dwelling.Common;
+    [RoutePrefix("Dwelling")]
     [RequestAuthorization]
     public class HouseApiController : ApiController
     {
