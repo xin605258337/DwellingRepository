@@ -50,8 +50,8 @@ namespace Dwelling.Common
             }
             httpclient.Dispose();
             var results = JsonConvert.DeserializeObject<Users>(result);
-            user.Users_OpenID = results.session_key;//用户唯一标识
-            user.Users_SessionKey = results.openid;//密钥
+            user.Users_OpenID = results.openid;//用户唯一标识
+            user.Users_SessionKey = results.session_key;//密钥
             var u = usersList.Where(n => n.Equals(user.Users_OpenID)).FirstOrDefault();//判断是否为已注册用户
             if (u == null)
             {

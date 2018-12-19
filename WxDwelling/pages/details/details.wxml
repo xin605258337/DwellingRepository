@@ -1,74 +1,71 @@
 <!--pages/details/details.wxml-->
 <view class="">
-	<view class="container-body space-content" wx:for="{{conferencelist}}">
-	  <view class="space-top">
-	  	<view class="space-banner" bindtap="imgPreview">
-		  	<swiper
-		  	  autoplay="{{true}}" interval="{{4000}}" duration="{{1000}}" bindchange="setCurrent"> 
-		  	    <swiper-item>
-		  	      <image src="{{item.IndoorUrl}}" mode="aspectFill" class="slide-image"/>
-		  	    </swiper-item>
-		  	</swiper>
-	  	</view>
-  	  <view class="space-info">
-  	  	<view class="space-title">{{item.DetaTitle}}</view>
+  <view class="container-body space-content" wx:for="{{conferencelist}}">
+    <view class="space-top">
+      <view class="space-banner" bindtap="imgPreview">
+        <swiper autoplay="{{true}}" interval="{{4000}}" duration="{{1000}}" bindchange="setCurrent">
+          <block wx:for="{{item.IndoorUrl}}">
+            <swiper-item>
+              <image src="http://localhost:55909/Content/Img/{{item.Image_Url}}" class="slide-image" />
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <view class="space-info">
+        <view class="space-title">{{item.DetaTitle}}</view>
 
-  	  	<view class="space-list">
-  	  		<view class="space-item">
-  	  			<text class="text-left">价格：</text>
-  	  			<text class="text-right">
+        <view class="space-list">
+          <view class="space-item">
+            <text class="text-left">价格：</text>
+            <text class="text-right">
   	  				<text class="text-orange">{{item.HousePrice}}元/月</text>
-  	  			</text>
-  	  		</view>
-  	  		<view class="space-item halfwidth-item">
-  	  			<text class="text-left">户型：</text>
-  	  			<text class="text-right">{{item.HouseApartmentlayout}}</text>
-  	  		</view>
-  	  		<view class="space-item halfwidth-item">
-  	  			<text class="text-left">占地面积：</text>
-  	  			<text class="text-right">{{item.HouseBuilt_upArea}}㎡</text>
-  	  		</view>
+            </text>
+          </view>
           <view class="space-item halfwidth-item">
-  	  			<text class="text-left">出租类型：</text>
-  	  			<text class="text-right">{{item.HouseCreateTime}}</text>
-  	  		</view>
-           <view class="space-item halfwidth-item">
-  	  			<text class="text-left">装饰情况：</text>
-  	  			<text class="text-right">{{item.Renovation}}</text>
-  	  		</view>
-  	  		<view class="space-item">
-  	  			<text class="text-left">地理位置：</text>
-  	  			<text class="text-right">{{item.DetaTitle}}</text>
-  	  		</view>
-          	<view class="space-item">
-  	  			<text class="text-left">所在小区：</text>
-  	  			<text class="text-right">{{item.ResidName}}</text>
-  	  		</view>
-  	  	</view>
-  	  </view>
-	  </view>
-	  <view class="space-block">
-	  	<view class="space-block-title">房源详情</view>
-	  	<view class="space-block-content">
-	  		<view class="space-passage">房源描述：{{item.DetaDescribe}}</view>
-	  		<view class="space-passage">房屋设施描述：{{item.DetaIntroduce}}</view>
-	  		<view class="space-passage">房屋所在地描述：交通便利，可乘坐公交或地铁，及多处基础设施建设，银行、医院、餐饮、超市等。</view>
-	  	</view>
-  	</view>
-  	<view class="space-block">
-	  	<view class="space-block-title">买房须知</view>
-	  	<view class="space-block-content">
-	  		<view class="space-passage">底部有联系方式 本程序线下租房或买房、卖房</view>
-	  		<view class="space-passage"></view>
-	  	</view>
-  	</view>
-	<view class="container-footer">
-		<view class="apply-btn">电话联系：{{item.House_OwnerTel}}</view>
-    <view class="apply-btn">微信联系：{{item.House_OwnerWx}}</view>
-	</view>
-	</view>
+            <text class="text-left">户型：</text>
+            <text class="text-right">{{item.HouseApartmentlayout}}</text>
+          </view>
+          <view class="space-item halfwidth-item">
+            <text class="text-left">占地面积：</text>
+            <text class="text-right">{{item.HouseBuilt_upArea}}㎡</text>
+          </view>
+          <view class="space-item halfwidth-item">
+            <text class="text-left">出租类型：</text>
+            <text class="text-right">{{item.HouseCreateTime}}</text>
+          </view>
+          <view class="space-item halfwidth-item">
+            <text class="text-left">装饰情况：</text>
+            <text class="text-right">{{item.Renovation}}</text>
+          </view>
+          <view class="space-item">
+            <text class="text-left">地理位置：</text>
+            <text class="text-right">{{item.DetaTitle}}</text>
+          </view>
+          <view class="space-item">
+            <text class="text-left">所在小区：</text>
+            <text class="text-right">{{item.ResidName}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="space-block">
+      <view class="space-block-title">房源详情</view>
+      <view class="space-block-content">
+        <view class="space-passage">房源描述：{{item.DetaDescribe}}</view>
+        <view class="space-passage">房屋设施描述：{{item.DetaIntroduce}}</view>
+        <view class="space-passage">房屋所在地描述：交通便利，可乘坐公交或地铁，及多处基础设施建设，银行、医院、餐饮、超市等。</view>
+      </view>
+    </view>
+    <view class="space-block">
+      <view class="space-block-title">买房须知</view>
+      <view class="space-block-content">
+        <view class="space-passage">底部有联系方式 本程序线下租房或买房、卖房</view>
+        <view class="space-passage"></view>
+      </view>
+    </view>
+    <view class="container-footer">
+      <view class="apply-btn">电话联系：{{item.House_OwnerTel}}</view>
+      <view class="apply-btn">微信联系：{{item.House_OwnerWx}}</view>
+    </view>
+  </view>
 </view>
-
-  
-
-

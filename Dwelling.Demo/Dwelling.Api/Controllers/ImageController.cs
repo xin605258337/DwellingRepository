@@ -15,7 +15,7 @@ namespace Dwelling.Api.Controllers
     public class ImageController : ApiController
     {
         [Dependency]
-        public IImageService imageService { get; set; }
+        public IImageService ImageService { get; set; }
         /// <summary>
         /// 添加图片
         /// </summary>
@@ -24,7 +24,18 @@ namespace Dwelling.Api.Controllers
         [Route("AddImg")]
         public int AddImg(int houseId, string imgUrl)
         {
-            return imageService.AddImg(houseId,imgUrl);
+            return ImageService.AddImg(houseId, imgUrl);
+        }
+        /// <summary>
+        /// 根据房源ID获取房源所有图片
+        /// </summary>
+        /// <param name="houseId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetImageByHouseId")]
+        public List<Image> GetImageByHouseId(int houseId)
+        {
+            return ImageService.GetImageByHouseId(houseId);
         }
     }
 }

@@ -37,5 +37,17 @@ namespace Dwelling.Services
             parameters.Add("_Image_Url", imgUrl);
             return conn.Execute("pro_AddImgs", parameters, commandType: CommandType.StoredProcedure);
         }
+        /// <summary>
+        /// 根据房源ID获取房源所有图片
+        /// </summary>
+        /// <param name="houseId"></param>
+        /// <returns></returns>
+        public List<Image> GetImageByHouseId(int houseId)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_House_ID", houseId);
+            return conn.Query<Image>("pro_GetImgByHouseId", parameters, commandType: CommandType.StoredProcedure).ToList();
+        }
     }
 }

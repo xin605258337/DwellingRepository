@@ -20,7 +20,7 @@ App({
             success: function (res) {
               wx.setStorage({
                 key: 'token',
-                data: res.data.session_key,
+                data: res.data.Users_SessionKey,
               })
             }
           })

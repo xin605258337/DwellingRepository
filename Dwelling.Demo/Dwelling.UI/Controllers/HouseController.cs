@@ -29,7 +29,7 @@ namespace Dwelling.UI.Controllers
                 HttpPostedFile file = System.Web.HttpContext.Current.Request.Files[i];
                 string path= Guid.NewGuid().ToString() + file.FileName;
                 //压缩图片
-                getThumImage(file.FileName, 180, 30, path);
+                getThumImage(file.FileName, 180, 90, path);
                 file.SaveAs(HttpContext.Request.MapPath("~/Content/Img/"+path));//必须得是相对路径径
                 pathList.Add(path);
 

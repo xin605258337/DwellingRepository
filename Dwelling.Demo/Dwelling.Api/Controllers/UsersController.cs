@@ -12,6 +12,7 @@ namespace Dwelling.Api.Controllers
     using Dwelling.IServices;
     using Dwelling.Model;
     using Dwelling.Common;
+    [RequestAuthorization]
     [RoutePrefix("Dwelling")]
     public class UsersController : ApiController
     {
@@ -23,6 +24,7 @@ namespace Dwelling.Api.Controllers
         /// <param name="code"></param>
         /// <returns></returns>
         [HttpGet]
+        [AllowAnonymous]
         [Route("Logins")]
         public Users Logins(string code)
         {

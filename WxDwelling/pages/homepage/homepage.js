@@ -46,6 +46,7 @@ Page({
     wx.getStorage({
       key: 'token',
       success: function (res) {
+        console.log(res.data)
         wx.request({
           url: 'http://localhost:8092/Dwelling/GetUsers',
           method: 'GET',
