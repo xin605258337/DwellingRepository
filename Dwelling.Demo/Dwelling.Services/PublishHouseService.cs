@@ -33,6 +33,7 @@ namespace Dwelling.Services
         {
             //存储过程参数
             DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_PublishHouse_ID", house.PublishHouse_ID);
             parameters.Add("_HabitableRoom_ID", house.HabitableRoom_ID);
             parameters.Add("_PublishHouse_Num",house.PublishHouse_Num);
             parameters.Add("_PublishHouse_Area", house.PublishHouse_Area);

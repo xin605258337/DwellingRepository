@@ -85,9 +85,6 @@ Page({
     this.setData({
       Complain_Content: e.detail.value
     })
-
-    
-
   }, 
   onSubmit12:function(event)
   {

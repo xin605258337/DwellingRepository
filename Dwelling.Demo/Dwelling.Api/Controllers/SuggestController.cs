@@ -51,5 +51,18 @@ namespace Dwelling.Api.Controllers
         {
             return SuggestService.GetSuggestByID(id);
         }
+
+        /// <summary>
+        /// 修改建议表信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="_Suggest_Result"></param>
+        /// <returns></returns>
+        [Route("UpdateSuggest")]
+        [HttpGet]
+        public int UpdateSuggest(int id, string _Suggest_Result)
+        {
+            return SuggestService.UpdateSuggest(id, _Suggest_Result);
+        }
     }
 }

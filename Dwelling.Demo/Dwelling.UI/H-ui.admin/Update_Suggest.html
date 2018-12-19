@@ -8,7 +8,7 @@
     
 </head>
 <body>
-    <form id="form1" method="post">
+
         <input id="Hidden1" type="hidden" name="Suggest_ID" />
         <table class="table table-striped">           
             <tr>
@@ -24,24 +24,43 @@
                 <td></td>
             </tr>
         </table>
-    </form>
+
 </body>
 </html>
 <script>
     var loc = location.href;
     var n1 = loc.length;//地址的总长度
     var n2 = loc.indexOf("=");//取得=号的位置
-    var id = decodeURI(loc.substr(n2 + 1, n1 - n2));//从=号后面的内容   
+    var Id = decodeURI(loc.substr(n2 + 1, n1 - n2));//从=号后面的内容   
     $(function () {
+        //反填
         $.ajax({
             url: "http://localhost:8092/Dwelling/GetSuggestByID",
             data: {
-                id:id
+                id: Id
             },
             success: function (data) {
                 $("textarea[name=Suggest_Content]").val(data.Suggest_Content);
             }
 
+        })
+
+        //修改
+        $("#upt").click(function () {
+            $.ajax({
+                url: "http://localhost:8092/Dwelling/UpdateSuggest",
+                type: "get",
+                data: {
+                    id: Id,
+                    _Suggest_Result: $("textarea[name=Suggest_Result]").val(),
+                },
+                success: function (data) {
+                    if (data > 0) {
+                        alert("提交成功!!!");
+                        location.href = 'feedback-list.html';
+                    }
+                }
+            })
         })
     })
 </script>

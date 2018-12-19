@@ -37,12 +37,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "添加",
-					"pathName": "pages/Complaints/Complaints"
+					"pathName": "pages/Complaints/Complaints",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "发布房源",
+					"pathName": "pages/homeissueone/homeissueone"
 				}
 			]
 		}

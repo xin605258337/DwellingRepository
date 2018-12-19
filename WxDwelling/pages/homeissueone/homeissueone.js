@@ -6,7 +6,7 @@ Page({
    */
   data: {
     /**默认合租页面 */
-    currentTab: 0,
+    currentTab: 1,
     Orientation: [],
     BuildingType:[],
     Style:[],
@@ -73,13 +73,23 @@ Page({
       }
     })
   },
+
+  inputPhone:function(e) {
+    this.setData({
+      PublishHouse_Num: e.detail.value,
+   
+    })
+  }, 
   //发布房源信息
-  formSubmit:function(e){
-console.log(e.detail.value);
+  onSubmitf:function(e){
 wx.request({
   url: 'http://localhost:8092/Dwelling/AddPublishHouse',
   method: 'post',
-  data: { PublishHouse_Num: this.value.PublishHouse_Num},
+  data: {
+    PublishHouse_Num: this.data.PublishHouse_Num
+ 
+   
+  },
   success: function (res) {
     if (res.data > 0) {
 
@@ -90,6 +100,7 @@ wx.request({
     }
   }
 
+  
 
 })
 
