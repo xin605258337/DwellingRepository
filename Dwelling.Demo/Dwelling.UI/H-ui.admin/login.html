@@ -11,8 +11,7 @@
     <link href="static/h-ui.admin/css/style.css" rel="stylesheet" type="text/css" />
     <link href="lib/Hui-iconfont/1.0.8/iconfont.css" rel="stylesheet" type="text/css" />
     <script src="../Content/jquery-3.1.1.js"></script>
-    <script src="../Content/Img/jquery-1.10.2.js"></script>
-
+      
     <title>后台登录</title>
 </head>
 <body>
@@ -72,7 +71,7 @@
                 data: $("#fromData").serialize(),
                 success: function (data) {
                     if (data) {
-                        location.href = "http://localhost:55909/House/Index";
+                        location.href = "http://localhost:55909/House/Index/" + data.Admin_ID;
                     }
                     else {
                         alert("用户名或密码失败！");

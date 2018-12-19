@@ -341,6 +341,7 @@
             obj.html(_yy + "年" + _mm + "月" + _dd + "日 " + _ww);
         };
         $(function () {
+            var id = this.location.search.substr(this.location.search.indexOf('=') + 1);
             $.ajax({
                 url: "http://localhost:8092/Dwelling/GetAdminPermissionUrls",
                 type: "get",

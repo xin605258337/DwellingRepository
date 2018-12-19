@@ -15,9 +15,9 @@ namespace Dwelling.UI.Controllers
     {
 
         // GET: House
-        public ActionResult Index()
+        public ActionResult Index(int Id)
         {
-            return Content("<script>location.href='http://localhost:55909/index.html'</script>");
+            return Content("<script>location.href='http://localhost:55909/H-ui.admin/index.html?ID="+Id+"'</script>");
         }
         [HttpPost]
         public JsonResult GetImg()

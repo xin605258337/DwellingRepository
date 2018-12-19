@@ -27,7 +27,7 @@ Page({
       {
         "iconUrl": '../../image/hezu.png',
         "iconText": '合租',
-        "url": '../mainpage/mainpage'
+        "url": '../userpage/userpage'
       },
       {
         "iconUrl": '../../image/fabu.png',

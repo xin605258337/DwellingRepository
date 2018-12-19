@@ -1,48 +1,47 @@
 <!--pages/homepage/homepage.wxml-->
 <!--轮播图-->
 <view>
-<swiper indicator-dots="{{indicatorDots}}" 
-    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}">
       <swiper-item>
         <image src="{{item}}" class="slide-image" />
       </swiper-item>
     </block>
   </swiper>
-  </view>
- <!--页面跳转-->
- <view class="category">
+</view>
+<!--页面跳转-->
+<view class="category">
   <view class="category_item" wx:for="{{iconArray}}">
     <view class="category_item_wrap">
-      <view class="icon_wrap" >
-      <navigator url="{{item.url}}">
-        <image src="{{item.iconUrl}}" class="index_icon"></image>
-        </navigator>
+      <view class="icon_wrap">
+        <view bindtap='skipPage' data-src="{{item.url}}">
+          <image src="{{item.iconUrl}}" class="index_icon"></image>
+        </view>
       </view>
       <view class="category_item_text">
         <text>{{item.iconText}}</text>
-      </view> 
+      </view>
     </view>
   </view>
 </view>
 <!--热们房源-->
 <view>
-<view>热门房源</view>
-    <scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" bindscroll="scrollHandle" lower-threshold="50" bindscrolltolower="scrollLoading">
-		<view class="service-list">
-			<navigator class="service-item" wx:for="{{conferencelist}}" url="../details/details?ID={{item.House_ID}}">
-				<view class="service-img">
-					<image src="http://localhost:55909/Content/Img/{{item.House_ImgUrl}}" mode="aspectFill"></image>
-				</view>
-				<view class="service-text">
-					<view class="service-tite">{{item.House_Name}}</view>
-					<view class="service-tags">
-						<text>{{item.House_RentMoney}}/每月</text>
-					</view>
-					<text class="service-city">出租类型：{{item.LeaseType_Name}}</text>
-				</view>
-			</navigator>
-		</view>
-		<view class="gototop {{scrolltop>200?'active':''}}" bindtap="goToTop"></view>
-	</scroll-view>
+  <view>热门房源</view>
+  <scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" bindscroll="scrollHandle" lower-threshold="50" bindscrolltolower="scrollLoading">
+    <view class="service-list">
+      <navigator class="service-item" wx:for="{{conferencelist}}" url="../details/details?ID={{item.House_ID}}">
+        <view class="service-img">
+          <image src="http://localhost:55909/Content/Img/{{item.House_ImgUrl}}" mode="aspectFill"></image>
+        </view>
+        <view class="service-text">
+          <view class="service-tite">{{item.House_Name}}</view>
+          <view class="service-tags">
+            <text>{{item.House_RentMoney}}/每月</text>
+          </view>
+          <text class="service-city">出租类型：{{item.LeaseType_Name}}</text>
+        </view>
+      </navigator>
+    </view>
+    <view class="gototop {{scrolltop>200?'active':''}}" bindtap="goToTop"></view>
+  </scroll-view>
 </view>
