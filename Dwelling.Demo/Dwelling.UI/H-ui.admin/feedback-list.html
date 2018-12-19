@@ -57,10 +57,11 @@
     <div class="mt-20">
         <table id="tab2" class="table table-border table-bordered table-hover table-bg table-sort">
             <thead>
-                <tr class="text-c">                
+                <tr class="text-c">
                     <th width="60">ID</th>
                     <th width="60">建议编号</th>
                     <th>留言内容</th>
+                    <th>回复结果</th>
                     <th>回复</th>
                     <th width="100">操作</th>
                 </tr>
@@ -164,6 +165,7 @@
                             + '<td>' + (index+1) + '</td>'
                             + '<td>' + data.Suggest_ID + '</td>'
                             + '<td>' + data.Suggest_Content + '</td>'
+                            + '<td>' + ((data.Suggest_Result == null) ? "未回复" : data.Suggest_Result)  + '</td>'
                             + '<td><a href="#" onclick="UpdateSuggest('+data.Suggest_ID+')" >回复</a></td>'
                             + '<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,"10001")" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a><a title="删除" href="javascript:;" onclick="DelRole(this,' + data.Role_ID + ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
                             + '</tr></tbody>';

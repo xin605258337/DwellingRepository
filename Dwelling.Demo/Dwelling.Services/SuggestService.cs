@@ -60,6 +60,20 @@ namespace Dwelling.Services
         {          
             return conn.Query<Suggest>("proc_GetSuggestAll", null, commandType: CommandType.StoredProcedure).ToList();
         }
+
+        /// <summary>
+        /// 修改建议表信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="_Suggest_Result"></param>
+        /// <returns></returns>
+        public int UpdateSuggest(int id, string _Suggest_Result)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_Suggest_ID", id);
+            parameters.Add("_Suggest_Result", _Suggest_Result);
+            return conn.Execute("proc_UpdateSuggest", parameters, commandType: CommandType.StoredProcedure);
+        }
     }
 }
 
