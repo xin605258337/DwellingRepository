@@ -338,7 +338,7 @@ Page({
     })
     const page = this.data.page;
     const newlist = [];
-    for (var i = (page - 1) * perpage; i < page * perpage; i++) {
+    for (var i = (page - 1) * perpage; i < 1; i++) {
       newlist.push({
         "id": i + 1,
         "name": "上海拜特信息技术有限公司" + (i + 1),

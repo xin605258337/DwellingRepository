@@ -50,6 +50,7 @@
     <Compile Include="AdminService.cs" />
     <Compile Include="AreaService.cs" />
     <Compile Include="BuildingTypeService.cs" />
+    <Compile Include="CollectService.cs" />
     <Compile Include="ComplainService.cs" />
     <Compile Include="FacilityService.cs" />
     <Compile Include="HabitableRoomServices.cs" />
