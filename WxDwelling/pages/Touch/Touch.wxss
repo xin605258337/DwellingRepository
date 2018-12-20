@@ -1,0 +1,13 @@
+/* pages/Touch/Touch.wxss */
+.input-item-label{
+	display: block;
+	width: 20em;
+	color: #666;
+  margin-left: 22%;
+  margin-top: 20%;
+}
+
+.aaa{
+margin-left: 21%;
+margin-top: 25%;
+}

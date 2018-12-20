@@ -1,0 +1,13 @@
+<!--pages/AboutOur/AboutOur.wxml-->
+ <view class="input-item input-item-full" >
+			
+				 <view>
+   <image class='bbb' style="width:100px; height: 100px; background-color: #eeeeee;"
+          mode="{{item.mode}}"
+          src="/image/woniu.png"></image>
+          	<text class="input-item-label">V6.7.3</text>
+            	<text class="input-item-label1">微信公众号：蜗居</text>
+              	<text class="input-item-label2">官方网站：www.woju.com</text>
+          	<text class="input-item-label3">客服电话：13648</text>
+</view>
+				</view>

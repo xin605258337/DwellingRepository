@@ -13,10 +13,43 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.1",
-	"appid": "wx0f32af61bdd28d9e",
+	"appid": "wxb9c8f6579ba1a69e",
 	"projectname": "WxDwelling",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"isGameTourist": false
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": -1,
+					"name": "aaa",
+					"pathName": "pages/Touch/Touch",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "bbb",
+					"pathName": "pages/AboutOur/AboutOur"
+				}
+			]
+		}
+	}
 }

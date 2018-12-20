@@ -66,7 +66,12 @@ Page({
   },
   order:function(){
     wx.navigateTo({
-      url: '../Complaints/Complaints',
+      url: '../Touch/Touch',
+    })
+  },
+  address: function () {
+    wx.navigateTo({
+      url: '../AboutOur/AboutOur',
     })
   },
   message:function(){

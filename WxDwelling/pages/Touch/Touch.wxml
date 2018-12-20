@@ -1,0 +1,11 @@
+<!--pages/Touch/Touch.wxml-->
+ <view class="input-item input-item-full">
+			
+				 <view>
+   <image class='aaa' style="width:200px; height: 200px; background-color: #eeeeee;"
+          mode="{{item.mode}}"
+          src="/image/111.png"></image>
+          	<text class="input-item-label">扫描二维码可快速联系我们</text>
+</view>
+				</view>
+

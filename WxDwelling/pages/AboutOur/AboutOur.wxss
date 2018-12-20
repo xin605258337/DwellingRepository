@@ -1,0 +1,34 @@
+/* pages/AboutOur/AboutOur.wxss */
+.input-item-label{
+	display: block;
+	width: 20em;
+	color: #666;
+  margin-left: 45%;
+  margin-top: 20%;
+}
+.input-item-label1{
+	display: block;
+	width: 20em;
+	color: #666;
+  margin-left: 35%;
+  margin-top: 5%;
+}
+.input-item-label2{
+	display: block;
+	width: 20em;
+	color: #666;
+  margin-left: 25%;
+  margin-top: 5%;
+}
+.input-item-label3{
+	display: block;
+	width: 20em;
+	color: #666;
+  margin-left: 35%;
+  margin-top: 5%;
+}
+
+.bbb{
+margin-left: 37%;
+margin-top: 30%;
+}

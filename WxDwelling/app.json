@@ -10,7 +10,9 @@
     "pages/Complaints/Complaints",
     "pages/track/track",
     "pages/mappage/mappage",
-    "pages/message/message"
+    "pages/message/message",
+    "pages/AboutOur/AboutOur",
+    "pages/Touch/Touch"
   ],
   "window": {
     "backgroundTextStyle": "light",
