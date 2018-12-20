@@ -16,6 +16,11 @@ namespace Dwelling.IServices
         /// <param name="_House_ID"></param>
         /// <returns></returns>
         int AddCollect(Collect collect);
+        /// <summary>
+        /// 根据用户ID获取用户收藏
+        /// </summary>
+        /// <returns></returns>
+        List<Collect> GetCollects(int userId);
 
         House GetHouseByName(string _House_Name);
 

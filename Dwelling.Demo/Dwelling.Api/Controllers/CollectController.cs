@@ -56,5 +56,15 @@ namespace Dwelling.Api.Controllers
         {
             return CollectService.GetHousesByCollect();
         }
+        /// <summary>
+        /// 根据用户ID获取用户收藏
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetCollects")]
+        public List<Collect> GetCollects(int userId)
+        {
+            return CollectService.GetCollects(userId);
+        }
     }
 }

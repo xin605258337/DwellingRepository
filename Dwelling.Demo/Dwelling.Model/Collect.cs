@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Dwelling.Model
 {
     //收藏表
-  public  class Collect
+  public  class Collect:HouseDetails
     {
         /// <summary>
         /// 收藏ID
@@ -17,9 +17,6 @@ namespace Dwelling.Model
         /// 所属用户
         /// </summary>
         public int Users_ID { get; set; }
-        /// <summary>
-        /// 房源编号
-        /// </summary>
-        public int House_ID { get; set; }
+
     }
 }

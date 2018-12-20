@@ -36,8 +36,7 @@ namespace Dwelling.Services
         
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("_Suggest_Content", suggest.Suggest_Content);
-            //parameters.Add("_Suggest_Img", suggest.Suggest_Content);
-            //parameters.Add("_Users_ID", suggest.Suggest_Content);
+            parameters.Add("_Users_ID", suggest.Users_ID);
             return conn.Execute("proc_AddSuggest", parameters, commandType: CommandType.StoredProcedure);
         }
         /// <summary>
@@ -58,7 +57,7 @@ namespace Dwelling.Services
         /// <returns></returns>
         public List<Suggest> GetSuggests()
         {          
-            return conn.Query<Suggest>("proc_GetSuggestAll", null, commandType: CommandType.StoredProcedure).ToList();
+            return conn.Query<Suggest>("proc_GetSuggest", null, commandType: CommandType.StoredProcedure).ToList();
         }
 
         /// <summary>

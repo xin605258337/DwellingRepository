@@ -34,13 +34,9 @@ namespace Dwelling.Services
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("_Complain_ID", complain.Complain_ID);
             parameters.Add("_Complain_Content", complain.Complain_Content);
-            //parameters.Add("_Complain_Time", complain.Complain_Time);
-            //parameters.Add("_Complain_Result", complain.Complain_Result);
-            //parameters.Add("_Users_ID", complain.Complain_ID);
-            //parameters.Add("_ApprovalStatic", complain.ApprovalStatic);
-            return conn.Execute("proc_AdddComplain", parameters, commandType: CommandType.StoredProcedure);
+            parameters.Add("_Users_ID", complain.Users_ID);
+            return conn.Execute("pro_AddComplain", parameters, commandType: CommandType.StoredProcedure);
         }
 
         public List<Complain> GetComplains()

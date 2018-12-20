@@ -23,11 +23,14 @@ namespace Dwelling.Api.Controllers
         /// </summary>
         /// <param name="suggest"></param>
         /// <returns></returns>
+        [HttpGet]
         [Route("AddSuggest")]
-        [HttpPost]
-        public int AddSuggest(Suggest suggest)
+        public int AddSuggest(string content,int userId)
         {
-           return SuggestService.AddSuggest(suggest);
+            Suggest suggest = new Suggest();
+            suggest.Suggest_Content = content;
+            suggest.Users_ID = userId;
+            return SuggestService.AddSuggest(suggest);
         }
 
         /// <summary>

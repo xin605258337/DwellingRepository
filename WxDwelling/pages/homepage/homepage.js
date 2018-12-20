@@ -22,17 +22,17 @@ Page({
       {
         "iconUrl": '../../image/zhengzu.png',
         "iconText": '整租',
-        "url": '../mainpage/mainpage'
+        "url": '/pages/mainpage/mainpage'
       },
       {
         "iconUrl": '../../image/hezu.png',
         "iconText": '合租',
-        "url": '../userpage/userpage'
+        "url": '/pages/mainpage/mainpage'
       },
       {
         "iconUrl": '../../image/fabu.png',
         "iconText": '发布房源',
-        "url": '../homeissue/homeissue'
+        "url": '/pages/homeissue/homeissue'
       },
     ],
   },
@@ -52,7 +52,7 @@ Page({
           header: {
             'content-type': 'application/json',
             'Authorization': 'BasicAuth ' + res.data
-          }, 
+          },
           success: function (res) {
             console.log('token验证成功')
           }
@@ -62,24 +62,36 @@ Page({
           header: {
             'content-type': 'application/json',
             'Authorization': 'BasicAuth ' + res.data
-          }, 
+          },
           success: function (res) {
             that.setData({
               conferencelist: res.data
             })
           }
-        }) 
+        })
       },
     })
 
 
-    
+
     //加载房源信息
-    
-    
+
+
 
   },
 
+  /**
+   * 
+   */
+  skipPage: function (e) {
+    wx.switchTab({
+      url: e.currentTarget.dataset.src,
+      success: function(res) {
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -26,9 +26,5 @@ namespace Dwelling.Model
         /// 建议所属用户
         /// </summary>
         public new int Users_ID { get; set; }
-        /// <summary>
-        /// 审批状态
-        /// </summary>
-        public string ApprovalStatic { get; set; }
     }
 }

@@ -1,16 +1,15 @@
 {
-  "pages": [   
-    
-    "pages/homepage/homepage",
-    "pages/userpage/userpage",
-    "pages/index/index",
-    "pages/mainpage/mainpage", 
-    "pages/homeissueone/homeissueone",
-    "pages/details/details",
-    "pages/mappage/mappage",
-    "pages/Complaints/Complaints",
-    "pages/homeissue/homeissue",
-    "pages/track/track"
+  "pages": [ 
+        "pages/homepage/homepage",       
+        "pages/userpage/userpage",
+        "pages/mainpage/mainpage",
+        "pages/homeissue/homeissue",
+        "pages/index/index",
+        "pages/homeissueone/homeissueone",
+        "pages/details/details",
+        "pages/Complaints/Complaints",
+        "pages/track/track",
+        "pages/mappage/mappage"
   ],
   "window": {
     "backgroundTextStyle": "light",

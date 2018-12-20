@@ -18,39 +18,5 @@
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"isGameTourist": false,
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": 1,
-			"list": [
-				{
-					"id": -1,
-					"name": "添加",
-					"pathName": "pages/Complaints/Complaints",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "发布房源",
-					"pathName": "pages/homeissueone/homeissueone"
-				}
-			]
-		}
-	}
+	"isGameTourist": false
 }

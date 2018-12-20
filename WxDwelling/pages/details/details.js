@@ -91,6 +91,8 @@ Page({
   },
   //添加收藏
   AddCollect:function(){
+    var that=this;
+    console.log(111)
     wx.getStorage({
       key: 'userId',
       success: function (res) {
@@ -98,12 +100,15 @@ Page({
           url: 'http://localhost:8092/Dwelling/AddCollect',
           method: 'GET',
           data: {
-            houseId: houseID,
+            houseId: that.data.houseID,
             userId: res.data
           },
           success: function (reg) {
             if (res.data > 0) {
-              console.log('添加收藏成功')
+              wx.showToast({
+                title: '收藏成功',
+                duration: 2000 //提示两秒钟后关闭标题
+              })
             }
           }
         })

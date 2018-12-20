@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Dwelling.Model
 {
     //足迹表
-   public class Track
+   public class Track:HouseDetails
     {
         /// <summary>
         /// 足迹ID

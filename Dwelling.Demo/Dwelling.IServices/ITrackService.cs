@@ -15,5 +15,11 @@ namespace Dwelling.IServices
         /// </summary>
         /// <returns></returns>
         int AddTrack(Track track);
+        /// <summary>
+        /// 根据用户获得用户足迹
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        List<Track> GetTracksByUserId(int userId);
     }
 }

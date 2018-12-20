@@ -57,5 +57,15 @@ namespace Dwelling.Services
         {
             return conn.Query<House>("proc_GetCollect", null, commandType: CommandType.StoredProcedure).ToList();
         }
+        /// <summary>
+        /// 根据用户ID获取用户收藏
+        /// </summary>
+        /// <returns></returns>
+        public List<Collect> GetCollects(int userId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_Users_ID", userId);
+            return conn.Query<Collect>("pro_GetCollectByUserId", parameters, commandType: CommandType.StoredProcedure).ToList();
+        }
     }
 }

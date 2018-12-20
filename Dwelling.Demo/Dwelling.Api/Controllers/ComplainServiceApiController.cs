@@ -19,13 +19,17 @@ namespace Dwelling.Api.Controllers
         public IComplainService ComplainService { get; set; }
 
         /// <summary>
-        /// 添加投诉表
+        /// 添加投诉信息
         /// </summary>
         /// <param name="complain"></param>
-        [HttpPost]
+        /// <returns></returns>
+        [HttpGet]
         [Route("AddComplain")]
-        public int AddComplain(Complain complain)
+        public int AddComplain(string content,int userId)
         {
+            Complain complain = new Complain();
+            complain.Complain_Content = content;
+            complain.Users_ID = userId;
             return ComplainService.AddComplain(complain);
         }
 

@@ -10,7 +10,7 @@ namespace Dwelling.IServices
     public interface IComplainService
     {
         /// <summary>
-        /// 添加投诉表
+        /// 添加投诉信息
         /// </summary>
         /// <param name="complain"></param>
         /// <returns></returns>

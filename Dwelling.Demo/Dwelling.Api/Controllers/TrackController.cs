@@ -30,5 +30,16 @@ namespace Dwelling.Api.Controllers
             track.Users_ID = userId;
             return TrackService.AddTrack(track);
         }
+        /// <summary>
+        /// 根据用户获得用户足迹
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetTracksByUserId")]
+        public List<Track> GetTracksByUserId(int userId)
+        {
+            return TrackService.GetTracksByUserId(userId);
+        }
     }
 }

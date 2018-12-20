@@ -28,7 +28,7 @@ Page({
       {
         "iconUrl": '../../image/fabu.png',
         "iconText": '我的发布',
-        "url": ''
+        "url": '../homeissue/homeissue'
       },
     ],
   },
@@ -68,8 +68,6 @@ Page({
     wx.navigateTo({
       url: '../Complaints/Complaints',
     })
-
-
   },
 
   /**

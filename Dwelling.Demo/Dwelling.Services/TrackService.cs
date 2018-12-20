@@ -38,5 +38,16 @@ namespace Dwelling.Services
             parameters.Add("_Users_ID", track.Users_ID);
             return conn.Execute("pro_AddTrack", parameters, commandType: CommandType.StoredProcedure);
         }
+        /// <summary>
+        /// 根据用户获得用户足迹
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public List<Track> GetTracksByUserId(int userId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_Users_ID", userId);
+            return conn.Query<Track>("pro_GetTrackByUserId", parameters, commandType: CommandType.StoredProcedure).ToList();
+        }
     }
 }

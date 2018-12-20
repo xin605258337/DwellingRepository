@@ -1,4 +1,3 @@
-<!--pages/userpage/userpage.wxml-->
 
 <view class="user-head">
   <view class="userinfo">
