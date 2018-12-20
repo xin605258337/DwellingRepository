@@ -347,33 +347,32 @@
                     data: $("#form-article-add").serialize(),
                     success: function (data) {
                         if (data > 0) {
-                            alert("保存成功!!!");
-                        }
-                        //添加多个图片url
-                        $.ajax({
-                            url: "http://localhost:8092/Dwelling/GetHouseIdByImgUrl",
-                            type: "get",
-                            data: {
-                                imgUrl: $("input[name=House_ImgUrl]").val(),
-                            },
-                            success: function (data) {
-                                for (i = 0; i < imgs.length; i++) {
-                                    $.ajax({
-                                        url: "http://localhost:8092/Dwelling/AddImg",
-                                        type: "get",
-                                        data: {
-                                            houseId: data,
-                                            imgUrl: imgs[i].toString(),
-                                        },
-                                        success: function (i) {
-                                            
-                                        }
-                                    })
+                            //添加多个图片url
+                            $.ajax({
+                                url: "http://localhost:8092/Dwelling/GetHouseIdByImgUrl",
+                                type: "get",
+                                data: {
+                                    imgUrl: $("input[name=House_ImgUrl]").val(),
+                                },
+                                success: function (data) {
+                                    for (i = 0; i < imgs.length; i++) {
+                                        $.ajax({
+                                            url: "http://localhost:8092/Dwelling/AddImg",
+                                            type: "get",
+                                            data: {
+                                                houseId: data,
+                                                imgUrl: imgs[i].toString(),
+                                            },
+                                            success: function (i) {
+                                            }
+                                        })
+                                    }
+                                    alert("保存成功!!!");
+                                    location.href = "product-brand.html";
                                 }
+                            }) 
+                        }
                         
-                                
-                            }
-                        })
                     }
                 })
             })
