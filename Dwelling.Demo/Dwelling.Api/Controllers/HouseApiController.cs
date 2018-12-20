@@ -117,6 +117,17 @@ namespace Dwelling.Api.Controllers
             return HouseService.UpdateHouseClickNum(clickNum, houseId);
         }
         /// <summary>
+        /// 根据出租类型获取房源
+        /// </summary>
+        /// <param name="leaseTypeName"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetHouseByLeaseType")]
+        public List<HouseDetails> GetHouseByLeaseType(string leaseTypeName)
+        {
+            return HouseService.GetHouseByLeaseType(leaseTypeName);
+        }
+        /// <summary>
         /// 获取房源类型信息
         /// </summary>
         /// <returns></returns>

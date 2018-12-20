@@ -84,6 +84,11 @@ Page({
    * 
    */
   skipPage: function (e) {
+    wx.setStorageSync('text', e.currentTarget.dataset.text)
+    wx.navigateTo({
+      url: e.currentTarget.dataset.src,
+      success: function(res) {},
+    })
     wx.switchTab({
       url: e.currentTarget.dataset.src,
       success: function(res) {

@@ -52,5 +52,11 @@ namespace Dwelling.IServices
         /// <param name="houseId"></param>
         /// <returns></returns>
         int UpdateHouseClickNum(int clickNum, int houseId);
+        /// <summary>
+        /// 根据出租类型获取房源
+        /// </summary>
+        /// <param name="leaseTypeName"></param>
+        /// <returns></returns>
+        List<HouseDetails> GetHouseByLeaseType(string leaseTypeName);
     }
 }

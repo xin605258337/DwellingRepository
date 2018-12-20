@@ -162,5 +162,17 @@ namespace Dwelling.Services
             parameters.Add("_House_ID", houseId);
             return conn.Execute("pro_UpdateClickNum", parameters, commandType: CommandType.StoredProcedure);
         }
+        /// <summary>
+        /// 根据出租类型获取房源
+        /// </summary>
+        /// <param name="leaseTypeName"></param>
+        /// <returns></returns>
+        public List<HouseDetails> GetHouseByLeaseType(string leaseTypeName)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_LeaseType_Name", leaseTypeName);
+            return conn.Query<HouseDetails>("pro_GetHouseByLeaseType", parameters, commandType: CommandType.StoredProcedure).ToList();
+        }
+
     }
 }

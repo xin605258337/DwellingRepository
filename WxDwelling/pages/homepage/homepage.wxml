@@ -14,7 +14,7 @@
   <view class="category_item" wx:for="{{iconArray}}">
     <view class="category_item_wrap">
       <view class="icon_wrap">
-        <view bindtap='skipPage' data-src="{{item.url}}">
+        <view bindtap='skipPage' data-src="{{item.url}}" data-text="{{item.iconText}}">
           <image src="{{item.iconUrl}}" class="index_icon"></image>
         </view>
       </view>
