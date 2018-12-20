@@ -66,7 +66,7 @@ Page({
   },
   order:function(){
     wx.navigateTo({
-      url: '../Touch/Touch',
+      url: '../Complaints/Complaints',
     })
   },
   address: function () {
