@@ -78,8 +78,12 @@ Page({
     wx.navigateTo({
       url: '../message/message',
     })
+  }, 
+  order1: function () {
+    wx.navigateTo({
+      url: '../Touch/Touch',
+    })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
