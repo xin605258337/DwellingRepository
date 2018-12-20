@@ -16,6 +16,12 @@ Page({
     Facilityitems:[],
   },
   //下拉选框绑定
+  bindPickerChange_hx: function (e) {
+    // console.log('picker发送选择改变，携带值为', e.detail.value);
+    this.setData({   //给变量赋值
+      hx_index: e.detail.value,  //每次选择了下拉列表的内容同时修改下标然后修改显示的内容，显示的内容和选择的内容一致
+    })
+  },
   bindPickerChange_hx_1: function (e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value);
     this.setData({   //给变量赋值
@@ -142,6 +148,14 @@ this.setData({
 
 
   },
+  inputRentMoney:function(e)
+  {
+this.setData({
+
+  PublishHouse_RentMoney:e.detail.value
+})
+
+  },
   ///止租日期
 
   inputRentTimeEnd: function (e) {
@@ -149,8 +163,6 @@ this.setData({
 
       PublishHouse_RentTimeEnd: e.detail.value
     })
-
-
   },
   ///复选框绑定
   checkboxChange: function (e) {
@@ -161,11 +173,16 @@ this.setData({
   },
   //发布房源信息
   onSubmit:function(e){
-    
+    var that=this;
 wx.request({
   url: 'http://localhost:8092/Dwelling/AddPublishHouse',
   method: 'post',
   data: {
+    PublishHouse_Owner:that.data.owner,     
+    PublishHouse_OwnerTel: that.data.tel,
+    PublishHouse_RentMoney:that.data.price,
+    HabitableRoom_ID: that.data.roomTypeId,
+    PublishHouse_Description: that.data.description,
     PublishHouse_Num: this.data.PublishHouse_Num,
     PublishHouse_Area:this.data.PublishHouse_Area,
     Orientation_ID: this.data.Orientation[this.data.hx_index_1].Orientation_ID,
@@ -173,7 +190,7 @@ wx.request({
     Style_ID: this.data.Style[this.data.hx_index_3].Style_ID,
     PublishHouse_Floor:this.data.PublishHouse_Floor,
     PublishHouse_SumFloor:this.data.PublishHouse_SumFloor,
-    PublishHouse_Payment:this.data.PublishHouse_Payment,
+    PublishHouse_Payment: this.data.PublishHouse_Payment,
     PublishHouse_RentTimeBegin:this.data.PublishHouse_RentTimeBegin,
     PublishHouse_RentTimeEnd:this.data.PublishHouse_RentTimeEnd,
     PublishHouse_Facility:this.data.PublishHouse_Facility
@@ -197,6 +214,44 @@ wx.request({
 
   },
 
+  ///整租
+  onSubmit1:function(e)
+  {
+    var that = this;
+    wx.request({
+      url: 'http://localhost:8092/Dwelling/AddPublishHouse',
+      method: 'post',
+      data: {
+        PublishHouse_Owner: that.data.owner,
+        PublishHouse_OwnerTel: that.data.tel,
+        PublishHouse_RentMoney: that.data.price,
+        HabitableRoom_ID: that.data.roomTypeId,
+        PublishHouse_Description: that.data.description,
+        PublishHouse_RentMoney: this.data.PublishHouse_RentMoney,
+        PublishHouse_Area: this.data.PublishHouse_Area,
+        BuildingType_ID: this.data.BuildingType[this.data.hx_index_2].BuildingType_ID,
+        PublishHouse_Floor: this.data.PublishHouse_Floor,
+        PublishHouse_SumFloor: this.data.PublishHouse_SumFloor,
+        PublishHouse_RentTimeBegin: this.data.PublishHouse_RentTimeBegin,
+
+
+      },
+      success: function (res) {
+        if (res.data > 0) {
+
+          wx.showToast({
+            title: '添加成功',
+            duration: 2000 //提示两秒钟后关闭标题
+          })
+        }
+      }
+
+
+
+    })
+
+
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

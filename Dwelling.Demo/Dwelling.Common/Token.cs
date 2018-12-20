@@ -39,8 +39,8 @@ namespace Dwelling.Common
             Users user = new Users();
             HttpClient httpclient = new HttpClient();
             //登陆公众平台 开发->基本配置中的开发者ID(AppID)和 开发者密码(AppSecret)
-            string appid = "wx0f32af61bdd28d9e";//开发者ID
-            string secret = "6605d1fa528bb5dd9ac230221434590b";//开发者秘钥
+            string appid = "wxe47e27cfa22da27f";//开发者ID
+            string secret = "66ab3ae38fa57b2736632079b789a416";//开发者秘钥
             httpclient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = httpclient.PostAsync("https://api.weixin.qq.com/sns/jscode2session?appid=" + appid + "&secret=" + secret + "&js_code=" + code.ToString() + "&grant_type=authorization_code", null).Result;
             var result = "";
