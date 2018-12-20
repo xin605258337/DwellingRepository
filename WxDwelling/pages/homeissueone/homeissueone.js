@@ -10,16 +10,31 @@ Page({
     Orientation: [],
     BuildingType:[],
     Style:[],
-    hx_index: 0,
+    hx_index_1: 0,
+    hx_index_2: 0,
+    hx_index_3: 0,
     Facilityitems:[],
   },
   //下拉选框绑定
-  bindPickerChange_hx: function (e) {
+  bindPickerChange_hx_1: function (e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value);
     this.setData({   //给变量赋值
-      hx_index: e.detail.value,  //每次选择了下拉列表的内容同时修改下标然后修改显示的内容，显示的内容和选择的内容一致
+      hx_index_1: e.detail.value,  //每次选择了下拉列表的内容同时修改下标然后修改显示的内容，显示的内容和选择的内容一致
     })
   },
+  bindPickerChange_hx_2: function (e) {
+    // console.log('picker发送选择改变，携带值为', e.detail.value);
+    this.setData({   //给变量赋值
+      hx_index_2: e.detail.value,  //每次选择了下拉列表的内容同时修改下标然后修改显示的内容，显示的内容和选择的内容一致
+    })
+  },
+  bindPickerChange_hx_3: function (e) {
+    // console.log('picker发送选择改变，携带值为', e.detail.value);
+    this.setData({   //给变量赋值
+      hx_index_3: e.detail.value,  //每次选择了下拉列表的内容同时修改下标然后修改显示的内容，显示的内容和选择的内容一致
+    })
+  },
+ 
   /**
    * 生命周期函数--监听页面加载
    */
@@ -74,20 +89,95 @@ Page({
     })
   },
 
+
+//出租房间
   inputPhone:function(e) {
     this.setData({
       PublishHouse_Num: e.detail.value,
-   
+    
     })
   }, 
+  ///面积
+  inputArea:function(e)
+  {
+this.setData({
+
+  PublishHouse_Area: e.detail.value
+})
+
+  },
+//楼层
+  inputFloor:function(e){
+this.setData({
+  PublishHouse_Floor:e.detail.value
+
+})
+
+  },
+  //总楼层
+  inputSumFloor:function(e)
+  {
+    this.setData({
+
+      PublishHouse_SumFloor: e.detail.value
+    })
+  
+
+  },
+  ///付款方式
+  inputPayment: function (e) {
+    this.setData({
+
+      PublishHouse_Payment: e.detail.value
+    })
+
+
+  },
+//起止日期
+  inputRentTimeBegin: function (e) {
+    this.setData({
+
+      PublishHouse_RentTimeBegin: e.detail.value
+    })
+
+
+  },
+  ///止租日期
+
+  inputRentTimeEnd: function (e) {
+    this.setData({
+
+      PublishHouse_RentTimeEnd: e.detail.value
+    })
+
+
+  },
+  ///复选框绑定
+  checkboxChange: function (e) {
+    // console.log('picker发送选择改变，携带值为', e.detail.value);
+    this.setData({   //给变量赋值
+      PublishHouse_Facility: e.detail.value["PublishHouse_Facility"],  //每次选择了下拉列表的内容同时修改下标然后修改显示的内容，显示的内容和选择的内容一致
+    })
+  },
   //发布房源信息
-  onSubmitf:function(e){
+  onSubmit:function(e){
+    
 wx.request({
   url: 'http://localhost:8092/Dwelling/AddPublishHouse',
   method: 'post',
   data: {
-    PublishHouse_Num: this.data.PublishHouse_Num
- 
+    PublishHouse_Num: this.data.PublishHouse_Num,
+    PublishHouse_Area:this.data.PublishHouse_Area,
+    Orientation_ID: this.data.Orientation[this.data.hx_index_1].Orientation_ID,
+    BuildingType_ID: this.data.BuildingType[this.data.hx_index_2].BuildingType_ID,
+    Style_ID: this.data.Style[this.data.hx_index_3].Style_ID,
+    PublishHouse_Floor:this.data.PublishHouse_Floor,
+    PublishHouse_SumFloor:this.data.PublishHouse_SumFloor,
+    PublishHouse_Payment:this.data.PublishHouse_Payment,
+    PublishHouse_RentTimeBegin:this.data.PublishHouse_RentTimeBegin,
+    PublishHouse_RentTimeEnd:this.data.PublishHouse_RentTimeEnd,
+    PublishHouse_Facility:this.data.PublishHouse_Facility
+
    
   },
   success: function (res) {

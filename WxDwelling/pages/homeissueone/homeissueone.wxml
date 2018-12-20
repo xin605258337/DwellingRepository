@@ -14,97 +14,94 @@
 	<view class="input-item">
 			<text class="input-item-label">出租房间:</text>
 			<view class="input-item-content">
-				<input type="idcard" placeholder="请输入出租房间" bindinput="inputPhone" name='PublishHouse_Num'  value='{{PublishHouse_Num}}'></input>
+				<input type="idcard" placeholder="请输入出租房间" bindinput="inputPhone" name='PublishHouse_Num'></input>
 			</view>
 		</view>
      <!--房间面积-->
     <view class="input-item">
 			<text class="input-item-label">房间面积:</text>
 			<view class="input-item-content">
-				<input name='PublishHouse_Area' type="idcard" placeholder="请输入出租房间面积"bindinput="inputPhone"></input>
+				<input name='PublishHouse_Area' type="idcard" placeholder="请输入出租房间面积"bindinput="inputArea"></input>
 			</view>
 		</view>
      <!--朝向-->
          <view class="input-item">
 					<text class="input-item-label">朝向</text>
-          <picker name='Orientation_ID' class="input-item-content" bindchange="bindPickerChange" data-pickername="{{Orientation[hx_index].Orientation_ID}}" value="{{Orientation[hx_index].Orientation_ID}}" range="{{Orientation}}" range-key="{{'Orientation_Name'}}" mode="selector" bindchange="bindPickerChange_hx">{{Orientation[hx_index].Orientation_Name}} 
+          <picker name='Orientation_ID' class="input-item-content" data-pickername="{{Orientation[hx_index_1].Orientation_ID}}" value="{{Orientation[hx_index_1].Orientation_ID}}" range="{{Orientation}}" range-key="{{'Orientation_Name'}}" mode="selector" bindchange="bindPickerChange_hx_1">{{Orientation[hx_index_1].Orientation_Name}} 
 					</picker> 
 				</view>
      <!--整套户型-->
       <view class="input-item">
 					<text class="input-item-label">楼房类型</text>
-          <picker name='BuildingType_ID' class="input-item-content" bindchange="bindPickerChange" data-pickername="{{BuildingType[hx_index].BuildingType_ID}}" value="{{BuildingType[hx_index].BuildingType_ID}}" range="{{BuildingType}}" range-key="{{'BuildingType_Name'}}" mode="selector" bindchange="bindPickerChange_hx">{{BuildingType[hx_index].BuildingType_Name}} 
+          <picker name='BuildingType_ID' class="input-item-content" data-pickername="{{BuildingType[hx_index_2].BuildingType_ID}}" value="{{BuildingType[hx_index_2].BuildingType_ID}}" range="{{BuildingType}}" range-key="{{'BuildingType_Name'}}" mode="selector" bindchange="bindPickerChange_hx_2">{{BuildingType[hx_index_2].BuildingType_Name}} 
 					</picker>
 				</view>
     <!--风格-->
       <view class="input-item">
 					<text class="input-item-label">装修风格</text>
-          <picker name='Style_ID' class="input-item-content" bindchange="bindPickerChange" data-pickername="{{Style[hx_index].Style_ID}}" value="{{Style[hx_index].Style_ID}}" range="{{Style}}" range-key="{{'Style_Name'}}" mode="selector" bindchange="bindPickerChange_hx">{{Style[hx_index].Style_Name}} 
+          <picker name='Style_ID' class="input-item-content"  data-pickername="{{Style[hx_index_3].Style_ID}}" value="{{Style[hx_index_3].Style_ID}}" range="{{Style}}" range-key="{{'Style_Name'}}" mode="selector" bindchange="bindPickerChange_hx_3">{{Style[hx_index_3].Style_Name}} 
 					</picker>
 				</view>
       <!--楼层-->
        <view class="input-item">
 			<text class="input-item-label">楼层:</text>
 			<view class="input-item-content">
-				<input name='PublishHouse_Floor' type="idcard" placeholder="请输入层数"bindinput="inputPhone"></input>
+				<input name='PublishHouse_Floor' type="idcard" placeholder="请输入层数"bindinput="inputFloor"></input>
 			</view>
 		</view>
     <!--总楼层-->
        <view class="input-item">
 			<text class="input-item-label">总楼层:</text>
 			<view class="input-item-content">
-				<input name='PublishHouse_SumFloor' type="idcard" placeholder="请输入层数"bindinput="inputPhone"></input>
+				<input name='PublishHouse_SumFloor' type="idcard" placeholder="请输入层数"bindinput="inputSumFloor"></input>
 			</view>
 		</view>
     <!--付款方式-->
        <view class="input-item">
 			<text class="input-item-label">付款方式:</text>
 			<view class="input-item-content">
-				<input name='PublishHouse__Payment' type="idcard" placeholder="请输入月租/季租/整租"bindinput="inputPhone"></input>
+				<input name='PublishHouse_Payment' type="idcard" placeholder="请输入月租/季租/整租"bindinput="inputPayment"></input>
 			</view>
 		</view>
     <!--起租日期 -->
     <view class="input-item">
 			<text class="input-item-label">起租日期:</text>
 			<view class="input-item-content">
-			 	<input name='PublishHouse_RentTimeBegin' type="text" auto-focus placeholder="请输入:年/月/日" bindinput="inputName"></input>
+			 	<input name='PublishHouse_RentTimeBegin' type="text" auto-focus placeholder="请输入:年/月/日" bindinput="inputRentTimeBegin"></input>
 			</view>
 		</view>
          <!--止租日期 -->
     <view class="input-item">
 			<text class="input-item-label">止租日期:</text>
 			<view class="input-item-content">
-			 	<input name='PublishHouse_RentTimeEnd' type="text" auto-focus placeholder="请输入:年/月/日" bindinput="inputName"></input>
+			 	<input name='PublishHouse_RentTimeEnd' type="text" auto-focus placeholder="请输入:年/月/日" bindinput="inputRentTimeEnd"></input>
 			</view>
 		</view>
     <!--房屋设施-->
     <checkbox-group bindchange="checkboxChange">
         <label class="checkbox input-item-content cks" wx:for="{{Facilityitems}}">
-          <checkbox value="{{item.Facility_Name}}" checked="{{item.checked}}" />{{item.Facility_Name}}
+          <checkbox  value="{{item.Facility_Name}}" checked="{{item.checked}}" />{{item.Facility_Name}}
         </label>
+        
     </checkbox-group>
 <!--房源照片-->
     <view class="input-item input-item-full">
 				<text class="input-item-label">房源图片</text>
-					<view class="img-upload">
-						<view class="img-add"></view>
-						<view class="img-item">
-							<image src="E:\xinxin\DwellingRepository\WxDwelling\image\zhengzu.png" mode="aspectFill"></image>
-						</view>
-						<view class="img-item">
-							<image src="" mode="aspectFill"></image>
-						</view>
-					</view>
+				 <view>
+   <image style="width:70px; height: 70px; background-color: #eeeeee;"
+          mode="{{item.mode}}"
+          src="/image/hezu.png"></image>
+</view>
 				</view>
     <!--发布-->
         <view class="btn-submit">
-    <button class="btn-block btn-orange" form-type="submit" bindtap='onSubmitf' >确认发布</button>
+    <button class="btn-block btn-orange" form-type="submit" bindtap='onSubmit' >确认发布</button>
 	       </view>
   </form>
   </swiper-item>
 <!--整租页面-->
    <swiper-item >
-   <form bindsubmit="formSubmit" bindreset="formReset">
+   <form bindsubmit="formSubmit1" bindreset="formReset">
    <view class="group-header">基本信息</view>
 
 <view class="containerhouse">
@@ -146,19 +143,15 @@
 			</view>
 		</view>
         <!--房源图片 -->
-    <view class="input-item input-item-full">
-				<text class="input-item-label">房源图片</text>
-					<view class="img-upload">
-						<view class="img-add"></view>
-						<view class="img-item">
-							<image src="E:\xinxin\DwellingRepository\WxDwelling\image\zhengzu.png" mode="aspectFill"></image>
-						</view>
-						<view class="img-item">
-							<image src="" mode="aspectFill"></image>
-						</view>
-					</view>
-				</view>
+   
+			
 	</view>
+
+<view>
+   <image style="width:70px; height: 70px; background-color: #eeeeee;"
+          mode="{{item.mode}}"
+          src="{{}}"></image>
+</view>
    <!--发布-->
         <view class="btn-submit">
     <button class="btn-block btn-orange" form-type="submit" >确认发布</button>
