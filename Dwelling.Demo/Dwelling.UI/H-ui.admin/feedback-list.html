@@ -24,7 +24,7 @@
 <title>意见反馈</title>
 </head>
 <body>
-    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 评论管理 <span class="c-gray en">&gt;</span> 意见反馈 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 评论管理 <span class="c-gray en">&gt;</span> 投诉反馈<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a></nav>
     <div class="page-container">
         <div class="text-c">
             日期范围：
@@ -34,7 +34,7 @@
             <input type="text" class="input-text" style="width:250px" placeholder="输入关键词" id="" name="">
             <button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜意见</button>
         </div>
-        <div class="cl pd-5 bg-1 bk-gray mt-20"><span>投诉管理</span> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> </span> <span id="s1" class="r">共有数据： </span> </div>
+        <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 投诉管理</a> </span> <span id="s1" class="r">共有数据： </span> </div>
         <div class="mt-20">
             <table class="table table-border table-bordered table-hover table-bg table-sort" id="tab1">
                 <thead>
@@ -52,7 +52,7 @@
     <!--//////////////////////////建议-->
 
 
-    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span></span><span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 建议管理</a> </span> <span id="s2" class="r">共有数据： </span> </div>
+    <!--<div class="cl pd-5 bg-1 bk-gray mt-20"> <span></span><span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 建议管理</a> </span> <span id="s2" class="r">共有数据： </span> </div>
     <div class="mt-20">
         <table id="tab2" class="table table-border table-bordered table-hover table-bg table-sort">
             <thead>
@@ -66,7 +66,7 @@
                 </tr>
             </thead>   
         </table>
-    </div>
+    </div>-->
  
 
 
@@ -153,25 +153,25 @@
                 }
             })
             /*显示用户建议信息*/
-            $.ajax({
-                url: "http://localhost:8092/Dwelling/GetSuggests",
-                type: "get",
-                success: function (data) {
-                    $(data).each(function (index, data) {
-                        var tr = '<tbody>'
-                            + '<tr class="text-c" >'                           
-                            + '<td>' + (index+1) + '</td>'
-                            + '<td>' + data.Suggest_ID + '</td>'
-                            + '<td>' + data.Suggest_Content + '</td>'
-                            + '<td>' + ((data.Suggest_Result == null) ? "未回复" : data.Suggest_Result)  + '</td>'
-                            + '<td><a href="#" onclick="UpdateSuggest('+data.Suggest_ID+')" >回复</a></td>'
-                            + '<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,"10001")" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a><a title="删除" href="javascript:;" onclick="DelRole(this,' + data.Role_ID + ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
-                            + '</tr></tbody>';
-                        $("#tab2").append(tr);
-                    })
-                    $("#s2").append("<strong>" + data.length + "条</strong>");
-                }
-            })
+            //$.ajax({
+            //    url: "http://localhost:8092/Dwelling/GetSuggests",
+            //    type: "get",
+            //    success: function (data) {
+            //        $(data).each(function (index, data) {
+            //            var tr = '<tbody>'
+            //                + '<tr class="text-c" >'                           
+            //                + '<td>' + (index+1) + '</td>'
+            //                + '<td>' + data.Suggest_ID + '</td>'
+            //                + '<td>' + data.Suggest_Content + '</td>'
+            //                + '<td>' + ((data.Suggest_Result == null) ? "未回复" : data.Suggest_Result)  + '</td>'
+            //                + '<td><a href="#" onclick="UpdateSuggest('+data.Suggest_ID+')" >回复</a></td>'
+            //                + '<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,"10001")" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a><a title="删除" href="javascript:;" onclick="DelRole(this,' + data.Role_ID + ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
+            //                + '</tr></tbody>';
+            //            $("#tab2").append(tr);
+            //        })
+            //        $("#s2").append("<strong>" + data.length + "条</strong>");
+            //    }
+            //})
         })
 
         function UpdateSuggest(id) {
