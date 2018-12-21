@@ -945,6 +945,7 @@
     <Content Include="H-ui.admin\picture-show.html" />
     <Content Include="H-ui.admin\product-add.html" />
     <Content Include="H-ui.admin\product-brand.html" />
+    <Content Include="H-ui.admin\publishHouse.html" />
     <Content Include="H-ui.admin\record-browse.html" />
     <Content Include="H-ui.admin\record-download.html" />
     <Content Include="H-ui.admin\record-share.html" />
