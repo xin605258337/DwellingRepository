@@ -21,6 +21,7 @@
 <body>
     <div class="page-container">
         <form method="post" class="form form-horizontal" id="form-article-add">
+            <input id="Hidden1" type="hidden" name="PublishHouse_ID"/>
             <input type="text" hidden="hidden" class="input-text" name="House_Facility">
             <div class="row cl">
                 <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>标题：</label>
@@ -154,7 +155,7 @@
                 <label class="form-label col-xs-4 col-sm-2">房源所属人微信：</label>
                 <div class="formControls col-xs-8 col-sm-9">
                     <input type="text" name="House_OwnerWx" class="input-text" style="width:90%">
-                    元
+                    
                 </div>
             </div>
             <div class="row cl">
@@ -229,7 +230,11 @@
     <script type="text/javascript" src="lib/ueditor/1.4.3/ueditor.all.min.js"></script>
     <script type="text/javascript" src="lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
     <script type="text/javascript">
-        var imgs=[];
+        var imgs = [];
+        var loc = location.href;
+        var n1 = loc.length;//地址的总长度
+        var n2 = loc.indexOf("=");//取得=号的位置
+        var Id = decodeURI(loc.substr(n2 + 1, n1 - n2));//从=号后面的内容   
         $(function () {
             //当所选为合租
             $("select[name=LeaseType_ID]").change(function () {
@@ -324,6 +329,31 @@
                         })
                     }
                 })
+            })
+           
+            //反填
+            $.ajax({
+                url: "http://localhost:8092/Dwelling/GetPublishHouseByID",
+                data: {
+                    id: Id,
+                },
+                success: function (data) {
+                    $("input[name=House_RentMoney]").val(data.PublishHouse_RentMoney);
+                    $("select[name=HabitableRoom_ID]").val(data.HabitableRoom_ID);
+                    $("input[name=House_Area]").val(data.PublishHouse_Area);
+                    $("select[name=Orientation_ID]").val(data.Orientation_ID);
+                    $("select[name=Style_ID]").val(data.Style_ID);
+                    $("select[name=LeaseType_ID]").val(data.LeaseType_ID);
+                    $("input[name=House_SumFloor]").val(data.PublishHouse_SumFloor);
+                    $("input[name=House_Floor]").val(data.PublishHouse_Floor);
+                    $("select[name=BuildingType_ID]").val(data.BuildingType_ID);
+                    $("input[name=House_Owner]").val(data.PublishHouse_Owner);
+                    $("input[name=House_OwnerTel]").val(data.PublishHouse_OwnerTel);
+                    $("input[name=House_Payment]").val(data.PublishHouse_Payment);
+                    $("input[name=House_RentTimeBegin]").val(data.PublishHouse_RentTimeBegin);
+                    $("input[name=House_RentTimeEnd]").val(data.PublishHouse_RentTimeEnd);
+                    $("textarea[name=House_Describe]").val(data.PublishHouse_Description);
+                }
             })
 
  

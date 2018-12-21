@@ -27,5 +27,11 @@ namespace Dwelling.IServices
         /// <returns></returns>
 
         int deletePublishHouse(int PublishHouseID);
+        /// <summary>
+        /// 根据ID获取信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        PublishHouse GetPublishHouseByID(int id);
     }
 }

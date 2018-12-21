@@ -75,5 +75,17 @@ namespace Dwelling.Services
         {
             return conn.Query<PublishHouse>("proc_getPublishHouse", null, commandType: CommandType.StoredProcedure).ToList();
         }
+
+        /// <summary>
+        /// 根据ID获取信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public PublishHouse GetPublishHouseByID(int id)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_PublishHouse_ID", id);
+            return conn.Query<PublishHouse>("proc_GetPublishHouseByID", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+        }
     }
 }

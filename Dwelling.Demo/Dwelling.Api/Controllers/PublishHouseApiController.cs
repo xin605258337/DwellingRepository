@@ -50,7 +50,18 @@ namespace Dwelling.Api.Controllers
         {
             return PublishHouseService.deletePublishHouse(PublishHouseID);
         }
-
-
+        /// <summary>
+        /// 根据ID获取信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("GetPublishHouseByID")]
+        [HttpGet]
+        public PublishHouse GetPublishHouseByID(int id)
+        {
+            return PublishHouseService.GetPublishHouseByID(id);
         }
+
+
+    }
 }
