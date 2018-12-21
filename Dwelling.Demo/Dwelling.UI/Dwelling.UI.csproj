@@ -1191,6 +1191,7 @@
     <Content Include="H-ui.admin\temp\Thumb\weishengjian2.jpg" />
     <Content Include="H-ui.admin\temp\Thumb\woshi.jpg" />
     <Content Include="H-ui.admin\temp\Thumb\youyongchi.jpg" />
+    <Content Include="H-ui.admin\Update_Complain.html" />
     <Content Include="H-ui.admin\Update_Suggest.html" />
     <Content Include="H-ui.admin\welcome.html" />
     <Content Include="H-ui.admin\Zshow.html" />

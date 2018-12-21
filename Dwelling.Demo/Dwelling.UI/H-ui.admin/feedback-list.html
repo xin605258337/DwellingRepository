@@ -42,33 +42,14 @@
                         <th width="25"><input type="checkbox" name="" value=""></th>
                         <th width="60">ID</th>
                         <th>留言内容</th>
+                        <th>回复结果</th>
+                        <th>回复</th>
                         <th width="100">操作</th>
                     </tr>
                 </thead>              
             </table>
         </div>
     </div>
-
-    <!--//////////////////////////建议-->
-
-
-    <!--<div class="cl pd-5 bg-1 bk-gray mt-20"> <span></span><span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 建议管理</a> </span> <span id="s2" class="r">共有数据： </span> </div>
-    <div class="mt-20">
-        <table id="tab2" class="table table-border table-bordered table-hover table-bg table-sort">
-            <thead>
-                <tr class="text-c">
-                    <th width="60">ID</th>
-                    <th width="60">建议编号</th>
-                    <th>留言内容</th>
-                    <th>回复结果</th>
-                    <th>回复</th>
-                    <th width="100">操作</th>
-                </tr>
-            </thead>   
-        </table>
-    </div>-->
- 
-
 
     <!--_footer 作为公共模版分离出去-->
     <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
@@ -145,6 +126,8 @@
                             + '<td><input type = "checkbox" value = "3" name = "" ></td>'
                             + '<td>' + data.Complain_ID + '</td>'
                             + '<td>' + data.Complain_Content + '</td>'
+                            + '<td>' + ((data.Complain_Result == null) ? "未回复" : data.Complain_Result) + '</td>'
+                            + '<td><a href="#" onclick="UpdateComplain(' + data.Complain_ID + ')" >回复</a></td>'
                             + '<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,"10001")" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a><a title="删除" href="javascript:;" onclick="DelRole(this,' + data.Role_ID + ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
                             + '</tr></tbody>';
                         $("#tab1").append(tr);
@@ -152,30 +135,11 @@
                     $("#s1").append("<strong>" + data.length + "条</strong>");
                 }
             })
-            /*显示用户建议信息*/
-            //$.ajax({
-            //    url: "http://localhost:8092/Dwelling/GetSuggests",
-            //    type: "get",
-            //    success: function (data) {
-            //        $(data).each(function (index, data) {
-            //            var tr = '<tbody>'
-            //                + '<tr class="text-c" >'                           
-            //                + '<td>' + (index+1) + '</td>'
-            //                + '<td>' + data.Suggest_ID + '</td>'
-            //                + '<td>' + data.Suggest_Content + '</td>'
-            //                + '<td>' + ((data.Suggest_Result == null) ? "未回复" : data.Suggest_Result)  + '</td>'
-            //                + '<td><a href="#" onclick="UpdateSuggest('+data.Suggest_ID+')" >回复</a></td>'
-            //                + '<td class="td-manage"><a style="text-decoration:none" onClick="admin_stop(this,"10001")" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a><a title="删除" href="javascript:;" onclick="DelRole(this,' + data.Role_ID + ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>'
-            //                + '</tr></tbody>';
-            //            $("#tab2").append(tr);
-            //        })
-            //        $("#s2").append("<strong>" + data.length + "条</strong>");
-            //    }
-            //})
+           
         })
 
-        function UpdateSuggest(id) {
-            location.href = 'Update_Suggest.html?id=' + id;
+        function UpdateComplain(id) {
+            location.href = 'Update_Complain.html?id=' + id;
         }
     </script>
 </body>

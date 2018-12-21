@@ -10,11 +10,11 @@
   <!--投诉-->
   <swiper-item>
     <view>--投诉结果--</view>
-    <navigator class="service-item" wx:for="{{suggest}}">
+    <navigator class="service-item" wx:for="{{complain}}">
     <view class="container1">
       <view class='row text_box'>
-        <view>投诉：{{item.Suggest_Content}}</view>
-        <view>结果:{{item.Suggest_Result}}</view>
+        <view>投诉：{{item.Complain_Content}}</view>
+        <view>结果:{{item.Complain_Result}}</view>
       </view>
     </view>
   </navigator>

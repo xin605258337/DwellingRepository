@@ -39,5 +39,41 @@ namespace Dwelling.Api.Controllers
         {
             return ComplainService.GetComplains();
         }
+
+        /// <summary>
+        /// 根据用户ID获取投诉信息
+        /// </summary>
+        /// <param name="_Complain_ID"></param>
+        /// <returns></returns>
+        [Route("GetComplainByUserID")]
+        [HttpGet]
+        public List<Complain> GetComplainByUserID(int userId)
+        {
+            return ComplainService.GetComplainByUserID(userId);
         }
+
+        /// <summary>
+        /// 修改投诉
+        /// </summary>
+        /// <param name="complain"></param>
+        /// <returns></returns>
+        [Route("UpdateComplain")]
+        [HttpGet]
+        public int UpdateComplain(int id, string result)
+        {
+            return ComplainService.UpdateComplain(id, result);
+        }
+
+        /// <summary>
+        /// 反填
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [Route("GetComplainByID")]
+        [HttpGet]
+        public Complain GetComplainByID(int complainID)
+        {
+            return ComplainService.GetComplainByID(complainID);
+        }
+    }
 }

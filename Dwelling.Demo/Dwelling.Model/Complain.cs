@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Dwelling.Model
 {
     //投诉表
-   public class Complain
+   public class Complain:Users
     {
         /// <summary>
         /// 投诉表ID
@@ -24,6 +24,6 @@ namespace Dwelling.Model
         /// <summary>
         /// 投诉所属用户
         /// </summary>
-        public int Users_ID { get; set; }
+        public new int Users_ID { get; set; }
     }
 }

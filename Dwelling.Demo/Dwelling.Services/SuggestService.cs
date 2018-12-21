@@ -50,7 +50,17 @@ namespace Dwelling.Services
             parameters.Add("_Users_ID", userId);
             return conn.Query<Suggest>("pro_GetSuggestByUserId", parameters, commandType: CommandType.StoredProcedure).ToList();
         }
-
+        /// <summary>
+        /// 反填
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Suggest GetSuggestByID(int SuggestID)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_suggestID", SuggestID);
+            return conn.Query<Suggest>("proc_GetSuggestByID", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+        }
         /// <summary>
         /// 获取建议表信息
         /// </summary>

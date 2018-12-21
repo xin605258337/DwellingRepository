@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Content/jquery-1.10.2.js"></script>
+
+</head>
+<body>
+
+    <input id="Hidden1" type="hidden" name="Complain_ID" />
+    <table class="table table-striped">
+        <tr>
+            <td>投诉内容</td>
+            <td><textarea id="TextArea1" rows="2" cols="20" name="Complain_Content"></textarea></td>
+        </tr>
+        <tr>
+            <td>回复结果</td>
+            <td><textarea id="TextArea1" rows="2" cols="20" name="Complain_Result"></textarea></td>
+        </tr>
+        <tr>
+            <td><input id="upt" type="button" value="提交" /></td>
+            <td></td>
+        </tr>
+    </table>
+
+</body>
+</html>
+<script>
+    var loc = location.href;
+    var n1 = loc.length;//地址的总长度
+    var n2 = loc.indexOf("=");//取得=号的位置
+    var Id = decodeURI(loc.substr(n2 + 1, n1 - n2));//从=号后面的内容
+    $(function () {
+        //反填
+        $.ajax({
+            url: "http://localhost:8092/Dwelling/GetComplainByID",
+            data: {
+                complainID: Id
+            },
+            success: function (data) {
+                $("textarea[name=Complain_Content]").val(data.Complain_Content);
+            }
+
+        })
+
+        //修改
+        $("#upt").click(function () {
+            $.ajax({
+                url: "http://localhost:8092/Dwelling/UpdateComplain",
+                type: "get",
+                data: {
+                    id: Id,
+                    result: $("textarea[name=Complain_Result]").val(),
+                },
+                success: function (data) {
+                    if (data > 0) {
+                        alert("提交成功!!!");
+                        location.href = 'feedback-list.html';
+                    }
+                }
+            })
+        })
+    })
+</script>

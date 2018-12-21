@@ -38,11 +38,51 @@ namespace Dwelling.Services
             parameters.Add("_Users_ID", complain.Users_ID);
             return conn.Execute("pro_AddComplain", parameters, commandType: CommandType.StoredProcedure);
         }
-
+        /// <summary>
+        /// 获取投诉信息
+        /// </summary>
+        /// <returns></returns>
         public List<Complain> GetComplains()
         {
             MySqlConnection conn = new MySqlConnection(connStr);
             return conn.Query<Complain>("proc_getComplain", null, commandType: CommandType.StoredProcedure).ToList();
+        }
+
+        /// <summary>
+        /// 根据用户ID获取投诉信息
+        /// </summary>
+        /// <param name="_Complain_ID"></param>
+        /// <returns></returns>
+        public List<Complain> GetComplainByUserID(int userId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("id", userId);
+            return conn.Query<Complain>("proc_getComplainById", parameters, commandType: CommandType.StoredProcedure).ToList();
+        }
+        /// <summary>
+        /// 修改投诉
+        /// </summary>
+        /// <param name="complain"></param>
+        /// <returns></returns>
+        public int UpdateComplain(int id,string result)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_Complain_ID",id);
+            parameters.Add("_Complain_Result", result);
+            return conn.Execute("pro_updateComplain", parameters, commandType: CommandType.StoredProcedure);
+        }
+
+
+        /// <summary>
+        /// 反填
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Complain GetComplainByID(int complainID)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_Complain_ID", complainID);
+            return conn.Query<Complain>("GetComplainByIDs", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
         }
     }
 }

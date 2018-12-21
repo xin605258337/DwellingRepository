@@ -37,7 +37,7 @@
         $.ajax({
             url: "http://localhost:8092/Dwelling/GetSuggestByID",
             data: {
-                id: Id
+                SuggestID: Id
             },
             success: function (data) {
                 $("textarea[name=Suggest_Content]").val(data.Suggest_Content);
@@ -57,7 +57,7 @@
                 success: function (data) {
                     if (data > 0) {
                         alert("提交成功!!!");
-                        location.href = 'feedback-list.html';
+                        location.href = 'feedback1-list.html';
                     }
                 }
             })

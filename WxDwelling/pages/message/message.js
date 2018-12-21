@@ -60,14 +60,14 @@ Page({
                suggest:res.data
              })
             wx.request({
-              url: 'http://localhost:8092/Dwelling/GetSuggestByUserID',
+              url: 'http://localhost:8092/Dwelling/GetComplainByUserID',
               method: 'GET',
               data: {
                 userId: userID
               },
               success: function (res) {
                 that.setData({
-                  suggest: res.data
+                  complain: res.data
                 })
 
               }

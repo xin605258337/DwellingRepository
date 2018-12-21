@@ -16,7 +16,10 @@ namespace Dwelling.IServices
         /// <param name="suggest"></param>
         /// <returns></returns>
         int AddSuggest(Suggest suggest);
-
+        /// <summary>
+        /// 获取所有建议信息
+        /// </summary>
+        /// <returns></returns>
         List<Suggest> GetSuggests();
 
         /// <summary>
@@ -25,7 +28,20 @@ namespace Dwelling.IServices
         /// <param name="id"></param>
         /// <returns></returns>
         List<Suggest> GetSuggestByUserID(int userId);
-
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="_Suggest_Result"></param>
+        /// <returns></returns>
         int UpdateSuggest(int id, string _Suggest_Result);
+
+        /// <summary>
+        /// 反填
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Suggest GetSuggestByID(int SuggestID);
+       
     }
 }
