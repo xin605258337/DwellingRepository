@@ -45,15 +45,15 @@ namespace Dwelling.Api.Controllers
         }
 
         /// <summary>
-        /// 根据ID获取信息
+        /// 根据用户ID获取信息
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [Route("GetSuggestByID")]
         [HttpGet]
-        public Suggest GetSuggestByID(int id)
+        [Route("GetSuggestByUserID")]
+        public List<Suggest> GetSuggestByUserID(int userId)
         {
-            return SuggestService.GetSuggestByID(id);
+            return SuggestService.GetSuggestByUserID(userId);
         }
 
         /// <summary>

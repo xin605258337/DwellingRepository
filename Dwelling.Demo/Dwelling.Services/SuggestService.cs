@@ -40,15 +40,15 @@ namespace Dwelling.Services
             return conn.Execute("proc_AddSuggest", parameters, commandType: CommandType.StoredProcedure);
         }
         /// <summary>
-        /// 根据ID获取信息
+        /// 根据用户ID获取信息
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Suggest GetSuggestByID(int id)
+        public List<Suggest> GetSuggestByUserID(int userId)
         {
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("_suggestID", id);
-            return conn.Query<Suggest>("proc_GetSuggestByID", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            parameters.Add("_Users_ID", userId);
+            return conn.Query<Suggest>("pro_GetSuggestByUserId", parameters, commandType: CommandType.StoredProcedure).ToList();
         }
 
         /// <summary>

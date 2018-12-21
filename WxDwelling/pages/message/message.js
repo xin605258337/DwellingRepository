@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+      suggest:[],
+      complain:[]
   },
   /**点击事件 */
   swiperTab: function(e) {
@@ -42,6 +43,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var that=this;
+    wx.getStorage({
+      key: 'userId',
+      success: function(res) {
+        wx.request({
+          url: 'http://localhost:8092/Dwelling/GetSuggestByUserID',
+          method:'GET',
+          data:{
+            userId:res.data
+          },
+          success:function(res){
+             that.setData({
+               suggest:res.data
+             })
+          }
+        })
+      },
+    })
 
   },
 

@@ -10,25 +10,25 @@
   <!--投诉-->
   <swiper-item>
     <view>--投诉结果--</view>
+    <navigator class="service-item" wx:for="{{suggest}}">
     <view class="container1">
       <view class='row text_box'>
-        <textarea class='text' bindblur='bindTextAreaBlur' value="{{Complain_Content}}" />
-      </view>
-      <view class='row version'>
-        <view class='txt'>版本1.0</view>
+        <view>建议{{item.Suggest_Content}}</view>
+        <view>结果:{{item.Suggest_Result}}</view>
       </view>
     </view>
-  </swiper-item>
-  <!--建议-->
-  <swiper-item>
-    <view>--建议回复--</view>
+  </navigator>
+    </swiper-item>
+<!--建议-->
+<swiper-item>
+  <view>--建议回复--</view>
+  <navigator class="service-item" wx:for="{{suggest}}">
     <view class="container1">
       <view class='row text_box'>
-        <textarea class='text1' bindblur='bindBlur' value="{{Suggest_Content}}" />
-      </view>
-      <view class='row version'>
-        <view class='txt'>版本1.0</view>
+        <view>建议{{item.Suggest_Content}}</view>
+        <view>结果:{{item.Suggest_Result}}</view>
       </view>
     </view>
-  </swiper-item>
+  </navigator>
+</swiper-item>
 </swiper>

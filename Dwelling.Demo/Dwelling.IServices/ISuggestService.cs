@@ -19,7 +19,12 @@ namespace Dwelling.IServices
 
         List<Suggest> GetSuggests();
 
-        Suggest GetSuggestByID(int id);
+        /// <summary>
+        /// 根据用户ID获取信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        List<Suggest> GetSuggestByUserID(int userId);
 
         int UpdateSuggest(int id, string _Suggest_Result);
     }
