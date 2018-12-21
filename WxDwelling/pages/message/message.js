@@ -44,19 +44,34 @@ Page({
    */
   onLoad: function(options) {
     var that=this;
+    var userID = 0;
     wx.getStorage({
       key: 'userId',
       success: function(res) {
+        userID = res.data
         wx.request({
           url: 'http://localhost:8092/Dwelling/GetSuggestByUserID',
           method:'GET',
           data:{
-            userId:res.data
+            userId: userID
           },
           success:function(res){
              that.setData({
                suggest:res.data
              })
+            wx.request({
+              url: 'http://localhost:8092/Dwelling/GetSuggestByUserID',
+              method: 'GET',
+              data: {
+                userId: userID
+              },
+              success: function (res) {
+                that.setData({
+                  suggest: res.data
+                })
+
+              }
+            })
           }
         })
       },

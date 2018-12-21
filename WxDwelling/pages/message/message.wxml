@@ -13,7 +13,7 @@
     <navigator class="service-item" wx:for="{{suggest}}">
     <view class="container1">
       <view class='row text_box'>
-        <view>建议{{item.Suggest_Content}}</view>
+        <view>投诉：{{item.Suggest_Content}}</view>
         <view>结果:{{item.Suggest_Result}}</view>
       </view>
     </view>
@@ -25,7 +25,7 @@
   <navigator class="service-item" wx:for="{{suggest}}">
     <view class="container1">
       <view class='row text_box'>
-        <view>建议{{item.Suggest_Content}}</view>
+        <view>建议：{{item.Suggest_Content}}</view>
         <view>结果:{{item.Suggest_Result}}</view>
       </view>
     </view>
