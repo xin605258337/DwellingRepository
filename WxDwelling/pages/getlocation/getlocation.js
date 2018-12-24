@@ -34,6 +34,56 @@ Page({
       }
     })
   },
+  mapViewTap: function () {
+    wx.getLocation({
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success: function (res) {
+        console.log(res)
+        wx.openLocation({
+          latitude: res.latitude,
+          longitude: res.longitude,
+          scale: 28
+        })
+      }
+    })
+  },
+  locationViewTap: function () {
+    wx.navigateTo({
+      url: '../location/location'
+    })
+  },
+  modalcnt: function () {
+    var that = this
+    //获取经纬度
+    wx.getLocation({
+      type: 'gcj02',
+      success: function (res) {
+        console.log(res)
+        var latitude = res.latitude
+        var longitude = res.longitude
+        that.setData({
+          wd: latitude,
+          jd: longitude
+        })
+        //显示模态窗口
+        wx.showModal({
+
+          title: '获取到当前的经纬度',
+          content: '经度：' + longitude + '，纬度：' + latitude,
+          success: function (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      }
+    })
+  },
+
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -62,6 +62,7 @@
     <Compile Include="ISuggestService.cs" />
     <Compile Include="ITrackService.cs" />
     <Compile Include="IUsersService.cs" />
+    <Compile Include="IWxImageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

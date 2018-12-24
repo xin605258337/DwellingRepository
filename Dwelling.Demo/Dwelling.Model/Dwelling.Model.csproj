@@ -65,7 +65,9 @@
     <Compile Include="Style.cs" />
     <Compile Include="Suggest.cs" />
     <Compile Include="Track.cs" />
+    <Compile Include="UploadFileDTO.cs" />
     <Compile Include="Users.cs" />
+    <Compile Include="WxImage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

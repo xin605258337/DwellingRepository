@@ -65,6 +65,7 @@ namespace Dwelling.Api
             container.RegisterType<ISuggestService, SuggestService>();
             container.RegisterType<ITrackService, TrackService>();
             container.RegisterType<ICollectService, CollectService>();
+            container.RegisterType<IWxImageService, WxImageService>();
         }
     }
 }

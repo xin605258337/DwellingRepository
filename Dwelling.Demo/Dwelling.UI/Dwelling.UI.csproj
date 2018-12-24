@@ -1258,6 +1258,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Img\" />
+    <Folder Include="Content\WxImg\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\House\" />

@@ -68,6 +68,7 @@
     <Compile Include="SuggestService.cs" />
     <Compile Include="TrackService.cs" />
     <Compile Include="UsersService.cs" />
+    <Compile Include="WxImageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dwelling.IServices\Dwelling.IServices.csproj">

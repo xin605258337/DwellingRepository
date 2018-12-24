@@ -11,13 +11,14 @@ using System.Web.Mvc;
 
 namespace Dwelling.UI.Controllers
 {
+    using Dwelling.Model;
     public class HouseController : BaseController
     {
 
         // GET: House
         public ActionResult Index(int Id)
         {
-            return Content("<script>location.href='http://localhost:55909/H-ui.admin/index.html?ID="+Id+"'</script>");
+            return Content("<script>location.href='http://localhost:55909/H-ui.admin/index.html?ID=" + Id + "'</script>");
         }
         [HttpPost]
         public JsonResult GetImg()
@@ -27,14 +28,24 @@ namespace Dwelling.UI.Controllers
             for (int i = 0; i < num; i++)
             {
                 HttpPostedFile file = System.Web.HttpContext.Current.Request.Files[i];
-                string path= Guid.NewGuid().ToString() + file.FileName;
+                string path = Guid.NewGuid().ToString() + file.FileName;
                 //压缩图片
                 getThumImage(file.FileName, 180, 90, path);
-                file.SaveAs(HttpContext.Request.MapPath("~/Content/Img/"+path));//必须得是相对路径径
+                file.SaveAs(HttpContext.Request.MapPath("~/Content/WxImg/" + path));//必须得是相对路径径
                 pathList.Add(path);
 
             }
             return Json(pathList);
+        }
+        [HttpPost]
+        public JsonResult GetImgByWx()
+        {
+            HttpPostedFile file = System.Web.HttpContext.Current.Request.Files[0];
+            string path = Guid.NewGuid().ToString() + file.FileName;
+            //压缩图片
+            getThumImage(file.FileName, 180, 90, path);
+            file.SaveAs(HttpContext.Request.MapPath("~/Content/WxImg/" + path));//必须得是相对路径径
+            return Json(path);
         }
         /// <summary>  
         /// 生成缩略图  
@@ -86,5 +97,6 @@ namespace Dwelling.UI.Controllers
             }
             return null;
         }
+
     }
 }

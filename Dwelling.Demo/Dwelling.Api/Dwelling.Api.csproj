@@ -136,6 +136,7 @@
     <Compile Include="Controllers\SuggestController.cs" />
     <Compile Include="Controllers\TrackController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\WxImageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
