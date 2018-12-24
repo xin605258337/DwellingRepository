@@ -31,7 +31,7 @@ namespace Dwelling.UI.Controllers
                 string path = Guid.NewGuid().ToString() + file.FileName;
                 //压缩图片
                 getThumImage(file.FileName, 180, 90, path);
-                file.SaveAs(HttpContext.Request.MapPath("~/Content/WxImg/" + path));//必须得是相对路径径
+                file.SaveAs(HttpContext.Request.MapPath("~/Content/Img/" + path));//必须得是相对路径径
                 pathList.Add(path);
 
             }
@@ -44,7 +44,7 @@ namespace Dwelling.UI.Controllers
             string path = Guid.NewGuid().ToString() + file.FileName;
             //压缩图片
             getThumImage(file.FileName, 180, 90, path);
-            file.SaveAs(HttpContext.Request.MapPath("~/Content/WxImg/" + path));//必须得是相对路径径
+            file.SaveAs(HttpContext.Request.MapPath("~/Content/Img/" + path));//必须得是相对路径径
             return Json(path);
         }
         /// <summary>  
