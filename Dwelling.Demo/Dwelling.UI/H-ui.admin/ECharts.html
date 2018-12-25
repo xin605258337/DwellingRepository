@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="../Content/echarts.min.js"></script>
+    <script src="../Content/jquery-3.1.1.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 1700px;height:800px;"></div>
+    <script type="text/javascript">
+        var Names = [];
+        var Nums = [];
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        // 指定图表的配置项和数据
+        $(function () {
+            loadData();
+        })
+        function loadData() {
+            $.ajax({
+                url: "http://localhost:8092/Dwelling/GetECharts",
+                type: "get",
+                success: function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        Names[i] = data[i].Region_ID;
+                        Nums[i] = data[i].House_ClickNum;
+                    }
+                    // 指定图表的配置项和数据
+                    var option = {
+                        title: {
+                            text: '蜗居热门房源统计'
+                        },
+                        tooltip: {},
+                        legend: {
+                            data: ['浏览量']
+                        },
+                        xAxis: {
+                            data: ['东城区', '西城区', '朝阳区', '丰台区', '石景山区', '海淀区', '房山区', '通州区', '昌平区', '大兴区', '平谷区', '密云区',]
+                        },
+                        yAxis: {},
+                        series: [{
+                            name: '浏览量',
+                            type: 'bar',
+                            data: Nums
+                        }]
+                    };
+                    // 使用刚指定的配置项和数据显示图表。
+                    myChart.setOption(option);
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

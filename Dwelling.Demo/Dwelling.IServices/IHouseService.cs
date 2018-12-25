@@ -58,5 +58,12 @@ namespace Dwelling.IServices
         /// <param name="leaseTypeName"></param>
         /// <returns></returns>
         List<HouseDetails> GetHouseByLeaseType(string leaseTypeName);
+
+        /// <summary>
+        /// 根据区分组查询点击量
+        /// </summary>
+        /// <returns></returns>
+        List<House> GetECharts();
+ 
     }
 }

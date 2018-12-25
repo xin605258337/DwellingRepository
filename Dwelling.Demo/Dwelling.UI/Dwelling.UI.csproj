@@ -94,6 +94,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\echarts.min.js" />
     <Content Include="Content\jquery-1.10.2.js" />
     <Content Include="Content\jquery-3.1.1.js" />
     <Content Include="Global.asax" />
@@ -108,6 +109,7 @@
     <Content Include="H-ui.admin\charts-5.html" />
     <Content Include="H-ui.admin\charts-6.html" />
     <Content Include="H-ui.admin\charts-7.html" />
+    <Content Include="H-ui.admin\ECharts.html" />
     <Content Include="H-ui.admin\favicon.ico" />
     <Content Include="H-ui.admin\feedback-list.html" />
     <Content Include="H-ui.admin\feedback1-list.html" />

@@ -174,5 +174,14 @@ namespace Dwelling.Services
             return conn.Query<HouseDetails>("pro_GetHouseByLeaseType", parameters, commandType: CommandType.StoredProcedure).ToList();
         }
 
+        /// <summary>
+        /// 根据区分组查询点击量
+        /// </summary>
+        /// <returns></returns>
+        public List<House> GetECharts()
+        {
+            return conn.Query<House>("proc_GetECharts", null, commandType: CommandType.StoredProcedure).ToList();
+        }
+
     }
 }

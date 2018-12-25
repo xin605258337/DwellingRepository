@@ -209,5 +209,16 @@ namespace Dwelling.Api.Controllers
             return AreaServices.GetArea();
         }
 
+        /// <summary>
+        /// 根据区分组查询点击量
+        /// </summary>
+        /// <returns></returns>
+        [Route("GetECharts")]
+        [HttpGet]
+        public List<House> GetECharts()
+        {
+            return HouseService.GetECharts();
+        }
+
     }
 }
