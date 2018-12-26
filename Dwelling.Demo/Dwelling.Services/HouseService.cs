@@ -57,6 +57,7 @@ namespace Dwelling.Services
             parameters.Add("_House_RentMoney", house.House_RentMoney);
             parameters.Add("_House_Payment", house.House_Payment);
             parameters.Add("_House_Num", house.House_Num);
+            parameters.Add("_House_IsEnable", house.House_IsEnable);
 
             return conn.Execute("proc_AddHouse", parameters, commandType: CommandType.StoredProcedure);
         }
@@ -181,6 +182,65 @@ namespace Dwelling.Services
         public List<House> GetECharts()
         {
             return conn.Query<House>("proc_GetECharts", null, commandType: CommandType.StoredProcedure).ToList();
+        }
+        /// <summary>
+        /// 修改发布房源是否启用 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="House_IsEnable"></param>
+        /// <returns></returns>
+        public int updateHouseIsEnable(int id, int House_IsEnable)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_House_ID", id);
+            parameters.Add("_House_IsEnable", House_IsEnable);
+            return conn.Execute("proc_updateHouse", parameters, commandType: CommandType.StoredProcedure);
+        }
+        
+        /// <summary>
+        /// 获取所有房源信息
+        /// </summary>
+        /// <returns></returns>
+        public List<HouseDetails> GetHotHousesbyenable(string houseName = "", string regionId = "", int buildingTypeId = 0, int habitableRoomId = 0, int leaseTypeId = 0, int Orientation = 0, int styleId = 0)
+        {
+            List<HouseDetails> houseDetailsList = conn.Query<HouseDetails>("proc_GetHouse1", null, commandType: CommandType.StoredProcedure).ToList();
+            //判断模糊查询
+            if (!string.IsNullOrEmpty(houseName))
+            {
+                houseDetailsList = houseDetailsList.Where(n => n.House_Name.Contains(houseName)).ToList();
+            }
+            //判断地区
+            if (!string.IsNullOrEmpty(regionId))
+            {
+                houseDetailsList = houseDetailsList.Where(n => n.Region_ID.Equals(regionId)).ToList();
+            }
+            //房源类型(电梯楼或楼梯楼)
+            if (buildingTypeId != 0)
+            {
+                houseDetailsList = houseDetailsList.Where(n => n.BuildingType_ID.Equals(buildingTypeId)).ToList();
+            }
+            //户型
+            if (habitableRoomId != 0)
+            {
+                houseDetailsList = houseDetailsList.Where(n => n.HabitableRoom_ID.Equals(habitableRoomId)).ToList();
+            }
+            //出租类型
+            if (leaseTypeId != 0)
+            {
+                houseDetailsList = houseDetailsList.Where(n => n.LeaseType_ID.Equals(leaseTypeId)).ToList();
+            }
+            //朝向
+            if (Orientation != 0)
+            {
+                houseDetailsList = houseDetailsList.Where(n => n.Orientation_ID.Equals(Orientation)).ToList();
+            }
+            //房源装修风格
+            if (styleId != 0)
+            {
+                houseDetailsList = houseDetailsList.Where(n => n.Style_ID.Equals(styleId)).ToList();
+            }
+
+            return houseDetailsList;
         }
 
     }

@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../Content/echarts.min.js"></script>
+    <script src="../Content/jquery-3.1.1.js"></script>
+</head>
+<body>
+    <div id="main" style="width: 1400px;height:700px;"></div>
+    <script type="text/javascript">
+        var name1 = [];
+        var count = [];
+        var myChart = echarts.init(document.getElementById('main'));
+            $(function () {
+                loadData();
+            })
+        function loadData() {
+            $.ajax({
+                url: "http://localhost:8092/Dwelling/GetECharts",
+                type: "get",
+                success: function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        name1[i] = data[i].Region_ID;
+                        count[i] = data[i].House_ClickNum;
+                    }
+                    // 指定图表的配置项和数据
+                    var option = {
+                        title: {
+                            text: '蜗居热门房源统计'
+                        },
+                        tooltip: {},
+                        legend: {
+                            data: ['浏览量']
+                        },
+                        //xAxis: {
+                        //    data: ['东城区', '西城区', '朝阳区', '丰台区', '石景山区', '海淀区', '房山区', '通州区', '昌平区', '大兴区', '平谷区', '密云区',]
+                        //},
+                        
+                        legend: {
+                             data: ['东城区', '西城区', '朝阳区', '丰台区', '石景山区', '海淀区', '房山区', '通州区', '昌平区', '大兴区', '平谷区', '密云区']
+                        },
+                        //yAxis: {},
+                        //series: [{
+                        //    name: '浏览量',
+                        //    type: 'pie',
+                        //    data: count
+                        //}]
+                        series : [
+        {
+            name:'矩形图',
+            type:'treemap',
+            itemStyle: {
+                normal: {
+                    label: {
+                        show: true,
+                        formatter: "{b}"
+                    },
+                    borderWidth: 1
+                },
+                emphasis: {
+                    label: {
+                        show: true
+                    }
+                }
+            },
+            data:[
+                
+                { name:name1 },
+                { value:count}
+               
+                
+            ]
+        }
+    ]
+                    };
+                    // 使用刚指定的配置项和数据显示图表。
+                    myChart.setOption(option);
+                }
+            });
+        }
+
+    </script>
+</body >
+</html >

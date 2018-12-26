@@ -219,6 +219,34 @@ namespace Dwelling.Api.Controllers
         {
             return HouseService.GetECharts();
         }
+        /// <summary>
+        /// 根据启用按钮发布房源
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="House_IsEnable"></param>
+        /// <returns></returns>
+        [Route("updateHouseIsEnable")]
+        [HttpGet]
+        public int updateHouseIsEnable(int id, int House_IsEnable)
+        {
+            return HouseService.updateHouseIsEnable(id,House_IsEnable);
+        }
+        /// <summary>
+        /// 获取所有房源信息
+        /// </summary>
+        /// <param name="buildingTypeId">房源类型ID（电梯，楼梯）</param>
+        /// <param name="habitableRoomId">户型ID</param>
+        /// <param name="leaseTypeId">出租类型ID</param>
+        /// <param name="Orientation">朝向ID</param>
+        /// <param name="styleId">装修风格ID</param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetHotHousesbyenable")]
+        public List<HouseDetails> GetHotHousesbyenable(string houseName = "", string regionId = "", int buildingTypeId = 0, int habitableRoomId = 0, int leaseTypeId = 0, int Orientation = 0, int styleId = 0)
+        {
+            List<HouseDetails> houseDetailsList = HouseService.GetHotHousesbyenable(houseName, regionId, buildingTypeId, habitableRoomId, leaseTypeId, Orientation, styleId);
+            return houseDetailsList;
+        }
 
     }
 }

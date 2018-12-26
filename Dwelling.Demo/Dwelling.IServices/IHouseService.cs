@@ -64,6 +64,19 @@ namespace Dwelling.IServices
         /// </summary>
         /// <returns></returns>
         List<House> GetECharts();
- 
+        /// <summary>
+        /// 修改发布房源启用按钮
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="House_IsEnable"></param>
+        /// <returns></returns>
+        int updateHouseIsEnable(int id, int House_IsEnable);
+
+
+        /// <summary>
+        /// 查询
+        /// </summary>
+        /// <returns></returns>
+        List<HouseDetails> GetHotHousesbyenable(string houseName = "", string regionId = "", int buildingTypeId = 0, int habitableRoomId = 0, int leaseTypeId = 0, int Orientation = 0, int styleId = 0);
     }
 }

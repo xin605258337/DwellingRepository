@@ -272,6 +272,13 @@ Page({
 
 
   },
+  inputHouse_Name:function(e)
+  {
+this.setData({
+  House_Name:e.detail.value
+})
+  }
+  ,
   inputRentMoney: function(e) {
     this.setData({
 
@@ -336,7 +343,10 @@ Page({
           Region_ID: that.data.objectMultiArray[0][that.data.multiIndex[0]].id,
           Street_ID: that.data.objectMultiArray[1][that.data.multiIndex[1]].id,
           House_Address: that.data.House_Address,
-          House_IsEnable:0
+          House_IsEnable:0,  
+          House_Name: that.data.House_Name  ,
+          LeaseType_ID:1
+
                 
 
 
@@ -375,7 +385,8 @@ Page({
         House_SumFloor: this.data.PublishHouse_SumFloor,
         House_RentTimeBegin: this.data.PublishHouse_RentTimeBegin,
         Region_ID: that.data.objectMultiArray[0][that.data.multiIndex[0]].id,
-        Street_ID: that.data.objectMultiArray[1][that.data.multiIndex[1]].id
+        Street_ID: that.data.objectMultiArray[1][that.data.multiIndex[1]].id,
+        LeaseType_ID: 2
        
         
 

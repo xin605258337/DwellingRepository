@@ -126,7 +126,7 @@ Page({
   submitSearch: function() { //提交搜索
     var that = this;
     wx.request({
-      url: 'http://localhost:8092/Dwelling/GetHouses',
+      url: 'http://localhost:8092/Dwelling/GetHotHousesbyenable',
       data: {
         houseName: this.data.name
       },
@@ -236,7 +236,7 @@ Page({
     console.log(this.data.filter);
     var that = this;
     wx.request({
-      url: 'http://localhost:8092/Dwelling/GetHouses',
+      url: 'http://localhost:8092/Dwelling/GetHotHousesbyenable',
       data: {
         regionId: this.data.filter.region,
         habitableRoomId: this.data.filter.housetype,
@@ -277,7 +277,7 @@ Page({
       },
       fail: function (res) {
         wx.request({
-          url: 'http://localhost:8092/Dwelling/GetHouses',
+          url: 'http://localhost:8092/Dwelling/GetHotHousesbyenable',
           success: function (res) {
             that.setData({
               conferencelist: res.data

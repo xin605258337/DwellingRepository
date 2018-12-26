@@ -93,6 +93,13 @@
           <input name='House_Address' type="idcard" placeholder="请输入详细地址" bindinput="inputHouse_Address"></input>
         </view>
       </view>
+          <!--房源名称-->
+ <view class="input-item">
+        <text class="input-item-label">房源名称:</text>
+        <view class="input-item-content">
+          <input name='House_Name' type="idcard" placeholder="请输入房源名称" bindinput="inputHouse_Name"></input>
+        </view>
+      </view>
       <!--房屋设施-->
       <checkbox-group bindchange="checkboxChange">
         <label class="checkbox input-item-content cks" wx:for="{{Facilityitems}}">
