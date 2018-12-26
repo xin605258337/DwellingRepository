@@ -24,7 +24,24 @@ Page({
     hx_index_3: 0,
     Facilityitems: [],
     images: [],
-    arr: []
+    arr: [],
+    multiIndex: [0, 0],
+    multiArray: [
+      [
+        "不限"
+      ],
+      ["不限"]
+    ],
+    objectMultiArray: [
+      [{
+        "id": 0,
+        "title": "不限"
+      }],
+      [{
+        "id": 0,
+        "title": "不限"
+      }]
+    ]
   },
 
   //图片上传
@@ -105,6 +122,24 @@ Page({
     console.log(options.price)
 
     var that = this;
+    wx.request({
+      url: 'https://apis.map.qq.com/ws/district/v1/getchildren?id=110000&key=HYPBZ-PNF3J-GRYFR-K4XZ2-3YXLV-67B5R',
+      method: 'GET',
+      success: function (res) {
+        for (var i = 0; i < res.data.result[0].length; i++) {
+          that.data.multiArray[0].push(res.data.result[0][i].fullname)
+          that.data.objectMultiArray[0].push({
+            "id": res.data.result[0][i].id,
+            "title": res.data.result[0][i].fullname
+          })
+        }
+        that.setData({
+          multiArray: that.data.multiArray,
+          objectMultiArray: that.data.objectMultiArray
+        })
+        console.log(that.data.multiArray)
+      }
+    })
     //获取朝向
     wx.request({
       url: 'http://localhost:8092/Dwelling/GetOrientation',
@@ -142,7 +177,43 @@ Page({
       }
     })
   },
-
+  bindMultiPickerChange: function (e) {
+    this.setData({
+      "multiIndex[0]": e.detail.value[0],
+      "multiIndex[1]": e.detail.value[1],
+    })
+  },
+  bindMultiPickerColumnChange: function (e) {
+    var that = this;
+    var list = ['不限'];
+    var objectList = [{
+      "id": 0,
+      "title": "不限"
+    }];
+    if (e.detail.column == 0) {
+      wx.request({
+        url: 'https://apis.map.qq.com/ws/district/v1/getchildren?id=' + that.data.objectMultiArray[0][e.detail.value].id + '&key=HYPBZ-PNF3J-GRYFR-K4XZ2-3YXLV-67B5R',
+        method: 'GET',
+        success: function (res) {
+          for (var i = 0; i < res.data.result[0].length; i++) {
+            list.push(
+              res.data.result[0][i].fullname
+            )
+            objectList.push({
+              "id": res.data.result[0][i].id,
+              "title": res.data.result[0][i].fullname
+            })
+          }
+          that.data.multiArray[1] = list
+          that.data.objectMultiArray[1] = objectList;
+          that.setData({
+            multiArray: that.data.multiArray,
+            objectMultiArray: that.data.objectMultiArray
+          })
+        }
+      })
+    }
+  },
 
   //出租房间
   inputPhone: function(e) {
@@ -175,6 +246,13 @@ Page({
     })
 
 
+  },
+  inputHouse_Address:function(e)
+  {
+    this.setData({
+      House_Address:e.detail.value
+
+    })   
   },
   ///付款方式
   inputPayment: function(e) {
@@ -235,26 +313,31 @@ Page({
       }
       console.log(that.data.arr)
       wx.request({
-        url: 'http://localhost:8092/Dwelling/AddPublishHouse',
+        url: 'http://localhost:8092/Dwelling/AddHouse',
         method: 'post',
         data: {
-          PublishHouse_Owner: that.data.owner,
-          PublishHouse_OwnerTel: that.data.tel,
-          PublishHouse_RentMoney: that.data.price,
+          House_Owner: that.data.owner,
+          House_OwnerTel: that.data.tel,
+          House_RentMoney: that.data.price,
           HabitableRoom_ID: that.data.roomTypeId,
-          PublishHouse_Description: that.data.description,
-          PublishHouse_Num: that.data.PublishHouse_Num,
-          PublishHouse_Area: that.data.PublishHouse_Area,
+          House_Describe: that.data.description,
+          House_Num: that.data.PublishHouse_Num,
+          House_Area: that.data.PublishHouse_Area,
           Orientation_ID: that.data.Orientation[that.data.hx_index_1].Orientation_ID,
           BuildingType_ID: that.data.BuildingType[that.data.hx_index_2].BuildingType_ID,
           Style_ID: that.data.Style[that.data.hx_index_3].Style_ID,
-          PublishHouse_Floor: that.data.PublishHouse_Floor,
-          PublishHouse_SumFloor: that.data.PublishHouse_SumFloor,
-          PublishHouse_Payment: that.data.PublishHouse_Payment,
-          PublishHouse_RentTimeBegin: that.data.PublishHouse_RentTimeBegin,
-          PublishHouse_RentTimeEnd: that.data.PublishHouse_RentTimeEnd,
-          PublishHouse_Facility: that.data.PublishHouse_Facility,
-          PublishHouse_ImgUrl: that.data.arr[0]
+          House_Floor   : that.data.PublishHouse_Floor,
+          House_SumFloor: that.data.PublishHouse_SumFloor,
+          House_Payment: that.data.PublishHouse_Payment,
+          House_RentTimeBegin: that.data.PublishHouse_RentTimeBegin,
+          House_RentTimeEnd: that.data.PublishHouse_RentTimeEnd,
+          House_Facility: that.data.PublishHouse_Facility,
+          House_ImgUrl: that.data.arr[0],
+          Region_ID: that.data.objectMultiArray[0][that.data.multiIndex[0]].id,
+          Street_ID: that.data.objectMultiArray[1][that.data.multiIndex[1]].id,
+          House_Address: that.data.House_Address,
+          House_IsEnable:0
+                
 
 
         },
@@ -277,21 +360,24 @@ Page({
   onSubmit1: function(e) {
     var that = this;
     wx.request({
-      url: 'http://localhost:8092/Dwelling/AddPublishHouse',
+      url: 'http://localhost:8092/Dwelling/AddHouse',
       method: 'post',
       data: {
-        PublishHouse_Owner: that.data.owner,
-        PublishHouse_OwnerTel: that.data.tel,
-        PublishHouse_RentMoney: that.data.price,
+        House_Owner: that.data.owner,
+        House_OwnerTel: that.data.tel,
+        House_RentMoney: that.data.price,
         HabitableRoom_ID: that.data.roomTypeId,
-        PublishHouse_Description: that.data.description,
-        PublishHouse_RentMoney: this.data.PublishHouse_RentMoney,
-        PublishHouse_Area: this.data.PublishHouse_Area,
+        House_Describe: that.data.description,
+        House_Price: this.data.PublishHouse_RentMoney,
+        House_Area: this.data.PublishHouse_Area,
         BuildingType_ID: this.data.BuildingType[this.data.hx_index_2].BuildingType_ID,
-        PublishHouse_Floor: this.data.PublishHouse_Floor,
-        PublishHouse_SumFloor: this.data.PublishHouse_SumFloor,
-        PublishHouse_RentTimeBegin: this.data.PublishHouse_RentTimeBegin,
-
+        House_Floor: this.data.PublishHouse_Floor,
+        House_SumFloor: this.data.PublishHouse_SumFloor,
+        House_RentTimeBegin: this.data.PublishHouse_RentTimeBegin,
+        Region_ID: that.data.objectMultiArray[0][that.data.multiIndex[0]].id,
+        Street_ID: that.data.objectMultiArray[1][that.data.multiIndex[1]].id
+       
+        
 
       },
       success: function(res) {

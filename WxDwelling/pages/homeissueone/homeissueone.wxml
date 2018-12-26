@@ -10,6 +10,14 @@
   <swiper-item>
     <form bindsubmit="formSubmit" bindreset="formReset" name="from1">
       <view class="group-header">基本信息</view>
+      <!--区街联动-->
+      <view class="input-item">
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <view class="picker">
+            选择区街道：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+          </view>
+        </picker>
+      </view>
       <!--出租房间-->
       <view class="input-item">
         <text class="input-item-label">出租房间:</text>
@@ -76,6 +84,13 @@
         <text class="input-item-label">止租日期:</text>
         <view class="input-item-content">
           <input name='PublishHouse_RentTimeEnd' type="text" auto-focus placeholder="请输入:年/月/日" bindinput="inputRentTimeEnd"></input>
+        </view>
+      </view>
+      <!--详细地址-->
+ <view class="input-item">
+        <text class="input-item-label">地址:</text>
+        <view class="input-item-content">
+          <input name='House_Address' type="idcard" placeholder="请输入详细地址" bindinput="inputHouse_Address"></input>
         </view>
       </view>
       <!--房屋设施-->
@@ -165,6 +180,14 @@
           mode="{{item.mode}}"
           src="{{}}"></image>
 </view>-->
+  <!--区街联动-->
+      <view class="input-item">
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <view class="picker">
+            选择区街道：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+          </view>
+        </picker>
+      </view>
         <!--发布-->
         <view class="btn-submit">
           <button class="btn-block btn-orange" form-type="submit" bindtap='onSubmit1'>确认发布</button>
